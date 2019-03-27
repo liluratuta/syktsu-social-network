@@ -1,0 +1,177 @@
+
+body {
+	/*background-image: url(https://wallpaper.campus-star.com/app/uploads/2018/02/feb-wall-05.jpg);*/
+	font-family: Verdana, Geneva, sans-serif;
+
+	margin: 0;
+}
+
+
+#main_container {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+}
+
+#left_container {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	padding: 8px;	
+
+	background-color: #063c62;
+}
+
+
+
+/* CREATE_CHAT_BUTTON */
+
+#create-chat_button {
+
+	display: block;
+
+	width: 100%;
+	border-radius: 6px;
+
+	padding: 16px 0px;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	background-color: #37b76d;
+}
+
+#create-chat_button:hover {
+	background-color: #73c085;
+}
+
+/* CHAT LIST */
+
+#chat_list {
+	margin: 8px 0px;
+
+	height: 500px;
+
+	overflow-y: scroll;
+
+}
+
+.сhat-preview {
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+
+	text-decoration: none;
+	border-radius: 6px;
+
+	background-color: #3878a3;
+
+	margin: 8px 0;
+	padding: 16px;
+
+	text-align: center;
+	color: #fff;	
+}
+
+.сhat-preview:hover {
+	background-color: #668aa3;
+}
+
+
+/* RIGHT CONTAINER */
+
+#right_container {
+	display: grid;
+
+	grid-template-rows: 64px 1fr 64px;
+	background-color: #265c82;
+}
+
+/* DEFAULT LABEL; */
+
+#default_label {
+	display: block;
+	color: #fff;
+	text-align: center;
+	margin: 100px 0px;
+}
+
+/* CHAT INFORMATION CONTAINER */
+
+#chat_info_container {
+	display: grid;
+	grid-template-columns: 10% 1fr 10%;
+
+	padding: 4px;
+	background-color: #64a795;
+}
+
+.chat_icon {
+	/*background-color: tomato;*/
+	border-radius: 50%;
+	
+	width: 40px;
+	height: 40px;
+}
+
+.user_icon {
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+}
+
+#chat_info_title {
+	color: #fff;
+	text-align: center;
+
+	padding: 8px 0;
+}
+
+#options_button {
+	display: block;
+
+	border-radius: 6px;
+	background-color: #32a787;
+
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+
+	padding: 8px;
+}
+
+/* MESSAGE LIST */
+
+#message_list_container {
+	/*display: grid;*/
+
+	overflow-y: scroll;
+	height: 450px;
+	background-color: #ececec;
+
+	
+}
+
+.message_list_line {
+	padding: 4px;
+	clear: both;
+	
+}
+
+.message_box {
+	float: left;
+
+	background-color: #0c6aa6;
+	color: #fff;
+
+	border: 1px solid #3a70a6;
+	border-radius: 8px;
+
+	padding: 8px;
+
+	max-width: 60%;
+}
+
+/* SEND FORM */
+
+#send_form_container {
+	background-color: #efefef;
+}
+
+
