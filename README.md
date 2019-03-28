@@ -1,7 +1,8 @@
 # syktsu-social-network
 
 Весь проект лежит в папке [Source](https://github.com/purpletetanurae/syktsu-social-network/tree/master/Source)
-Загружайте туда
+
+Загружайте туда файлы :
 * php
 * html
 * css
