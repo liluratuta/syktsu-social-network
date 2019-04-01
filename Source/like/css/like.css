@@ -1,0 +1,6 @@
+.false-like button:nth-child(2) {
+	background: red;
+}
+.true-like button:nth-child(1) {
+	background: green;
+}
