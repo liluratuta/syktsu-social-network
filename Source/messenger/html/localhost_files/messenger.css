@@ -9,7 +9,7 @@ body {
 
 #main_container {
 	display: grid;
-	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-columns: 1fr 3fr;
 }
 
 #left_container {
@@ -175,7 +175,3 @@ body {
 }
 
 
-/* OPTIONS CONTAINER */
-#options_container {
-	background-color: #fff099;
-}

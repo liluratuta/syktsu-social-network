@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<input id="button" type="button" name="" value="Query">
+<div id="result"></div>
+
+<script type="text/javascript">
+	
+	var b = document.getElementById("button");
+	var div = document.getElementById("result");
+
+	var xhr = new XMLHttpRequest();
+
+
+	b.onclick = function() {
+		
+		xhr.open("GET", "getlist.php", true);
+		xhr.onreadystatechange = handleServerResponse;
+		xhr.send();
+		console.log("send");
+	};
+
+	function handleServerResponse() {
+		if ((xhr.readyState == 4) && (xhr.status == 200))
+		{
+			result.innerHTML = xhr.responseText;
+		}
+	}
+
+</script>
+
+</body>
+</html>
