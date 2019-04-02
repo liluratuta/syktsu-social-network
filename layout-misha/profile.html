@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Имя пользователя</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
+	<script src="index.js"></script>
 </head>
 <body>
 	<div class="header">
@@ -11,14 +12,22 @@
 			<div class="header-logo">
 				<img src="images/header-logo.png" width="58" height="58">
 			</div>
-			<div class="header-settings"></div>
+			<a href="#" onclick="setting_show()">
+			<div class="header-settings"></div></a>
 		</div>
+		<div class="header-settings-div" id='set-div'>
+			<ul class="settings-list">
+				<li class="settings-list-item"><a href="profile.html">Моя страница</a></li>
+				<li class="settings-list-item"><a href="">Настройки</a></li>
+				<li class="settings-list-item"><a href="">Поддержка</a></li>
+				<li class="settings-list-item"><a href="">Выйти</a></li>
+			</ul>
+		</div>
+
 		<div class="header-image">
 			<img src="images/user.png" width="150" height="150">
 		</div>
-		<div class="profile-image">
-			<img src="" height="300" width="100%">
-		</div>
+		<div class="profile-image"></div>
 		<div class="header-bottom-div">
 			<div class="header-bottom-buttons">
 				<div class="button-div">

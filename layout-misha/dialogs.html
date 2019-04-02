@@ -3,7 +3,7 @@
 <head>
 	<title>Сообщения</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="stylesheet" type="text/css" href="css/messages-styles.css">
+	<link rel="stylesheet" type="text/css" href="css/dialogs-styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
 	<script src="index.js"></script>
 </head>
@@ -24,6 +24,7 @@
 				<li class="settings-list-item"><a href="">Выйти</a></li>
 			</ul>
 		</div>
+
 		<div class="header-image">
 			<img src="images/user.png" width="150" height="150">
 		</div>
@@ -40,41 +41,26 @@
 		</div> 
 	</div>
 
-	<div class="messages">
-		<div class="messages-box">
+	<div class="dialogs">
+		<div class="dialogs-box">
 			<div class="box-header">
-				<a href="">
-				<div class="box-header-back">
-					<div class="box-header-back-img"></div>
-				</div></a>
-				<div class="box-header-text">Название беседы</div>
-				<a href="">
-				<div class="box-header-settings">
-					<div class="box-header-settings-img"></div>
-				</div></a>
+				<div class="box-header-text">Беседы</div>
 			</div>
-			<div class="messages-text">
-				<div class="user-message">
-					<div class="user-message-icon"></div>
-					<div class="user-message-name">Имя отправителя</div>
-					<div class="user-message-date">14.01.2019 11:10</div>
-					<div class="user-message-text">лалалал</div>
-				</div>
-			</div>
-			<div class="actions">
-				<a href="">
-				<div class="attach-button">
-					<div class="attach-button-img"></div>
-				</div></a>
-				<div class="send-text">
-					<input type="text" name="send-text" class="send-text-input" placeholder="Введите сообщение">
-				</div>
-				<a href="">
-				<div class="send-button">
-					<div class="send-button-img"></div>
-				</div></a>
+			<div class="dialogs-list">
+				<table class="dialogs-table">
+					<tr class="dialogs-table-tr">
+						<th class="dialogs-table-th">
+							<div class="dialogs-table-th-img"></div>
+						</th>
+						<td class="dialogs-table-td">
+							<div class="dialog-name">Название беседы</div>
+							<div class="dialog-text">Последнее сообщение в данной беседе</div>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</div>
+		
 	</div>
 
 	<div class="footer">
