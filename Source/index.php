@@ -45,7 +45,7 @@
 
 <div id="auth-container">
 	<form action="test_auth.php" method="POST">
-		<input class="input-text" type="text" name="email">
+		<input class="input-text" type="text" name="login">
 		<input class="input-text" type="password" name="password">
 		<input class="input-submit" type="submit" value="Auth">
 	</form>

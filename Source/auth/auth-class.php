@@ -33,7 +33,7 @@ class authclass {
     	    
     }
     public function auth($mail, $password) {
-        require '../connect.php';
+        require 'connect.php';
         $link = mysqli_connect($host, $user, $password, $database) 
              or die("Ошибка " . mysqli_error($link));
         $link->set_charset("utf8");

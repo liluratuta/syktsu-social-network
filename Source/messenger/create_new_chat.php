@@ -1,5 +1,11 @@
 <?php
-	require_once("connect.php");
+	require_once("../connect.php");
+
+	require_once("../auth/auth-class.php");
+
+	if ( ($user_id = $auth->get_id()) === NULL) {
+		header("Location:index.php");
+	}
 
 	$chat_id = (($mysqli->query("SELECT max(id) from chats"))->fetch_array())[0] + 1;
 	
