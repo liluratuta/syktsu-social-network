@@ -14,8 +14,6 @@
 
 	$mysqli->set_charset("utf8");
 
-	$user_id = 1;
-
 	//for_arthur_scripts
 
 	$host = $main_host; // адрес сервера 
