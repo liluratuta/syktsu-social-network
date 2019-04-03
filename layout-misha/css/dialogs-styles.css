@@ -23,15 +23,24 @@
 	margin-right: auto;
 	font-size: 20px;
 }
+.dialogs-table{
+	margin-top: 20px;
+}
 .dialogs-table-th-img{
 	background-image: url(../images/user.png);
 	background-size: cover;
 	height: 50px;
 	width: 50px;
 }
+.dialogs-table-tr{
+	display: block;
+	padding-top:  10px;
+}
 .dialogs-table-td{
 	outline: 1px solid #000;
+	border-radius: 5px;
 	width: 450px;
+	height: 50px;
 	padding-left: 10px;
 }
 .dialog-name{

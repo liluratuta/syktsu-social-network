@@ -3,5 +3,12 @@ document.getElementById('reg-display-button').onclick = function(){
 	document.getElementById('registration').style.display = 'block';
 }
 function setting_show(){
-	document.getElementById('set-div').style.visibility = "visible";
+	var elem=document.getElementById('set-div');
+	if(elem.style.visibility=="visible"){
+		elem.style.visibility = "hidden";
+	}
+	else
+	elem.style.visibility = "visible";
+
+
 }
