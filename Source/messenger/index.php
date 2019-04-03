@@ -1,5 +1,10 @@
 <?php 
-	require_once("connect.php");
+	require_once("../connect.php");
+	require_once("../auth/auth-class.php");
+
+	if ( ($user_id = $auth->get_id()) === NULL) {
+		header("Location:../index.php");
+	}
 ?>
 
 <?php
@@ -87,10 +92,12 @@
 	function showRightSide($user_id) {
 		global $mysqli;
 
-		if ( ($chat_id = $_GET['chat_id']) == NULL) {
+		if (!isset($_GET['chat_id'])) {
 			showDefaultLabel();
 			return;
 		}
+
+		$chat_id = $_GET['chat_id'];
 
 		$userchat_result = $mysqli->query("SELECT user_role from user_chat where chat_id=".$chat_id." and user_id=".$user_id);
 
@@ -158,9 +165,9 @@
 		
 	</div>
 
-	<div id="cover"></div>
+	<div style="display:none" id="cover"></div>
 
-	<div id="poput">
+	<div style="display:none" id="poput">
 		<div id="poput-menu">
 			
 			<input id="poput-menu-element-settings" class="poput-menu-element-radio" type="radio" name="poput-menu-element">
