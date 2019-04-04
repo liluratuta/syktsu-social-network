@@ -137,6 +137,7 @@ button{
 	border-bottom: 1px solid #000;
 	margin-bottom: 10px;
 	margin-top: 10px;
+	display: block;
 }
 .news-header{
 	width: 150px;
@@ -195,4 +196,23 @@ button{
 	height: 60px;
 	background-color: #fff;
 	width: 100%;
+}
+/*------------------------------------*/
+.news-post-pop-out{
+	min-height: 450px;
+	width: 45%;
+	background-color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+	left: 450px;
+	top: 440px;
+	display: none;
+}
+.news-post-pop-out-text{
+	padding-right: 10px;
+	padding-left: 10px;
+	text-align: justify;
+	line-height: 1.5;
+	margin-bottom: 10px;	
 }

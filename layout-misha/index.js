@@ -12,3 +12,7 @@ function setting_show(){
 
 
 }
+function news_post(){
+	document.getElementById('news-post').style.display = 'none';
+	document.getElementById('news-post-pop-out').style.display = 'block';
+}
