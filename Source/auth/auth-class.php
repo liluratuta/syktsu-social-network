@@ -7,8 +7,8 @@ class authclass {
         }
         else return false; 
     }
-    public function registration($mail, $password, $firstname, $lastname) {//firstname, lastname
-        require '../connect.php';
+    public function registration($mail, $auth_password, $firstname, $lastname) {//firstname, lastname
+        //require '../connect.php';
         $link = mysqli_connect($host, $user, $password, $database) 
              or die("Ошибка " . mysqli_error($link));
         $link->set_charset("utf8");
@@ -25,20 +25,20 @@ class authclass {
         		$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
         	}
     	}
-        	$password = md5($password);
-        	$query ="INSERT INTO users VALUES ('', '$mail', '$password', '$firstname', '$lastname','')";     
+        	$auth_password = md5($auth_password);
+        	$query ="INSERT INTO users VALUES ('', '$mail', '$auth_password', '$firstname', '$lastname','')";     
         	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
             mysqli_close($link);
         	return true;
     	    
     }
-    public function auth($mail, $password) {
-        require '../connect.php';
+    public function auth($mail, $auth_password) {
+        //require '../connect.php';
         $link = mysqli_connect($host, $user, $password, $database) 
              or die("Ошибка " . mysqli_error($link));
         $link->set_charset("utf8");
-        $password = md5($password);
-        $query ="SELECT * FROM users where mail = '".$mail."' and password = '".$password."'";     
+        $auth_password = md5($auth_password);
+        $query ="SELECT * FROM users where mail = '".$mail."' and password = '".$auth_password."'";     
         $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
         $row = mysqli_fetch_row($result);
         if (isset($row)) {

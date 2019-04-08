@@ -10,7 +10,4 @@ $SMTP_sender_name = 'Syktsu-social-network';
 
 $CONST_DOMEN = "http://localhost/SSM/";
 $CONST_MAX_CONNECTION_COUNT = 20;
-
-//like
-$CONST_MAX_LIKERS = 2;
 ?>
