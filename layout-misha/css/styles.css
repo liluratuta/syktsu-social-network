@@ -164,19 +164,25 @@ button{
 .feedback{
 	margin-bottom: 10px;
 }
-.like, .dislike, .comment{
+.like,.comment{
 	display: inline-block;
 	margin-left: 30px;
+}
+.dislike{
+	display: inline-block;
+	margin-left: 15px;
 }
 .like-icon{
 	background-image: url(../images/like.png);
 	height: 30px;
 	width: 30px;
+	background-size: cover;
 }
 .dislike-icon{
 	background-image: url(../images/dislike.png);
 	height: 30px;
 	width: 30px;
+	background-size: cover;
 }
 .like-div{
 	display: inline-block;
@@ -216,11 +222,13 @@ button{
 	line-height: 1.5;
 	margin-bottom: 10px;	
 }
-@media(min-width: 1200px){
+/*@media (min-width: 1200px){
 	.header-settings{
-		left: 1318px;
-	}
-	..header-settings{
+		left: 1440px;
+	}	
+}
+@media(min-width: 900px){
+	.header-settings{
 		left: 1236px;
 	}
-}
+}*/
