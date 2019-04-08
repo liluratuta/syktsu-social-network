@@ -33,6 +33,7 @@ class authclass {
     	    
     }
     public function auth($mail, $auth_password) {
+        global $host, $user, $password, $database;
         //require '../connect.php';
         $link = mysqli_connect($host, $user, $password, $database) 
              or die("Ошибка " . mysqli_error($link));
