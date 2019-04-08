@@ -82,10 +82,10 @@
 
 	function showSendForm($chat_id) {
 		echo "<div id=\"send_form_container\">";
-		echo "<form action=\"send_message.php?chat_id=".$chat_id."\" method=\"POST\">";
-		echo "<input style=\"width: 60%;\" type=\"text\" name=\"data\">";
-		echo "<input type=\"submit\" name=\"sender\" value=\"send\">";
-		echo "</form>";
+		// echo "<form action=\"send_message.php?chat_id=".$chat_id."\" method=\"POST\">";
+		echo "<input id=\"sendform-entry-field\" style=\"width: 60%;\" type=\"text\" name=\"data\">";
+		echo "<input id=\"sendform-button\" type=\"submit\" name=\"sender\" value=\"send\">";
+		// echo "</form>";
 		echo "</div>";
 	}
 
@@ -185,6 +185,31 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+		var req = new XMLHttpRequest();
+
+		var entryField = document.getElementById("sendform-entry-field");
+		var sendButton = document.getElementById("sendform-button");
+
+		sendButton.onclick = function sendMessage() {
+			
+			if (entryField.value == "") {
+				return;
+			}
+
+			req.open("POST", "send_message_async.php", true);
+
+			req.onreadystatechange = handleServerResponse;
+
+			req.send();
+		}
+
+		function handleServerResponse() {
+			if ((req.readyState == 4) && (req.status == 200)) {
+				
+			}
+		}
+	</script>
 	
 
 </div>

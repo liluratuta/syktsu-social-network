@@ -1,6 +1,5 @@
 <?php
 	require_once("../connect.php");
-
 	require_once("../auth/auth-class.php");
 
 	if ( ($user_id = $auth->get_id()) === NULL) {
