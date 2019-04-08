@@ -1,5 +1,5 @@
 <?php
-
+	require("connect.php");
 	require_once("auth/auth-class.php");
 
 	// if (!isset($_POST['email']) || !isset($_POST['password'])) {

@@ -1,10 +1,12 @@
 <?php
 require_once '../connect.php';
+require_once '../auth/auth-class.php';
+if(!$auth->isAuth()) exit('not-user');
 $link = mysqli_connect($host, $user, $password, $database) 
     or die("Ошибка " . mysqli_error($link));
 $link->set_charset("utf8");
 
-$id_user = 1; //присвоиться с помощью метода класса
+$id_user = $auth->get_id(); //присвоиться с помощью метода класса
 
 $bool_PoC = $_POST['bool_PoC'];
 $id_post_or_comment = $_POST['id_post_or_comment'];
