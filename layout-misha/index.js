@@ -1,6 +1,7 @@
-document.getElementById('reg-display-button').onclick = function(){
+
+function reg_display(){
 	document.getElementById('auth').style.display = 'none';
-	document.getElementById('registration').style.display = 'block';
+	document.getElementById('registration').style.display = 'block';	
 }
 function setting_show(){
 	var elem=document.getElementById('set-div');
@@ -22,4 +23,9 @@ function img_origin(){
 	document.getElementById('origin_img').style.display = 'block';
 	document.getElementById('news-post-pop-out').style.display ='none';
 	document.getElementById('news').style.display ='none';
+	var img1 = document.getElementById('pop_out_orig_img');
+	var img_width = img1.clientWidth;
+	var body_width = document.body.clientWidth;
+	var left_margin = (body_width - img_width)/2;
+	document.getElementById('origin_img').style.left = left_margin + "px"; 
 }
