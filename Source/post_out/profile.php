@@ -80,14 +80,11 @@
 			<?php
 			require_once '../auth/auth-class.php';
 			require_once '../connect.php';
+			require_once '../const.php';
 			require_once '../like/write-like-module.php';
 			require_once 'write-posts.php';
+			writeUserPosts(1);
 			
-			writeOnePost([
-				'id' => 5,
-				'date_time' => '04.04.2019 14:21',
-				'text' => 'тело новости'
-			]);
 			?>
 
 			<!-- <div class="news-post">

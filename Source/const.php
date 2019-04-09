@@ -14,7 +14,7 @@ $CONST_MAX_CONNECTION_COUNT = 20;
 
 //like
 $CONST_MAX_LIKERS = 2;
-
-
+//post_out
+$CONST_LIMIT_POSTS = 5;
 
 ?>
