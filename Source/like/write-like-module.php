@@ -19,6 +19,8 @@ function drawLikePost($id_post_or_comment, $bool_PoC){
 		}
 	} else $extra_class = '';
 
+ 	if (!$bool_PoC) 
+ 		$extra_class.= ' comment-like';
 	$query = "SELECT * FROM likes WHERE id_post_or_comment = '".$id_post_or_comment."' AND bool_PoC = '".$bool_PoC."' ORDER BY id_like DESC"; //чекаем существование лайка
 	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 
