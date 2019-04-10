@@ -14,8 +14,15 @@ function setting_show(){
 
 }
 function news_post(){
-	document.getElementById('news-post').style.display = 'none';
+	var body_id = document.getElementById('body');
+	body_id.style.opacity='0.9';
+	var div1 = document.getElementById('news-post-pop-out');
 	document.getElementById('news-post-pop-out').style.display = 'block';
+	var div1_width = div1.offsetWidth;
+	var body_width = document.body.clientWidth;
+	var left_margin = (body_width - div1_width)/2;
+	document.getElementById('news-post-pop-out').style.left = left_margin + "px"; 
+	
 }
 function img_origin(){
 	document.getElementById('main').style.opacity = '0.3';
