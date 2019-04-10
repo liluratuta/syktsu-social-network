@@ -1,7 +1,7 @@
 <?php //параметры подключения к БД
 
 	$main_user = "root";
-	$main_pass = "";
+	$main_pass = "password";
 	$main_db = "social-network-bd";
 	$main_host = 'localhost';
 

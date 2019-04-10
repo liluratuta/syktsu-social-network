@@ -188,8 +188,26 @@
 	<script type="text/javascript">
 		var req = new XMLHttpRequest();
 
-		var entryField = document.getElementById("sendform-entry-field");
 		var sendButton = document.getElementById("sendform-button");
+		
+		// Функция для плучения переменных из URL
+
+		var getUrlParameter = function getUrlParameter(sParam) {
+		    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+		        sURLVariables = sPageURL.split('&'),
+		        sParameterName,
+		        i;
+
+		    for (i = 0; i < sURLVariables.length; i++) {
+		        sParameterName = sURLVariables[i].split('=');
+
+		        if (sParameterName[0] === sParam) {
+		            return sParameterName[1] === undefined ? true : sParameterName[1];
+		        }
+		    }
+		};
+
+		// Функция отправки запроса на отправку сообщения
 
 		sendButton.onclick = function sendMessage() {
 			
@@ -198,16 +216,79 @@
 			}
 
 			req.open("POST", "send_message_async.php", true);
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 			req.onreadystatechange = handleServerResponse;
 
-			req.send();
+			var message = "data="+entryField.value+"&chat_id="+getUrlParameter('chat_id');
+
+			req.send(message);
 		}
 
-		function handleServerResponse() {
-			if ((req.readyState == 4) && (req.status == 200)) {
+		// Функция для вывода сообщения в чат
+
+		function messageOutput(message_data, success) {
+			var entryField = document.getElementById("sendform-entry-field");
+			var container = document.getElementById("message_list_container");
+
+			var message_line = document.createElement('div');
+			message_line.className = 'message_list_line';
+			var message_box = document.createElement('div');
+			message_box.className = 'message_box';
+
+			var icon = document.createElement('image'); icon.className = 'user_icon'; 
+			var name = document.createElement('p'); 
+			var data = document.createElement('p'); 
+			var date = document.createElement('p'); 
+
+			if (success == 'false') {
+				data.innerHTML = 'Сообщение не отправлено';
 				
+				message_box.appendChild(data);
+				message_line.appendChild(message_box);
+				container.appendChild(message_line);
+
+				return;
 			}
+
+			icon.src = message_data['icon_src'];
+			name.innerHTML = message_data['user_name'];
+			data.innerHTML = message_data['data'];
+			date.innerHTML = message_data['date'];
+
+			message_box.appendChild(icon);
+			message_box.appendChild(name);
+			message_box.appendChild(data);
+			message_box.appendChild(date);
+
+			message_line.appendChild(message_box);
+
+			container.appendChild(message_line);
+
+			entryField.value = '';
+		}
+
+		// Обработчик ответа от сервера
+
+		function handleServerResponse() {
+			if (req.status != 200) {
+				console.log(req.status);
+			}
+
+			// console.log(req.responseText);
+
+			if ((req.readyState == 4) && (req.status == 200)) {
+				serverRequest = JSON.parse(req.responseText);
+
+				switch(serverRequest['header']) {
+					case 'sendMessage':
+					
+						messageOutput(serverRequest, serverRequest['request_success']);
+					
+						break;
+				}
+			}
+
 		}
 	</script>
 	
