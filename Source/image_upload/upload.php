@@ -1,5 +1,5 @@
 <?php 
-require_once '../connect.php';
+//require_once '../connect.php';
 
 // Название <input type="file">
 $input_name = 'file';
@@ -113,12 +113,7 @@ if (isset($_FILES[$input_name])) {
         
         // Выводим сообщение о результате загрузки.
         if (!empty($success)) {
-            $link = mysqli_connect($host, $user, $password, $database) 
-                or die("Ошибка " . mysqli_error($link));
-            $link->set_charset("utf8");
-            $query ="INSERT INTO images VALUES('', '$name')";     
-            $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-            echo '<p>' . $success . '</p>';        
+            echo $name;
         } else {
             echo '<p>' . $error . '</p>';
         }
