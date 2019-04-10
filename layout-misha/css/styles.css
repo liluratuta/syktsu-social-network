@@ -170,7 +170,8 @@ button{
 	margin-bottom: 10px;
 }
 .feedback{
-	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #000;
 }
 .like,.comment{
 	display: inline-block;
@@ -186,6 +187,19 @@ button{
 	width: 30px;
 	background-size: cover;
 }
+.like-true{
+	background-image: url(../images/like_true.png);
+	height: 30px;
+	width: 30px;
+	background-size: cover;
+}
+.dislike-true{
+	background-image: url(../images/dislike_true.png);
+	height: 30px;
+	width: 30px;
+	background-size: cover;
+
+}
 .dislike-icon{
 	background-image: url(../images/dislike.png);
 	height: 30px;
@@ -194,17 +208,57 @@ button{
 }
 .like-div{
 	display: inline-block;
+	margin-left: 394px;
 }
 .like-number{
 	display: inline-block;
-	margin-left: 200px;
 	font-size: 24px;
 	vertical-align: top;
 	color: #000;
 }
-.comment-input{
-	border: none;
-	font-size: 16px;
+.comment-icon{
+	background-image: url(../images/comment.png);
+	background-size: cover;
+	width: 30px;
+	height: 30px;
+}
+.comment-out{
+	width: 90%;
+	min-height: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.comment-out-img{
+	width: 45px;
+	height: 45px;
+	display: inline-block;
+	vertical-align: top;
+}
+.comment-out-inf{
+	display: inline-block;
+	margin-top: 10px;
+}
+.comment-out-name{
+	display: inline-block;
+}
+.comment-out-date{
+	display: inline-block;
+}
+.comment-out-text{
+	width: 80%;
+	padding-right: 10px;
+	padding-left: 10px;
+	line-height: 1.5;
+	border: 0.5px solid #000;
+	border-radius: 10px;
+	display: block;
+	margin-left: 45px;
+	margin-bottom: 10px;
+}
+.comment-like{
+	margin-left: 454px;
 }
 .footer{
 	height: 60px;
