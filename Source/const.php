@@ -8,7 +8,7 @@ $SMTP_user = 'ssn.send@gmail.com';
 $SMTP_password = 'maks.soset.10.huev';
 $SMTP_sender_name = 'Syktsu-social-network';
 
-$CONST_DOMEN = "http://localhost/SSN_for_gitan/syktsu-social-network/";
+$CONST_DOMEN = "http://localhost/syktsu-social-network/";
 $CONST_IMAGES_FOLDER = "Source/image_upload/uploads/";
 $CONST_MAX_CONNECTION_COUNT = 20;
 
@@ -16,7 +16,7 @@ $CONST_MAX_CONNECTION_COUNT = 20;
 $CONST_MAX_LIKERS = 2;
 //post_out
 $CONST_LIMIT_POSTS = 5;
-$CONST_LIMIT_COMMETS = 5;
+$CONST_LIMIT_COMMENTS = 5;
 
 
 

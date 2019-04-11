@@ -9,6 +9,7 @@
 	margin-top: 35px;
 	margin-left: auto;
 	margin-right: auto;
+	border: 1px solid #C6D6DD;
 
 }
 .box-header{
@@ -26,7 +27,8 @@
 
 }
 .dialogs-table{
-	margin-top: 20px;
+	margin-top: 0px;
+	width: 100%;
 }
 .dialogs-table-th-img{
 	background-image: url(../images/user.png);
@@ -37,6 +39,11 @@
 .dialogs-table-tr{
 	display: block;
 	padding-top:  10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #C6D6DD;
+}
+.dialogs-table-tr:hover{
+	background-color: #E6ECF0;
 }
 .dialogs-table-td{
 	outline: 1px solid #000;
