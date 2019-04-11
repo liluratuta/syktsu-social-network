@@ -10,11 +10,17 @@ function writeFullCommentary($id_post){
 	$query = "SELECT comments.id_comment, users.firstname, users.lastname, users.icon, comments.datetime, comments.text FROM comments, users WHERE  comments.id_post = $id_post AND comments.id_user = users.id ORDER BY comments.datetime LIMIT $CONST_LIMIT_COMMENTS"; 
 	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 
+	
 	while($row = mysqli_fetch_assoc($result)){
+		if($row['icon'] == '') 
+			$image = 'default.jpg';
+		else 
+			$image = $row['icon'];
+
 		writeOneCommentary([
 			'id_comment' => $row['id_comment'],
 			'author' => $row['firstname']." ".$row['lastname'],
-			'img_url' => $CONST_DOMEN.$CONST_IMAGES_FOLDER.$row['icon'],
+			'img_url' => $CONST_DOMEN.$CONST_IMAGES_FOLDER.$image,
 			'datetime' => $row['datetime'],
 			'text' => $row['text']
 		]);
@@ -41,13 +47,13 @@ function writeOneCommentary($in_data){ //добавить ёбанную кно�
 }
 //need write-like-module.php
 function writeOnePost($in_data){
-	echoDiv('news-post', "post-".$in_data['id'], "onclick = 'news_post()'");
+	echoDiv('news-post', "post-".$in_data['id']); // "onclick = 'news_post()'"
 	//echo "<div id = 'post-".$in_data['id']."' class = 'news-post'>";
 	
 		echoDiv('news-post-date');
 			echo $in_data['date_time']."</div>";
 		echoDiv('news-post-img');
-			echo "<img>";
+			echo "<img src = '".$in_data['imageURL']."' width = '100%' height = '100%'>";
 			echo "</div>"; //тут изображение
 		echoDiv('news-post-text');
 			echo $in_data['text']."</div>";
@@ -95,6 +101,7 @@ function writeUserPosts($id_user){
 		writeOnePost([
 			'id' => $row['id_post'],
 			'date_time' => $row['datetime'],
+			'imageURL' => $imageURL,
 			'text' => $row['text']
 		]);
 	}

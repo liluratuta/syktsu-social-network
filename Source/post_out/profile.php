@@ -51,11 +51,15 @@
 
 				<div class="news-header">Новости</div>
 				<div class="news-header-line"></div>
+			<script src="../like/js/sendLike.js" type="text/javascript"></script>
 			<?php
 			require_once '../auth/auth-class.php';
+
 			require_once '../connect.php';
 			require_once '../const.php';
 			require_once '../like/write-like-module.php';
+			$auth->auth('test@gmail.com','1');
+			//echo $auth->get_Id();
 			require_once 'write-posts.php';
 			writeUserPosts(1);
 			

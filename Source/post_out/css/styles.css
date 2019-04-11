@@ -196,13 +196,13 @@ button{
 	width: 30px;
 	background-size: cover;
 }
-.like-true{
+.like-true .like .like-icon{
 	background-image: url(../images/like_true.png);
 	height: 30px;
 	width: 30px;
 	background-size: cover;
 }
-.dislike-true{
+.dislike-true .dislike .dislike-icon{
 	background-image: url(../images/dislike_true.png);
 	height: 30px;
 	width: 30px;
