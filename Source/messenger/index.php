@@ -189,6 +189,22 @@
 		var req = new XMLHttpRequest();
 
 		var sendButton = document.getElementById("sendform-button");
+
+		currentDate = 0;
+
+		function getCurrentDate() {
+			req.open("GET", "get_current_date.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send();
+		}
+
+		function getNewMessages() {
+			req.open("POST", "get_new_messages.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
+		}
 		
 		// Функция для плучения переменных из URL
 
@@ -207,19 +223,20 @@
 		    }
 		};
 
-		// Функция отправки запроса на отправку сообщения
+		// Функция запроса на отправку сообщения
 
 		sendButton.onclick = function sendMessage() {
 			
+			var entryField = document.getElementById("sendform-entry-field");
 			if (entryField.value == "") {
 				return;
 			}
 
 			req.open("POST", "send_message_async.php", true);
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
 			req.onreadystatechange = handleServerResponse;
 
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			
 			var message = "data="+entryField.value+"&chat_id="+getUrlParameter('chat_id');
 
 			req.send(message);
@@ -236,7 +253,7 @@
 			var message_box = document.createElement('div');
 			message_box.className = 'message_box';
 
-			var icon = document.createElement('image'); icon.className = 'user_icon'; 
+			var icon = document.createElement('img'); icon.className = 'user_icon'; 
 			var name = document.createElement('p'); 
 			var data = document.createElement('p'); 
 			var date = document.createElement('p'); 
@@ -250,7 +267,7 @@
 
 				return;
 			}
-
+			
 			icon.src = message_data['icon_src'];
 			name.innerHTML = message_data['user_name'];
 			data.innerHTML = message_data['data'];
@@ -268,28 +285,45 @@
 			entryField.value = '';
 		}
 
-		// Обработчик ответа от сервера
+		// Обработчик ответов от сервера
 
 		function handleServerResponse() {
-			if (req.status != 200) {
-				console.log(req.status);
-			}
-
-			// console.log(req.responseText);
+			// if (req.status != 200) {
+			//  	console.log("status: "+req.status);
+			// }
 
 			if ((req.readyState == 4) && (req.status == 200)) {
 				serverRequest = JSON.parse(req.responseText);
 
 				switch(serverRequest['header']) {
 					case 'sendMessage':
-					
 						messageOutput(serverRequest, serverRequest['request_success']);
-					
+						currentDate = serverRequest['date'];
+						break;
+					case 'getCurrentDate':
+						currentDate = serverRequest['date'];
+						break;
+					case 'getNewMessages':
+						if (serverRequest['request_success'] == 'true') {
+							
+							var m_index = 0;
+
+							for(m_index in serverRequest['message_list']) {
+								messageOutput(serverRequest['message_list'][m_index], 'true')
+							}
+							currentDate = serverRequest['message_list'][m_index]['date'];
+						}
 						break;
 				}
 			}
 
 		}
+
+		getCurrentDate();
+		setInterval(getNewMessages, 1000);
+
+
+
 	</script>
 	
 
