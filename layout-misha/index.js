@@ -66,3 +66,7 @@ function dislike(){
 		dislike_true.style.display = 'block';
 	}
 }
+function new_comment(){
+	var com = document.getElementById('com-pop-out');
+	com.style.display.block;
+}

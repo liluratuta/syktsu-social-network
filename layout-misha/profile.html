@@ -59,7 +59,7 @@
 				<div class="news-post-text">23-24 апреля на базе Сыктывкарского госуниверситета имени Питирима Сорокина при поддержке Минфина Республики Коми запланировано проведение Всероссийской научной конференции школьников, студентов и аспирантов «Финансовые технологии и финансовые инновации в индустрии 4.0».</div>
 				<div class="feedback">
 					<div class="comment">
-						<a href="#">
+						<a href="#comment" name="comment" onclick="new_comment()">
 							<div class="comment-icon"></div>
 						</a>
 					</div>
@@ -79,7 +79,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="comment-pop-out">
+				<div class="comment-pop-out" id="com-pop-out">
 					<div class="comment-pop-out-user">
 						<div class="out-user-img"></div>
 						<div class="out-user-name">Имя пользователя</div>
@@ -89,6 +89,7 @@
 						<div class="comment-pop-out-text-in">
 							<input type="text" name="pop-out-comment" class="pop-out-comment-input">
 						</div>
+						<div class="pop-out-attach-img"></div>
 						<div class="pop-out-button">
 							<button class="pop-out-publish"></button>
 						</div>

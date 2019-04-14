@@ -285,6 +285,7 @@ button{
 	border-radius: 10px;
 	min-height: 100px;
 	width: 587px;
+	display: none;
 }
 .comment-pop-out-user{
 	display: block;
@@ -337,8 +338,9 @@ button{
 }
 .pop-out-button{
 	width: 32px;
-	margin-left: 520px;
+	margin-left: 460px;
 	padding-bottom: 10px;
+	display: inline-block;
 }
 .pop-out-publish{
 	width: 32px;
@@ -348,6 +350,15 @@ button{
 	background-size: cover;
 	color: #fff;
 	border: none;
+}
+.pop-out-attach-img{
+	background-color: #C1D6EB;
+	background-image: url(../images/image.png);
+	background-size: cover;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	margin-left: 30px;
 }
 /*-----------------------------------------*/
 .footer{
