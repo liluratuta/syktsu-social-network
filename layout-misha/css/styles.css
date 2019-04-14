@@ -17,7 +17,7 @@ button{
 	position: absolute;
 	left: 0;
 	top: 0;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.7);
 	width: 100%;
 	min-height: 100%;
 	display: none;
@@ -136,6 +136,7 @@ button{
 }
 .user-name, .user-lastname{
 	display: inline-block;
+	font-size: 20px;
 }
 .news{
 	width: 40%;
@@ -195,18 +196,21 @@ button{
 	height: 30px;
 	width: 30px;
 	background-size: cover;
+	display: block;
 }
 .like-true{
-	background-image: url(../images/like_true.png);
+	background-image: url(../images/like-true.png);
 	height: 30px;
 	width: 30px;
 	background-size: cover;
+	display: none;
 }
 .dislike-true{
-	background-image: url(../images/dislike_true.png);
+	background-image: url(../images/dislike-true.png);
 	height: 30px;
 	width: 30px;
 	background-size: cover;
+	display: none;
 
 }
 .dislike-icon{
@@ -214,6 +218,7 @@ button{
 	height: 30px;
 	width: 30px;
 	background-size: cover;
+	display: block;
 }
 .like-div{
 	display: inline-block;
@@ -271,6 +276,80 @@ button{
 .comment-like{
 	margin-left: 454px;
 }
+.comment-pop-out{
+	position: absolute;
+	left: 465px;
+	top: 750px;
+	background-color: #fff;
+	border: 1px solid #E6ECF0;
+	border-radius: 10px;
+	min-height: 100px;
+	width: 587px;
+}
+.comment-pop-out-user{
+	display: block;
+	margin-top: 5px;
+}
+.out-user-name{
+	padding-top: 3px;
+	margin-left: 10px;
+	font-weight: 700;
+	font-size: 16px;
+	display: inline-block;
+	vertical-align: top;
+	
+}
+.out-user-img{
+	margin-left: 10px;
+	display: inline-block;
+	background-size: cover;
+	background-image: url(../images/user.png);
+	width: 30px;
+	height: 30px;
+}
+.out-short-text{
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: justify;
+	font-size: 16px;
+	line-height: 1.5;
+	font-weight: 400;
+	margin-bottom: 5px;
+	
+}
+.comment-pop-out-text{
+	background-color: #C1D6EB;
+}
+.comment-pop-out-text-in{
+	width: 450px;
+	min-height: 70px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.pop-out-comment-input{
+	width: 100%;
+	margin-top: 10px;	
+	min-height: 70px;
+	background-color: #fff;
+	border: 1.5px solid #556080;
+	border-radius: 10px;
+}
+.pop-out-button{
+	width: 32px;
+	margin-left: 520px;
+	padding-bottom: 10px;
+}
+.pop-out-publish{
+	width: 32px;
+	height: 30px;
+	background-color: #C1D6EB;
+	background-image: url(../images/send.png);
+	background-size: cover;
+	color: #fff;
+	border: none;
+}
+/*-----------------------------------------*/
 .footer{
 	height: 60px;
 	background-color: #fff;

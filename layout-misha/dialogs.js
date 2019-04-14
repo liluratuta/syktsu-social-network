@@ -1,5 +1,5 @@
 function open_dialog(){
 	var dialog = document.getElementById('dialog');
-	window.location = url;
+	window.location = messages.html;
 
 }

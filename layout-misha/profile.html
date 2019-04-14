@@ -8,7 +8,7 @@
 	<script src="index.js"></script>
 </head>
 <body id="body">
-	<div class="bodydark"></div>
+	<div class="bodydark" id='dark'></div>
 	<div class="header">
 		<div class=header-top-div>
 			<div class="header-logo">
@@ -66,19 +66,33 @@
 					<div class="like-div">
 						<div class="like-number">5</div>
 						<div class="like" name="like" >
-							<a href="#like" title="like">
-								<div class="like-icon"></div>
+							<a href="#like" title="like" onclick="like()">
+								<div class="like-icon" id='like_false'></div>
+								<div class="like-true" id='like_true'></div>
 							</a>
 						</div>
 						<div class="dislike" name="dislike">
-							<a href="#dislike" title="dislike">
-								<div class="dislike-icon"></div>
+							<a href="#dislike" title="dislike" onclick="dislike()">
+								<div class="dislike-icon" id='dislike_false'></div>
+								<div class="dislike-true" id='dislike_true'></div>
 							</a>
 						</div>
 					</div>
 				</div>
 				<div class="comment-pop-out">
-					<div class="commnet-pop-out-text"></div>
+					<div class="comment-pop-out-user">
+						<div class="out-user-img"></div>
+						<div class="out-user-name">Имя пользователя</div>
+					</div>
+					<div class="out-short-text">23-24 апреля на базе Сыктывкарского госуниверситета имени Питирима Сорокина</div>
+					<div class="comment-pop-out-text">
+						<div class="comment-pop-out-text-in">
+							<input type="text" name="pop-out-comment" class="pop-out-comment-input">
+						</div>
+						<div class="pop-out-button">
+							<button class="pop-out-publish"></button>
+						</div>
+					</div>
 				</div>
 				<div class="comment-out">
 					<div class="comment-out-img">
@@ -132,31 +146,6 @@
 			</div>
 
 			
-
-			<!-- <div class="news-post">
-				<div class="news-post-img"></div>
-				<div class="news-post-date">14.03.2019 10:27</div>
-				<div class="news-post-text">23-24 апреля на базе Сыктывкарского госуниверситета имени Питирима Сорокина при поддержке Минфина Республики Коми запланировано проведение Всероссийской научной конференции школьников, студентов и аспирантов «Финансовые технологии и финансовые инновации в индустрии 4.0».</div>
-				<div class="feedback">
-					<div class="comment">
-						<input type="text" name="comment" placeholder="Коментарий..." class="comment-input">
-					</div>
-					<div class="like-div">
-						<div class="like-number">5</div>
-						<div class="like">
-							<a href="#" title="like">
-								<div class="like-icon"></div>
-							</a>
-						</div>
-						<div class="dislike">
-							<a href="#" title="dislike">
-								<div class="dislike-icon"></div>
-							</a>
-						</div>
-					</div>
-				</div>
-				
-			</div> -->
 			
 		</div>
 			<div class="news-post-pop-out" id="news-post-pop-out">
