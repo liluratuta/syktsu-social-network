@@ -138,6 +138,50 @@ button{
 	display: inline-block;
 	font-size: 20px;
 }
+.new-post{
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	display: block;
+}
+.new-post-header{
+	width: 135px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 24px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 10px;
+}
+.new-post-text{
+	width: 95%;
+	min-height: 50px;
+	border: 1px solid #E6ECF0;
+	margin-right: auto;
+	margin-left: auto;
+}
+.new-post-input{
+	width: 100%;
+	border: none;
+	border-radius: 15px;
+	font-size: 16px;
+	min-height: 50px;
+}
+.new-post-button{
+	width: 32px;
+	height: 30px;
+	background-color: #fff;
+	background-image: url(../images/send.png);
+	background-size: cover;
+	border: none;
+}
+.new-post-publish{
+	margin-top: 5px;
+	margin-left: 560px;
+}
+.new-post-input:focus{
+	outline: none;
+}
 .news{
 	width: 40%;
 	margin-left: auto;
@@ -303,8 +347,6 @@ button{
 .out-user-img{
 	margin-left: 10px;
 	display: inline-block;
-	background-size: cover;
-	background-image: url(../images/user.png);
 	width: 30px;
 	height: 30px;
 }
@@ -406,7 +448,7 @@ button{
 	left: 0px;
 }
 .pop-out-like-div{
-	margin-left: 524px;
+	margin-left: 474px;
 }
 /*@media (min-width: 1200px){
 	.header-settings{
