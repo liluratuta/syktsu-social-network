@@ -67,6 +67,7 @@ function dislike(){
 	}
 }
 function new_comment(){
-	var com = document.getElementById('com-pop-out');
-	com.style.display.block;
+	var com1 = document.getElementById('comment-pop-out');
+	com1.style.display.block;
+	com1.style.overflowY = "hidden";
 }
