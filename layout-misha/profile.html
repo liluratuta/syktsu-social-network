@@ -47,6 +47,15 @@
 			<div class="user-name">Имя </div>
 			<div class="user-lastname"> Фамилия</div>
 		</div>
+		<div class="new-post">
+			<div class="new-post-header">Новый пост</div>
+			<div class="new-post-text">
+				<input type="text" name="new-post-text" class="new-post-input" placeholder="Введите...">
+			</div>
+			<div class="new-post-publish">
+				<button class="new-post-button"></button>
+			</div>
+		</div>
 		<div class="news" id="news">
 				<div class="news-header">Новости</div>
 				<div class="news-header-line"></div>
@@ -81,7 +90,9 @@
 				</div>
 				<div class="comment-pop-out" id="comment-pop-out">
 					<div class="comment-pop-out-user">
-						<div class="out-user-img"></div>
+						<div class="out-user-img">
+							<img src="images/user.png" width="30px" height="30px">
+						</div>
 						<div class="out-user-name">Имя пользователя</div>
 					</div>
 					<div class="out-short-text">23-24 апреля на базе Сыктывкарского госуниверситета имени Питирима Сорокина</div>
@@ -163,7 +174,7 @@
 
 				<div class="feedback">
 					<div class="comment">
-						<input type="text" name="comment" placeholder="Коментарий..." class="comment-input">
+						<div class="comment-icon"></div>
 					</div>
 					<div class="like-div pop-out-like-div">
 						<div class="like-number">5</div>
