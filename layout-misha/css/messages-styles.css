@@ -132,3 +132,12 @@
 	margin-left: 20px;
 	color: #303030;
 }
+@media (max-width: 1920px){
+	.box-header-back{
+		left: 623px;
+	}
+	.box-header-settings {
+    left: 1238px;
+	}
+		
+}
