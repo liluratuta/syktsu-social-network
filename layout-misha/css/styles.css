@@ -466,7 +466,10 @@ button{
 	.comment-like {
     	margin-left: 603px;
 	}
-		
+	.pop-out-like-div {
+    margin-left: 636px;
+	}
+
 }
 @media(max-width: 900px){
 	.header-settings{
