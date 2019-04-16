@@ -450,13 +450,25 @@ button{
 .pop-out-like-div{
 	margin-left: 474px;
 }
-/*@media (min-width: 1200px){
+@media (max-width: 1920px){
 	.header-settings{
-		left: 1440px;
+		left: 1820px;
+	}
+	.header-settings-div{
+		left: 1740px;
+	}
+	.new-post-publish{
+		margin-left: 710px
+	}
+	.like-div{
+		margin-left: 540px
+	}
+	.comment-like {
+    	margin-left: 603px;
 	}	
 }
-@media(min-width: 900px){
+@media(max-width: 900px){
 	.header-settings{
 		left: 1236px;
 	}
-}*/
+}
