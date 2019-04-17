@@ -188,6 +188,10 @@ button{
 	font-size: 16px;
 	min-height: 50px;
 	white-space: normal;
+	resize: none;
+	max-height: 250px;
+	font-family: 'Source Sans Pro', sans-serif;
+	overflow: auto;
 }
 .new-post-button{
 	width: 32px;
