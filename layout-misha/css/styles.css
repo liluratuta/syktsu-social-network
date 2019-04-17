@@ -458,10 +458,10 @@ button{
 		left: 1740px;
 	}
 	.new-post-publish{
-		margin-left: 710px
+		margin-left: 710px;
 	}
 	.like-div{
-		margin-left: 540px
+		margin-left: 540px;
 	}
 	.comment-like {
     	margin-left: 603px;
@@ -476,8 +476,43 @@ button{
 		left: 1236px;
 	}
 }
-@media(max-width: 1519px){
-	body{
-		background-color: #f00;
+@media(max-width: 1600px){
+	.header-settings{
+		left: 1460px;
+	}
+	.header-settings-div{
+		left: 1380px;
+	}
+	.new-post-publish{
+		margin-left: 560px;
+	}
+	.like-div{
+		margin-left: 394px;
+	}
+	.comment-like {
+    	margin-left: 454px;
+	}
+	.pop-out-like-div {
+    margin-left: 474px;
+	}
+}
+@media(max-width: 1350px){
+	.header-settings{
+		left: 1460px;
+	}
+	.header-settings-div{
+		left: 1380px;
+	}
+	.new-post-publish{
+		margin-left: 560px;
+	}
+	.like-div{
+		margin-left: 394px;
+	}
+	.comment-like {
+    	margin-left: 454px;
+	}
+	.pop-out-like-div {
+    margin-left: 474px;
 	}
 }
