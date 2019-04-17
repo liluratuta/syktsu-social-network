@@ -25,7 +25,7 @@ function writeFullCommentary($id_post){
 			'text' => $row['text']
 		]);
 	}
-
+	
 
 }
 
@@ -59,9 +59,9 @@ function writeOnePost($in_data){
 			echo $in_data['text']."</div>";
 		echoDiv('feedback');
 			echoDiv('comment');
-				echo "<a href = '#'>";
+				echo "<a href = '#' onclick = 'comments.activePost(".$in_data['id'].")''>";
 					echoDiv('comment-icon');
-						echo '</div>';
+						echo '</div>'; 
 					echo '</a>';
 				echo '</div>';
 				//тут где то коменты
@@ -70,8 +70,6 @@ function writeOnePost($in_data){
 			drawLikePost($in_data['id'], 1);
 			echo "</div>";
 		echoDiv('comment-pop-out'); 
-			echoDiv('comment-pop-out-text');
-				echo '</div>';
 			echo "</div>";
 		writeFullCommentary($in_data['id']);
 	echo "</div>";
