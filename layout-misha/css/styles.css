@@ -39,8 +39,10 @@ button{
 }
 .button-div{
 	display: inline-block;
-	margin-right: 50px;
 	padding-top: 10px;
+}
+.button-div:first-of-type{
+	margin-right: 60px;
 }
 .header{
 	width: 100%;
@@ -54,6 +56,16 @@ button{
 	width: 58px;
 	margin-left: auto;
 	margin-right: auto;
+}
+.header-name{
+	width: 50px;
+	position: absolute;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-size: 24px;
+}
+.span-name{
+
 }
 .header-image{
 	width: 150px;
@@ -75,7 +87,9 @@ button{
 	
 }
 .header-bottom-buttons{
-	margin-left: 350px;
+	width: 480px;
+	margin-right: auto;
+	margin-left: auto;
 }
 .header-settings{
 	background-image: url(../images/settings.png);
@@ -152,6 +166,8 @@ button{
 	margin-right: auto;
 	margin-left: auto;
 	padding-bottom: 10px;
+	padding-top: 10px;
+
 }
 .new-post-text{
 	width: 95%;
