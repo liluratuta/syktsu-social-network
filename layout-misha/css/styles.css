@@ -230,7 +230,7 @@ button{
 	display: block;
 }
 .news-post{
-	border-bottom: 1px solid #000;
+	
 	margin-bottom: 10px;
 	margin-top: 10px;
 	display: block;
@@ -277,30 +277,30 @@ button{
 }
 .like-icon{
 	background-image: url(../images/like.png);
-	height: 30px;
-	width: 30px;
+	height: 25px;
+	width: 25px;
 	background-size: cover;
 	display: block;
 }
 .like-true{
 	background-image: url(../images/like-true.png);
-	height: 30px;
-	width: 30px;
+	height: 25px;
+	width: 25px;
 	background-size: cover;
 	display: none;
 }
 .dislike-true{
 	background-image: url(../images/dislike-true.png);
-	height: 30px;
-	width: 30px;
+	height: 25px;
+	width: 25px;
 	background-size: cover;
 	display: none;
 
 }
 .dislike-icon{
 	background-image: url(../images/dislike.png);
-	height: 30px;
-	width: 30px;
+	height: 25px;
+	width: 25px;
 	background-size: cover;
 	display: block;
 }
@@ -317,8 +317,8 @@ button{
 .comment-icon{
 	background-image: url(../images/comment.png);
 	background-size: cover;
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 }
 .comment-out{
 	width: 90%;
@@ -544,7 +544,7 @@ button{
 		left: 1740px;
 	}
 	.new-post-publish{
-		margin-left: 710px;
+		margin-left: 657px;
 	}
 	.like-div{
 		margin-left: 540px;
@@ -555,6 +555,9 @@ button{
 	.pop-out-like-div {
     margin-left: 636px;
 	}
+	.footer-up-button{
+	left: 1820px;
+}
 
 }
 @media(max-width: 900px){
