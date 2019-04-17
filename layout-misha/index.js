@@ -71,3 +71,19 @@ function new_comment(){
 	com1.style.display.block;
 	com1.style.overflowY = "hidden";
 }
+// var t = setInterval(error_move, 10);
+// var i = 20;
+// var j = 20;
+// function error_move(){
+// 	var elem = document.getElementById('error');
+// 	if(i >= 500){
+// 		i = 20;
+// 		j = 20;
+// 	}
+// 	else{
+// 	i+=1;
+// 	j+=1;
+// 	elem.style.left = i + "px";
+// 	elem.style.top = j + "px";
+// 	}
+// }

@@ -175,9 +175,23 @@ button{
 	background-size: cover;
 	border: none;
 }
+.new-img-button{
+	width: 35px;
+	height: 30px;
+	background-color: #fff;
+	background-image: url(../images/image1.png);
+	background-size: cover;
+	border: none;
+}
+.new-post-img{
+	display: inline-block;
+	width: 35px;
+	margin-left: 12px;
+}
 .new-post-publish{
 	margin-top: 5px;
-	margin-left: 560px;
+	margin-left: 513px;
+	display: inline-block;
 }
 .new-post-input:focus{
 	outline: none;
@@ -417,7 +431,7 @@ button{
 	left: 450px;
 	top: 440px;
 	display: none;
-	border-bottom: 1px solid #000;
+	border: 1.5px solid #556080;
 	border-radius: 10px;
 }
 .news-post-pop-out-img{
@@ -432,8 +446,8 @@ button{
 	margin-left: 10px;
 }
 .news-post-pop-out-text{
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-right: 15px;
+	padding-left: 15px;
 	text-align: justify;
 	line-height: 1.5;
 	margin-bottom: 10px;	
@@ -449,6 +463,27 @@ button{
 }
 .pop-out-like-div{
 	margin-left: 474px;
+}
+.error{
+	position: absolute;
+	width: 150px;
+	height: 100px;
+	top: 20px;
+	left: 20px;
+	border: 1px solid #f00;
+	border-radius: 10px;
+	display: none;
+}
+.error-div{	
+	width: 100%;	
+}
+.error-text{
+	color: #f00;
+	font-weight: 600;
+	line-height: 1.5;
+	font-size: 18px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 @media(max-width: 1920px){
 	.header-settings{
@@ -484,7 +519,7 @@ button{
 		left: 1380px;
 	}
 	.new-post-publish{
-		margin-left: 560px;
+		margin-left: 513px;
 	}
 	.like-div{
 		margin-left: 394px;
