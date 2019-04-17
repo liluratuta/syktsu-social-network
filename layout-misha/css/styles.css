@@ -19,7 +19,7 @@ button{
 	top: 0;
 	background-color: rgba(0,0,0,0.7);
 	width: 100%;
-	min-height: 100%;
+	min-height: 1453px;
 	display: none;
 }
 .dialog-button, .friends-button{
