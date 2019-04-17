@@ -17,7 +17,7 @@ button{
 	position: absolute;
 	left: 0;
 	top: 0;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.7);
 	width: 100%;
 	min-height: 100%;
 	display: none;
@@ -136,6 +136,51 @@ button{
 }
 .user-name, .user-lastname{
 	display: inline-block;
+	font-size: 20px;
+}
+.new-post{
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	display: block;
+}
+.new-post-header{
+	width: 135px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 24px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 10px;
+}
+.new-post-text{
+	width: 95%;
+	min-height: 50px;
+	border: 1px solid #E6ECF0;
+	margin-right: auto;
+	margin-left: auto;
+}
+.new-post-input{
+	width: 100%;
+	border: none;
+	border-radius: 15px;
+	font-size: 16px;
+	min-height: 50px;
+}
+.new-post-button{
+	width: 32px;
+	height: 30px;
+	background-color: #fff;
+	background-image: url(../images/send.png);
+	background-size: cover;
+	border: none;
+}
+.new-post-publish{
+	margin-top: 5px;
+	margin-left: 560px;
+}
+.new-post-input:focus{
+	outline: none;
 }
 .news{
 	width: 40%;
@@ -195,18 +240,21 @@ button{
 	height: 30px;
 	width: 30px;
 	background-size: cover;
+	display: block;
 }
-.like-true .like .like-icon{
-	background-image: url(../images/like_true.png);
+.like-true{
+	background-image: url(../images/like-true.png);
 	height: 30px;
 	width: 30px;
 	background-size: cover;
+	display: none;
 }
-.dislike-true .dislike .dislike-icon{
-	background-image: url(../images/dislike_true.png);
+.dislike-true{
+	background-image: url(../images/dislike-true.png);
 	height: 30px;
 	width: 30px;
 	background-size: cover;
+	display: none;
 
 }
 .dislike-icon{
@@ -214,6 +262,7 @@ button{
 	height: 30px;
 	width: 30px;
 	background-size: cover;
+	display: block;
 }
 .like-div{
 	display: inline-block;
@@ -271,6 +320,89 @@ button{
 .comment-like{
 	margin-left: 454px;
 }
+.comment-pop-out{
+	position: absolute;
+	left: 465px;
+	top: 750px;
+	background-color: #fff;
+	border: 1px solid #E6ECF0;
+	border-radius: 10px;
+	min-height: 100px;
+	width: 587px;
+	display: none;
+}
+.comment-pop-out-user{
+	display: block;
+	margin-top: 5px;
+}
+.out-user-name{
+	padding-top: 3px;
+	margin-left: 10px;
+	font-weight: 700;
+	font-size: 16px;
+	display: inline-block;
+	vertical-align: top;
+	
+}
+.out-user-img{
+	margin-left: 10px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+}
+.out-short-text{
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: justify;
+	font-size: 16px;
+	line-height: 1.5;
+	font-weight: 400;
+	margin-bottom: 5px;
+	
+}
+.comment-pop-out-text{
+	background-color: #C1D6EB;
+}
+.comment-pop-out-text-in{
+	width: 450px;
+	min-height: 70px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.pop-out-comment-input{
+	width: 100%;
+	margin-top: 10px;	
+	min-height: 70px;
+	background-color: #fff;
+	border: 1.5px solid #556080;
+	border-radius: 10px;
+}
+.pop-out-button{
+	width: 32px;
+	margin-left: 460px;
+	padding-bottom: 10px;
+	display: inline-block;
+}
+.pop-out-publish{
+	width: 32px;
+	height: 30px;
+	background-color: #C1D6EB;
+	background-image: url(../images/send.png);
+	background-size: cover;
+	color: #fff;
+	border: none;
+}
+.pop-out-attach-img{
+	background-color: #C1D6EB;
+	background-image: url(../images/image.png);
+	background-size: cover;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	margin-left: 30px;
+}
+/*-----------------------------------------*/
 .footer{
 	height: 60px;
 	background-color: #fff;
@@ -316,15 +448,28 @@ button{
 	left: 0px;
 }
 .pop-out-like-div{
-	margin-left: 524px;
+	margin-left: 474px;
 }
-/*@media (min-width: 1200px){
+@media (max-width: 1920px){
 	.header-settings{
-		left: 1440px;
-	}	
+		left: 1820px;
+	}
+	.header-settings-div{
+		left: 1740px;
+	}
+	.new-post-publish{
+		margin-left: 710px
+	}
+	.like-div{
+		margin-left: 540px
+	}
+	.comment-like {
+    	margin-left: 603px;
+	}
+		
 }
-@media(min-width: 900px){
+@media(max-width: 900px){
 	.header-settings{
 		left: 1236px;
 	}
-}*/
+}

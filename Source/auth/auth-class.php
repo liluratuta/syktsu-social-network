@@ -1,11 +1,11 @@
-﻿<?php
+<?php
 session_start();
 class authclass {
 	public function isAuth() {
         if (isset($_SESSION["is_auth"])) { 
             return $_SESSION["is_auth"]; 
         }
-        else return false; 
+            else return false; 
     }
     public function registration($mail, $auth_password, $firstname, $lastname) {//firstname, lastname
         //require '../connect.php';
@@ -15,6 +15,7 @@ class authclass {
         $query ="SELECT id, verification FROM users where mail = '".$mail."'";     
         $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
         $row = mysqli_fetch_row($result);
+
         if(isset($row)) {
         	if ($row[1] === '') {
             	//$_SESSION["is_auth"] = false;
@@ -25,11 +26,13 @@ class authclass {
         		$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
         	}
     	}
+
         	$auth_password = md5($auth_password);
         	$query ="INSERT INTO users VALUES ('', '$mail', '$auth_password', '$firstname', '$lastname','')";     
         	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-            mysqli_close($link);
-        	return true;
+
+        mysqli_close($link);
+        return true;
     	    
     }
     public function auth($mail, $auth_password) {
@@ -44,11 +47,13 @@ class authclass {
         $row = mysqli_fetch_row($result);
         if (isset($row)) {
         	if($row[5] !== '') return 2;
+
             $_SESSION["is_auth"] = true; 
             $_SESSION["mail"] = $mail;
             $_SESSION["id"] = $row[0];
             $_SESSION["firstname"] = $row[3];
             $_SESSION['lastname'] = $row[4];
+            
             mysqli_close($link);
         	return true;
     	} else {

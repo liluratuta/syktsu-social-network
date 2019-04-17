@@ -30,7 +30,7 @@
 }
 .box-header-text{
 	padding-top: 15px;
-	width: 160px;
+	width: 170px;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 20px;
@@ -131,4 +131,13 @@
 .user-message-text{
 	margin-left: 20px;
 	color: #303030;
+}
+@media (max-width: 1920px){
+	.box-header-back{
+		left: 623px;
+	}
+	.box-header-settings {
+    left: 1238px;
+	}
+		
 }

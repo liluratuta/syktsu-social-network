@@ -4,8 +4,10 @@
 	<title>Имя пользователя</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
 	<script src="index.js"></script>
+	<script src="sendComments.js"></script>
 </head>
 <body id="body">
 	<div class="bodydark"></div>
@@ -138,15 +140,14 @@
 						</div>
 						<div class="dislike" name="dislike">
 							<a href="#dislike" title="dislike">
-								<div class="dislike-icon"></div>
-							</a>
 						</div>
 					</div>
 				
 				
 			</div>
-			
-
+			<script>
+				var comments = new comments(1);
+			</script>
 			<!-- <div class="news-post">
 				<div class="news-post-img"></div>
 				<div class="news-post-date">14.03.2019 10:27</div>
