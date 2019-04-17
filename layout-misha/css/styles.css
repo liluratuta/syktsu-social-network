@@ -125,6 +125,10 @@ button{
 	padding-top: 10px;
 
 }
+.settings-list-item:hover{
+	background-color: #E6ECF0;	
+}
+
 .settings-list-item a{
 	text-decoration: none;
 	color: #000;
@@ -183,6 +187,7 @@ button{
 	border-radius: 15px;
 	font-size: 16px;
 	min-height: 50px;
+	white-space: normal;
 }
 .new-post-button{
 	width: 32px;
@@ -566,8 +571,30 @@ button{
 	.like-div{
 		margin-left: 394px;
 	}
+	.like-icon, .dislike-icon{
+		width: 25px;
+		height: 25px;
+	}
+	.like-number{
+		font-size: 20px;
+	}
+	.com-like-icon{
+		width: 20px;
+		height: 20px;
+	}
+	.com-dislike-icon{
+		width: 20px;
+		height: 20px;
+	}
+	.com-like-number{
+		font-size: 18px;
+	}
 	.comment-like {
     	margin-left: 454px;
+	}
+	.comment-icon{
+		width: 25px;
+		height: 25px;
 	}
 	.pop-out-like-div {
     margin-left: 474px;
