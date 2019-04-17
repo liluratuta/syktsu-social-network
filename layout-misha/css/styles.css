@@ -496,21 +496,21 @@ button{
     margin-left: 474px;
 	}
 }
-@media(max-width: 1350px){
+@media(max-width: 1360px){
 	.header-settings{
-		left: 1460px;
+		left: 1302px;
 	}
 	.header-settings-div{
-		left: 1380px;
+		left: 1222px;
 	}
 	.new-post-publish{
-		margin-left: 560px;
+		margin-left: 497px;
 	}
 	.like-div{
 		margin-left: 394px;
 	}
 	.comment-like {
-    	margin-left: 454px;
+    	margin-left: 394px;
 	}
 	.pop-out-like-div {
     margin-left: 474px;
