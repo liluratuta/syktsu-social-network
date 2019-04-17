@@ -47,7 +47,6 @@
 }
 .dialogs-table-td{
 	border-radius: 5px;
-	width: 550px;
 	height: 50px;
 	padding-left: 10px;
 }
@@ -68,8 +67,23 @@
 	padding-top: 1px;
 }
 .dialog-time{
-	margin-left: 180px;
 	display: inline-block;
 	vertical-align: top;
 	padding-top: 1px;
+}
+@media(max-width: 1920px){
+	.dialogs-table-td{
+		width: 550px;
+	}
+	.dialog-time{
+	margin-left: 30px;
+	}
+}
+@media(max-width: 1500px){
+	.dialogs-table-td{
+		width: 400px;
+	}
+	.dialog-time{
+		margin-left: 20px;
+	}
 }
