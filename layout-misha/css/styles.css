@@ -208,11 +208,12 @@ button{
 	background-image: url(../images/image1.png);
 	background-size: cover;
 	border: none;
+	outline: none;
 }
 .new-post-img{
 	display: inline-block;
 	width: 35px;
-	margin-left: 12px;
+	margin-left: 17.5px;
 }
 .new-post-publish{
 	margin-top: 5px;
@@ -648,5 +649,8 @@ button{
 	}
 	.pop-out-like-div {
     margin-left: 474px;
+	}
+	.new-post-delete{
+		left: 422.5px;
 	}
 }
