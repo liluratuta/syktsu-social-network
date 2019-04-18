@@ -1,0 +1,188 @@
+body {
+	font-family: Verdana, Geneva, sans-serif;
+
+	margin: 0;
+
+	background: #e6ecf0;
+	color: #000;
+}
+
+#chatinfo-container {
+
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 60%;
+	/*min-height: 1em;*/
+	background: #fff;
+
+	padding: 0.2em;
+}
+
+#chatinfo-leftarrow {
+	width: auto;
+	height: 4em;
+}
+
+#chatinfo-header {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-column-gap: 1em;
+	margin: auto;
+}
+
+#chatinfo-icon {
+	border-radius: 50%;
+	width: auto;
+	height: 4em;
+}
+
+#chatinfo-title {
+	margin-bottom: 0;
+	padding: 0;
+}
+
+#chatinfo-usercnt {
+	margin: 0;
+	padding: 0;
+
+	font-size: 0.8em;
+}
+
+#chatinfo-settings {
+	width: auto;
+	height: 4em;
+}
+
+/*NEW CHAT*/
+
+#newchat {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-column-gap: 1em;
+
+	background: #fff;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	/*width: 20%;*/
+
+	padding: 0.2em;
+
+	text-decoration: none;
+	color: #000;
+
+	border-radius: 3em;
+	border: 0.15em solid #000;
+}
+
+#newchat:hover {
+	background: #efefef;
+}
+
+#newchat-icon {
+	width: auto;
+	height: 3em;
+}
+
+#newchat-title {
+	margin: 0.8em 0 0 0;
+	padding: 0;
+	padding-right: 1em;
+}
+
+/*chatpreview*/
+
+.chatpreview {
+	display: grid;
+	grid-template-columns: auto 1fr;
+
+	grid-column-gap: 1em;
+
+	background: #fff;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	/*width: 20%;*/
+
+	padding: 0.2em;
+
+	text-decoration: none;
+	color: #000;
+}
+
+.chatpreview-icon {
+	width: auto;
+	height: 3em;
+}
+
+.chatpreview-title {
+	margin: 0.5em 1em 0 0;
+}
+
+.chatpreview-lastmessage {
+	margin: 0;
+
+	font-size: 0.6em;
+
+	color: #888888;
+}
+
+#sendform-container {
+	display: grid;
+	grid-template-columns: 1fr auto;
+
+	grid-column-gap: 0.3em;
+
+	background: #fff;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 60%;
+
+	padding: 0.4em;
+
+	/*box-sizing: border-box;*/
+}
+
+#sendform-box {
+	border: 0.2em solid #000;
+	border-radius: 1em;
+	font-size: 1.1em;
+	padding: 0.4em;
+}
+
+#sendform-text {
+	/*outline: none;*/
+	border: none;
+	resize: none;
+	width: 100%;
+	font-size: 1.2em;
+	box-sizing: border-box;
+}
+
+#sendform-button {
+	width: 4em;
+	/*height: 4em;*/
+
+	background-image: url('img/sendbutton.svg');
+	background-repeat: no-repeat;
+}
+
+#sendform-button:hover {
+	background-image: url('img/sendbutton-hover.svg');	
+}
