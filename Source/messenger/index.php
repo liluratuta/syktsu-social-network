@@ -65,37 +65,39 @@
 	function showMessage($user_data, $message_data) {
 		global $user_id;
 
-		echo "<div class=\"message_box";
+		echo "<div class=\"messagebox";
 
 		if ($message_data['user_id'] == $user_id) {
-			echo " message_box-float";
+			echo " messagebox-float";
 		}
 
 		echo "\">";
-		echo "<img class=\"user_icon\" src=\"".$user_data['icon']."\">";
-		echo "<p>".$user_data['firstname']." ".$user_data['lastname']."</p>";
-		echo "<p>".$message_data['data']."</p>";
-		echo "<p>".$message_data['date']."</p>";
+		echo "<div class=\"messagebox-userdata\">";
+		echo "<img class=\"messagebox-icon\" src=\"".$user_data['icon']."\">";
+		echo "<p class=\"messagebox-username\">".$user_data['firstname']." ".$user_data['lastname']."</p>";
+		echo "</div>";
+		echo "<p class=\"messagebox-data\">".htmlspecialchars_decode($message_data['data'])."</p>";
+		echo "<p class=\"messagebox-date\">".$message_data['date']."</p>";
 		echo "</div>";
 	}
 
 	function showMessageList($chat_id) {
-		global $mysqli;
+		// global $mysqli;
 
-		echo "<div id=\"message_list_container\">";
+		echo "<div id=\"messagelist-container\">";
 
-		$m_list = $mysqli->query("SELECT * from messages 
-								 where chat_id=".$chat_id." order by date desc limit 5");
+		// $m_list = $mysqli->query("SELECT * from messages 
+		// 						 where chat_id=".$chat_id." order by date desc limit 5");
 
-		while ($m_row = $m_list->fetch_assoc()) {
-			$user_data = ($mysqli->query("SELECT * from users where id=".$m_row['user_id']))->fetch_assoc();
+		// while ($m_row = $m_list->fetch_assoc()) {
+		// 	$user_data = ($mysqli->query("SELECT * from users where id=".$m_row['user_id']))->fetch_assoc();
 
-			echo "<div class=\"message_list_line\">";
+		// 	echo "<div class=\"messagelist-line\">";
 			
-			showMessage($user_data, $m_row);
+		// 	showMessage($user_data, $m_row);
 
-			echo "</div>";
-		}
+		// 	echo "</div>";
+		// }
 
 		echo "</div>";
 	}
@@ -265,19 +267,26 @@
 			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
 		}
+
+		function getLastMessages() {
+			req.open("POST", "get_last_messages.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
+		}
 		
 
 
 		// Функция запроса на отправку сообщения
 
-		entryField.addEventListener("keyup", function(event) {
+		entryField.addEventListener("keypress", function(event) {
 			if (!event.shiftKey && event.keyCode === 13) {
 
 				event.preventDefault();
 
 				sendButton.click();
 			}
-		});
+		}, false);
 
 		sendButton.onclick = function sendMessage() {
 			
@@ -300,17 +309,17 @@
 
 		function messageOutput(message_data, success) {
 			// var entryField = document.getElementById("sendform-entry-field");
-			var container = document.getElementById("message_list_container");
+			var container = document.getElementById("messagelist-container");
 
 			var message_line = document.createElement('div');
-			message_line.className = 'message_list_line';
+			message_line.className = 'messagelist-line';
 			var message_box = document.createElement('div');
-			message_box.className = 'message_box';
+			message_box.className = 'messagebox';
 
-			var icon = document.createElement('img'); icon.className = 'user_icon'; 
-			var name = document.createElement('p'); 
-			var data = document.createElement('p'); 
-			var date = document.createElement('p'); 
+			var icon = document.createElement('img'); icon.className = 'messagebox-icon'; 
+			var name = document.createElement('p'); name.className = 'messagebox-username';
+			var data = document.createElement('p'); data.className = 'messagebox-data';
+			var date = document.createElement('p'); date.className = 'messagebox-date';
 
 			if (success == 'false') {
 				data.innerHTML = 'Сообщение не отправлено';
@@ -327,14 +336,23 @@
 			data.innerHTML = message_data['data'];
 			date.innerHTML = message_data['date'];
 
-			message_box.appendChild(icon);
-			message_box.appendChild(name);
+			messagebox_userdata = document.createElement('div');
+			messagebox_userdata.className = 'messagebox-userdata';
+
+
+			messagebox_userdata.appendChild(icon);
+			messagebox_userdata.appendChild(name);
+			
+			message_box.appendChild(messagebox_userdata);
 			message_box.appendChild(data);
 			message_box.appendChild(date);
 
 			message_line.appendChild(message_box);
 
 			container.appendChild(message_line);
+
+			console.log('width', container.offsetHeight, container.clientHeight, container.scrollHeight);
+			container.scrollTo(0, container.scrollHeight);
 
 			// entryField.value = '';
 		}
@@ -371,6 +389,20 @@
 							for(m_index in serverRequest['message_list']) {
 								messageOutput(serverRequest['message_list'][m_index], 'true')
 							}
+
+							currentDate = serverRequest['message_list'][m_index]['date'];
+						}
+						break;
+					case 'getLastMessages':
+
+						if (serverRequest['request_success'] == 'true') {
+							
+							var m_index = 0;
+
+							for(m_index in serverRequest['message_list']) {
+								messageOutput(serverRequest['message_list'][m_index], 'true')
+							}
+
 							currentDate = serverRequest['message_list'][m_index]['date'];
 						}
 						break;
@@ -381,6 +413,7 @@
 		}
 
 		getCurrentDate();
+		getLastMessages();
 		setInterval(getNewMessages, 1000);
 
 		var leftCnt = document.getElementById('left_container');
