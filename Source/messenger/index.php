@@ -10,8 +10,12 @@
 <?php
 	function showChatPreview($chat_data) {
 
-		echo "<a class=\"сhat-preview\" href=\"?chat_id=".$chat_data['id']."\">
-		<img class=\"chat_icon\" src=\"".$chat_data['icon']."\">".$chat_data['name']."</a>";
+		echo "<a class=\"chatpreview\" href=\"?chat_id=".$chat_data['id']."\">";
+		echo "<img class=\"chatpreview-icon\" src=\"".$chat_data['icon']."\">";
+		echo "<div>
+				<p class=\"chatpreview-title\">".$chat_data['name']."</p>
+				<p class=\"chatpreview-lastmessage\">Last message</p>
+			</div></a>";		
 	}
 
 	function showChatList($user_id) {
@@ -39,12 +43,20 @@
 
 	function showChatHeader($chat_id, $chat_data, $user_role) {
 
-		echo "<div id=\"chat_info_container\">";
-		echo "<img class=\"chat_icon\" src=\"".$chat_data['icon']."\">";
-		echo "<div id=\"chat_info_title\">".$chat_data['name']."</div>";
+		echo "<div id=\"chatinfo-container\">";
+		echo "<img id=\"chatinfo-leftarrow\" src=\"img/left-arrow.svg\">";
 		
+		echo "<div id=\"chatinfo-header\">";
+			echo "<img id=\"chatinfo-icon\" src=\"".$chat_data['icon']."\">";
+
+			echo "<div>";
+			echo "<div id=\"chatinfo-title\">".$chat_data['name']."</div>";
+			echo "<p id=\"chatinfo-usercnt\">124 участника</p>";
+			echo "</div>";
+		echo "</div>";
+
 		if ($user_role == 0) {
-			echo "<a id=\"options_button\" href=\"settings.php?chat_id=".$chat_id."\">...</a>";
+			echo "<img id=\"chatinfo-settings\" src=\"img/settings.svg\">";
 		}
 	
 		echo "</div>";
@@ -153,7 +165,12 @@
 	
 	<div id="left_container">
 		
-		<a id="create-chat_button" href="create_new_chat.php">создать чат</a>
+		<!-- <a id="create-chat_button" href="create_new_chat.php">создать чат</a> -->
+
+		<a id="newchat" href="create_new_chat.php">
+			<img id="newchat-icon" src="img/newchat.svg">
+			<p id="newchat-title">Создать новый чат</p>
+		</a>
 		
 		<?php showChatList($user_id);?>
 		
@@ -186,27 +203,7 @@
 	</div>
 
 	<script type="text/javascript">
-		var req = new XMLHttpRequest();
-
-		var sendButton = document.getElementById("sendform-button");
-
-		currentDate = 0;
-
-		function getCurrentDate() {
-			req.open("GET", "get_current_date.php", true);
-			req.onreadystatechange = handleServerResponse;
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			req.send();
-		}
-
-		function getNewMessages() {
-			req.open("POST", "get_new_messages.php", true);
-			req.onreadystatechange = handleServerResponse;
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
-		}
-		
-		// Функция для плучения переменных из URL
+				// Функция для плучения переменных из URL
 
 		var getUrlParameter = function getUrlParameter(sParam) {
 		    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -223,11 +220,48 @@
 		    }
 		};
 
+		var req = new XMLHttpRequest();
+
+		var sendButton;
+		var entryField;
+		var currentDate = 0;
+
+		if (getUrlParameter('chat_id') != undefined) {
+
+			sendButton = document.getElementById("sendform-button");
+ 			entryField = document.getElementById("sendform-entry-field");
+
+		}
+
+		function getCurrentDate() {
+			req.open("GET", "get_current_date.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send();
+		}
+
+		function getNewMessages() {
+			req.open("POST", "get_new_messages.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
+		}
+		
+
+
 		// Функция запроса на отправку сообщения
+
+		entryField.addEventListener("keyup", function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+
+				sendButton.click();
+			}
+		});
 
 		sendButton.onclick = function sendMessage() {
 			
-			var entryField = document.getElementById("sendform-entry-field");
+			// var entryField = document.getElementById("sendform-entry-field");
 			if (entryField.value == "") {
 				return;
 			}
@@ -245,7 +279,7 @@
 		// Функция для вывода сообщения в чат
 
 		function messageOutput(message_data, success) {
-			var entryField = document.getElementById("sendform-entry-field");
+			// var entryField = document.getElementById("sendform-entry-field");
 			var container = document.getElementById("message_list_container");
 
 			var message_line = document.createElement('div');
@@ -282,7 +316,7 @@
 
 			container.appendChild(message_line);
 
-			entryField.value = '';
+			// entryField.value = '';
 		}
 
 		// Обработчик ответов от сервера
@@ -297,13 +331,19 @@
 
 				switch(serverRequest['header']) {
 					case 'sendMessage':
+
 						messageOutput(serverRequest, serverRequest['request_success']);
 						currentDate = serverRequest['date'];
+						entryField.value = '';
 						break;
+
 					case 'getCurrentDate':
+
 						currentDate = serverRequest['date'];
 						break;
+
 					case 'getNewMessages':
+
 						if (serverRequest['request_success'] == 'true') {
 							
 							var m_index = 0;
@@ -314,6 +354,7 @@
 							currentDate = serverRequest['message_list'][m_index]['date'];
 						}
 						break;
+						
 				}
 			}
 
@@ -322,6 +363,15 @@
 		getCurrentDate();
 		setInterval(getNewMessages, 1000);
 
+		var leftarrow = document.getElementById('chatinfo-leftarrow');
+		leftarrow.onclick = function() {
+
+			var leftCnt = document.getElementById('left_container');
+			var rightCnt = document.getElementById('right_container');
+			console.log({leftCnt});
+			leftCnt.style.display = 'block';
+			rightCnt.style.display = 'none';
+		}
 
 
 	</script>
