@@ -87,10 +87,16 @@ function new_comment(){
 // 	elem.style.top = j + "px";
 // 	}
 // }
-var textarea = document.querySelector('textarea');
 
-textarea.addEventListener('keyup', function(){
-  if(this.scrollTop > 0){
-    this.style.height = this.scrollHeight + "px";
-  }
-});
+function unfr_show(){
+var elem1 = document.getElementById('fr_user');
+var elem2 = document.getElementById('unfr_user');
+elem1.style.display = 'none';
+elem2.style.display = 'block';
+}
+function fr_show(){
+var elem1 = document.getElementById('fr_user');
+var elem2 = document.getElementById('unfr_user');	
+elem1.style.display ='block';
+elem2.style.display ='none';
+}
