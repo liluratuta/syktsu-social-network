@@ -654,3 +654,15 @@ button{
 		left: 422.5px;
 	}
 }
+@media(max-width: 360px){
+	.profile-image{
+		display: none;
+	}
+	.header-settings{
+		left: 327px;
+	}
+	.header-settings-div{
+		left: 257px;
+	}
+
+}
