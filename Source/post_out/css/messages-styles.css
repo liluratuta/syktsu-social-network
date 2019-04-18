@@ -139,5 +139,10 @@
 	.box-header-settings {
     left: 1238px;
 	}
-		
+	.attach-button {
+    left: 623px;
+	}
+	.send-button {
+    left: 1238px;
+	}
 }

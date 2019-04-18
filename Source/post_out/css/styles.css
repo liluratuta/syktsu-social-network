@@ -19,7 +19,7 @@ button{
 	top: 0;
 	background-color: rgba(0,0,0,0.7);
 	width: 100%;
-	min-height: 100%;
+	min-height: 1453px;
 	display: none;
 }
 .dialog-button, .friends-button{
@@ -39,8 +39,10 @@ button{
 }
 .button-div{
 	display: inline-block;
-	margin-right: 50px;
 	padding-top: 10px;
+}
+.button-div:first-of-type{
+	margin-right: 60px;
 }
 .header{
 	width: 100%;
@@ -54,6 +56,17 @@ button{
 	width: 58px;
 	margin-left: auto;
 	margin-right: auto;
+}
+.header-name{
+	width: 50px;
+	position: absolute;
+	padding-top: 15px;
+	padding-left: 30px;
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+}
+.span-name{
+
 }
 .header-image{
 	width: 150px;
@@ -75,7 +88,9 @@ button{
 	
 }
 .header-bottom-buttons{
-	margin-left: 350px;
+	width: 480px;
+	margin-right: auto;
+	margin-left: auto;
 }
 .header-settings{
 	background-image: url(../images/settings.png);
@@ -110,6 +125,10 @@ button{
 	padding-top: 10px;
 
 }
+.settings-list-item:hover{
+	background-color: #E6ECF0;	
+}
+
 .settings-list-item a{
 	text-decoration: none;
 	color: #000;
@@ -152,6 +171,8 @@ button{
 	margin-right: auto;
 	margin-left: auto;
 	padding-bottom: 10px;
+	padding-top: 10px;
+
 }
 .new-post-text{
 	width: 95%;
@@ -166,6 +187,7 @@ button{
 	border-radius: 15px;
 	font-size: 16px;
 	min-height: 50px;
+	white-space: normal;
 }
 .new-post-button{
 	width: 32px;
@@ -175,13 +197,32 @@ button{
 	background-size: cover;
 	border: none;
 }
+.new-img-button{
+	width: 35px;
+	height: 30px;
+	background-color: #fff;
+	background-image: url(../images/image1.png);
+	background-size: cover;
+	border: none;
+}
+.new-post-img{
+	display: inline-block;
+	width: 35px;
+	margin-left: 12px;
+}
 .new-post-publish{
 	margin-top: 5px;
-	margin-left: 560px;
+	margin-left: 513px;
+	display: inline-block;
 }
 .new-post-input:focus{
 	outline: none;
 }
+.new-post-pre-img img{
+	width: 100px;
+	height: 75px;
+}
+
 .news{
 	width: 40%;
 	margin-left: auto;
@@ -242,19 +283,17 @@ button{
 	background-size: cover;
 	display: block;
 }
-.like-true{
+.like-true .like .like-icon{
 	background-image: url(../images/like-true.png);
 	height: 30px;
 	width: 30px;
 	background-size: cover;
-	display: none;
 }
-.dislike-true{
+.dislike-true .dislike .dislike-icon{
 	background-image: url(../images/dislike-true.png);
 	height: 30px;
 	width: 30px;
 	background-size: cover;
-	display: none;
 
 }
 .dislike-icon{
@@ -321,9 +360,9 @@ button{
 	margin-left: 454px;
 }
 .comment-pop-out{
-	position: absolute;
-	left: 465px;
-	top: 750px;
+	position: fixed;
+	left: 380px;
+	top: 50px;
 	background-color: #fff;
 	border: 1px solid #E6ECF0;
 	border-radius: 10px;
@@ -408,6 +447,31 @@ button{
 	background-color: #fff;
 	width: 100%;
 }
+.copyright{
+	padding-top: 10px;
+	margin-left: 10px;
+	display: inline-block;
+	width: 250px;
+}
+.footer-up-button{
+	padding-top: 5px;
+	display: inline-block;
+	width: 50px;
+	position: absolute;
+	left: 1440px;
+}
+.up-button:focus{
+	outline: none;
+}
+.up-button:hover{
+	background-color: #ccc;
+}
+.up-button-img{
+	background-image: url(../images/up.png);
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+}
 /*------------------------------------*/
 .news-post-pop-out{
 	min-height: 450px;
@@ -417,7 +481,7 @@ button{
 	left: 450px;
 	top: 440px;
 	display: none;
-	border-bottom: 1px solid #000;
+	border: 1.5px solid #556080;
 	border-radius: 10px;
 }
 .news-post-pop-out-img{
@@ -432,8 +496,8 @@ button{
 	margin-left: 10px;
 }
 .news-post-pop-out-text{
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-right: 15px;
+	padding-left: 15px;
 	text-align: justify;
 	line-height: 1.5;
 	margin-bottom: 10px;	
@@ -450,7 +514,28 @@ button{
 .pop-out-like-div{
 	margin-left: 474px;
 }
-@media (max-width: 1920px){
+.error{
+	position: absolute;
+	width: 150px;
+	height: 100px;
+	top: 20px;
+	left: 20px;
+	border: 1px solid #f00;
+	border-radius: 10px;
+	display: none;
+}
+.error-div{	
+	width: 100%;	
+}
+.error-text{
+	color: #f00;
+	font-weight: 600;
+	line-height: 1.5;
+	font-size: 18px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+@media(max-width: 1920px){
 	.header-settings{
 		left: 1820px;
 	}
@@ -458,18 +543,83 @@ button{
 		left: 1740px;
 	}
 	.new-post-publish{
-		margin-left: 710px
+		margin-left: 710px;
 	}
 	.like-div{
-		margin-left: 540px
+		margin-left: 540px;
 	}
 	.comment-like {
     	margin-left: 603px;
 	}
-		
+	.pop-out-like-div {
+    margin-left: 636px;
+	}
+
 }
 @media(max-width: 900px){
 	.header-settings{
 		left: 1236px;
+	}
+}
+@media(max-width: 1600px){
+	.header-settings{
+		left: 1460px;
+	}
+	.header-settings-div{
+		left: 1380px;
+	}
+	.new-post-publish{
+		margin-left: 513px;
+	}
+	.like-div{
+		margin-left: 394px;
+	}
+	.like-icon, .dislike-icon{
+		width: 25px;
+		height: 25px;
+	}
+	.like-number{
+		font-size: 20px;
+	}
+	.com-like-icon{
+		width: 20px;
+		height: 20px;
+	}
+	.com-dislike-icon{
+		width: 20px;
+		height: 20px;
+	}
+	.com-like-number{
+		font-size: 18px;
+	}
+	.comment-like {
+    	margin-left: 454px;
+	}
+	.comment-icon{
+		width: 25px;
+		height: 25px;
+	}
+	.pop-out-like-div {
+    margin-left: 474px;
+	}
+}
+@media(max-width: 1360px){
+	.header-settings{
+		left: 1302px;
+	}
+	.header-settings-div{
+		left: 1222px;
+	}
+	.new-post-publish{
+		margin-left: 497px;
+	}
+	.like-div{
+		margin-left: 394px;
+	}
+	.comment-like {
+    	margin-left: 394px;
+	}
+	.pop-out-like-div {
+    margin-left: 474px;
 	}
 }
