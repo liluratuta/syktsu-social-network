@@ -83,10 +83,6 @@ function comments(id_page){
 			}
 		http.send(params);
 	}
-	this.check = function(){
-		console.log('start_sheck');
-		writeOneComment();
-	}
 	//private
 	//check data
 	function startUpdate(){

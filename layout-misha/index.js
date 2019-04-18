@@ -100,3 +100,11 @@ var elem2 = document.getElementById('unfr_user');
 elem1.style.display ='block';
 elem2.style.display ='none';
 }
+function attach_img(){
+	var elem1 = document.getElementById('delete');
+	if(elem1.style.display == 'block'){
+		elem1.style.display = 'none';	
+	}
+	else
+	elem1.style.display = 'block';	
+}
