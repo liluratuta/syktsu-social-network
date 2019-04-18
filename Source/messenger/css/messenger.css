@@ -13,10 +13,11 @@ body {
 
 #main_container {
 	display: grid;
-	grid-template-columns: 1fr 3fr;
+	grid-template-columns: 1fr 2fr;
 	grid-column-gap: 0.3em;
 
-	/*width: 90%;*/
+	width: 70%;
+	/*height: 100vh;*/
 	margin: auto;
 }
 
@@ -24,6 +25,8 @@ body {
 	display: grid;
 	grid-template-rows: auto 1fr;
 	grid-row-gap: 0.3em;
+
+	height: 100vh;
 }
 
 /* CREATE_CHAT_BUTTON */
@@ -76,8 +79,6 @@ body {
 	grid-row-gap: 0.3em;
 
 	overflow-y: scroll;
-
-	height: 33em;
 }
 
 .chatpreview {
@@ -88,7 +89,7 @@ body {
 
 	background: #fff;
 
-	padding: 0.2em;
+	padding: 0.5em;
 
 	text-decoration: none;
 	color: #000;
@@ -124,7 +125,7 @@ body {
 #right_container {
 	display: grid;
 
-	height: 100%;
+	height: 100vh;
 
 	grid-template-rows: auto 1fr auto;
 	grid-row-gap: 0.3em;
@@ -224,38 +225,75 @@ body {
 
 /* MESSAGE LIST */
 
-#message_list_container {
-	display: grid;
-	grid-row-gap: 0.3em;
-
+#messagelist-container {
 	overflow-y: scroll;
-	/*height: 450px;*/
-	/*background-color: #ececec;*/
-
-	height: 28em;
-}
-
-.message_list_line {
-	padding: 0 1em;
-	/*clear: both;*/	
-}
-
-.message_box {
-	float: left;
-
 	background-color: #fff;
-	color: #000;
+	/*height: 28em;*/
 
-	border: 0.16em solid #3a70a6;
+	padding: 0.5em 1em;
+}
+
+.messagelist-line {
+	display: grid;
+	grid-template-areas: "left right";
+
+	margin-bottom: 0.5em;
+}
+
+.messagebox {
+	grid-area: left;
+
+	display: grid;
+	grid-row-gap: 0.4em;
+
+	background-color: #e6ecf0;
 	border-radius: 0.5em;
 
-	padding: 0.5em;
-	max-width: 50%;
+	padding: 0.8em;
 }
 
-.message_box-float {
-	float: right;
+.messagebox-float {
+	grid-area: right;
 }
+
+.messagebox-userdata {
+	display: grid;
+	grid-column-gap: 0.3em;
+	grid-template-columns: auto 1fr;
+}
+
+.messagebox-icon {
+
+	width: 2em;
+	height: 2em;
+
+	border-radius: 50%;
+}
+
+.messagebox-username {
+
+	color: #767676;
+	font-size: 0.8em;
+
+	margin: 0;
+	padding: 0.5em 0;
+}
+
+.messagebox-data {
+
+	color: #000;
+
+	margin: 0;
+}
+
+.messagebox-date {
+	color: #767676;
+	font-size: 0.8em;
+
+	margin: 0;
+}
+
+
 
 /* SEND FORM */
 
@@ -273,7 +311,7 @@ body {
 
 #sendform-box {
 	border: 0.2em solid #000;
-	border-radius: 1em;
+	border-radius: 0.5em;
 	font-size: 1.1em;
 	padding: 0.4em;
 }
@@ -297,7 +335,7 @@ body {
 }
 
 #sendform-button {
-	width: 4em;
+	width: 3em;
 	height: 100%;
 
 	background-image: url('../img/sendbutton.svg');

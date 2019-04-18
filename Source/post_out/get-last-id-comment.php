@@ -6,8 +6,14 @@
 
 	$query = "SELECT id_comment FROM comments ORDER BY id_comment DESC LIMIT 1"; 
 	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-	$row = mysqli_fetch_assoc($result);
+	if($row = mysqli_fetch_assoc($result)){
+		echo 'Good';
+		echo $row['id_comment'];
+	} else {
+		echo 'Good';
+		echo 1;
+	}
+			
 
-	echo 'Good';
-	echo $row['id_comment'];
+	
 ?>

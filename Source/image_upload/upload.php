@@ -3,7 +3,7 @@
 
 // Название <input type="file">
 $input_name = 'file';
-
+//print_r($_FILES[$input_name]);
 // Разрешенные расширения файлов.
 $allow = array('png','jpeg','jpg');
 
@@ -113,7 +113,7 @@ if (isset($_FILES[$input_name])) {
         
         // Выводим сообщение о результате загрузки.
         if (!empty($success)) {
-            echo $name;
+            echo "good".$name;
         } else {
             echo '<p>' . $error . '</p>';
         }

@@ -59,7 +59,7 @@ function writeOnePost($in_data){
 			echo $in_data['text']."</div>";
 		echoDiv('feedback');
 			echoDiv('comment');
-				echo "<a href = '#' onclick = 'comments.activePost(".$in_data['id'].")''>";
+				echo "<a href = '#comment' title = 'comment' onclick = 'comments.activePost(".$in_data['id'].")' >";
 					echoDiv('comment-icon');
 						echo '</div>'; 
 					echo '</a>';

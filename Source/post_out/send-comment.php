@@ -12,8 +12,8 @@
 	$id_user = $auth->get_id();
 	$text = $_POST['text'];
 
-	$query = "INSERT INTO comments VALUES('',$id_post, $id_user, '$text', CURRENT_TIMESTAMP)"; 
-	echo $query;
+	$query = "INSERT INTO comments VALUES('',$id_post, $id_user, '$text', CURRENT_TIMESTAMP)";
+	//echo $query;
 	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 
 	if($result)

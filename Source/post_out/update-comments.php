@@ -14,7 +14,7 @@
 	$query = "SELECT id_comment FROM comments ORDER BY id_comment DESC LIMIT 1"; 
 	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 	$row = mysqli_fetch_assoc($result);
-	if(!isset($row)) exit('Error::line:15');
+	if(!isset($row)) exit('none');
 	if ($row['id_comment'] == $last_id) exit('none');
 
 	$query = "SELECT comments.id_post, users.icon, users.firstname, users.lastname, comments.datetime, comments.text, comments.id_comment FROM comments, users, posts WHERE comments.id_user = users.id AND comments.id_comment > $last_id AND posts.id_post = comments.id_post AND posts.id_user = $id_page ORDER BY id_comment"; 

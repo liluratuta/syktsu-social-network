@@ -5,7 +5,7 @@
 
 	if ( ($user_id = $auth->get_id()) === NULL) {
 		echo "{
-	 		\"header\":\"getNewMessages\",
+	 		\"header\":\"getLastMessages\",
 	 		\"request_success\":\"false\"
 	 	}";
 		exit();
@@ -13,25 +13,27 @@
 
 	if ( ($chat_id = $_POST['chat_id']) === NULL ) {
 		echo "{
-	 		\"header\":\"getNewMessages\",
+	 		\"header\":\"getLastMessages\",
 	 		\"request_success\":\"false\"
 	 	}";
 		exit();
 	}
 	
 	$message_list = $mysqli->query("SELECT * from messages 
-	 								   where chat_id=".$chat_id." and date > '".$_POST['current_date']."' order by date");
+	 								   where chat_id=".$chat_id." order by id desc limit 10");
 
 	if (mysqli_num_rows($message_list) == 0) {
 		echo "{
-	 		\"header\":\"getNewMessages\",
+	 		\"header\":\"getLastMessages\",
 	 		\"request_success\":\"false\"
 	 	}";
 		exit();
 	}
 
+	$message_list = array_reverse($message_list);
+
 	$response = "{
-			\"header\":\"getNewMessages\",
+			\"header\":\"getLastMessages\",
 	 		\"request_success\":\"true\",
 	 		\"message_list\":[
 		";
