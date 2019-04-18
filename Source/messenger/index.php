@@ -44,7 +44,7 @@
 	function showChatHeader($chat_id, $chat_data, $user_role) {
 
 		echo "<div id=\"chatinfo-container\">";
-		echo "<img id=\"chatinfo-leftarrow\" src=\"img/left-arrow.svg\">";
+		echo "<div id=\"chatinfo-leftarrow\"></div>";
 		
 		echo "<div id=\"chatinfo-header\">";
 			echo "<img id=\"chatinfo-icon\" src=\"".$chat_data['icon']."\">";
@@ -56,14 +56,22 @@
 		echo "</div>";
 
 		if ($user_role == 0) {
-			echo "<img id=\"chatinfo-settings\" src=\"img/settings.svg\">";
+			echo "<div id=\"chatinfo-settings\"></div>";
 		}
 	
 		echo "</div>";
 	}
 
 	function showMessage($user_data, $message_data) {
-		echo "<div class=\"message_box\">";
+		global $user_id;
+
+		echo "<div class=\"message_box";
+
+		if ($message_data['user_id'] == $user_id) {
+			echo " message_box-float";
+		}
+
+		echo "\">";
 		echo "<img class=\"user_icon\" src=\"".$user_data['icon']."\">";
 		echo "<p>".$user_data['firstname']." ".$user_data['lastname']."</p>";
 		echo "<p>".$message_data['data']."</p>";
@@ -93,12 +101,23 @@
 	}
 
 	function showSendForm($chat_id) {
-		echo "<div id=\"send_form_container\">";
-		// echo "<form action=\"send_message.php?chat_id=".$chat_id."\" method=\"POST\">";
-		echo "<input id=\"sendform-entry-field\" style=\"width: 60%;\" type=\"text\" name=\"data\">";
-		echo "<input id=\"sendform-button\" type=\"submit\" name=\"sender\" value=\"send\">";
-		// echo "</form>";
-		echo "</div>";
+
+		echo "<div id=\"sendform-container\">
+		<div id=\"sendform-box\">
+			<div contenteditable=\"true\" id=\"sendform-entryfield\"></div>
+		</div>
+		<div id=\"sendform-button\"></div>
+		</div>";
+
+// 		<div id=\"sendform-box\">
+// </div>
+
+		// echo "<div id=\"send_form_container\">";
+		// // echo "<form action=\"send_message.php?chat_id=".$chat_id."\" method=\"POST\">";
+		// echo "<input id=\"sendform-entry-field\" style=\"width: 60%;\" type=\"text\" name=\"data\">";
+		// echo "<input id=\"sendform-button\" type=\"submit\" name=\"sender\" value=\"send\">";
+		// // echo "</form>";
+		// echo "</div>";
 	}
 
 	function showRightSide($user_id) {
@@ -168,7 +187,7 @@
 		<!-- <a id="create-chat_button" href="create_new_chat.php">создать чат</a> -->
 
 		<a id="newchat" href="create_new_chat.php">
-			<img id="newchat-icon" src="img/newchat.svg">
+			<div id="newchat-icon"></div>
 			<p id="newchat-title">Создать новый чат</p>
 		</a>
 		
@@ -229,7 +248,7 @@
 		if (getUrlParameter('chat_id') != undefined) {
 
 			sendButton = document.getElementById("sendform-button");
- 			entryField = document.getElementById("sendform-entry-field");
+ 			entryField = document.getElementById("sendform-entryfield");
 
 		}
 
@@ -252,7 +271,8 @@
 		// Функция запроса на отправку сообщения
 
 		entryField.addEventListener("keyup", function(event) {
-			if (event.keyCode === 13) {
+			if (!event.shiftKey && event.keyCode === 13) {
+
 				event.preventDefault();
 
 				sendButton.click();
@@ -271,7 +291,7 @@
 
 			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			
-			var message = "data="+entryField.value+"&chat_id="+getUrlParameter('chat_id');
+			var message = "data="+entryField.innerHTML+"&chat_id="+getUrlParameter('chat_id');
 
 			req.send(message);
 		}
@@ -334,7 +354,7 @@
 
 						messageOutput(serverRequest, serverRequest['request_success']);
 						currentDate = serverRequest['date'];
-						entryField.value = '';
+						entryField.innerHTML = '';
 						break;
 
 					case 'getCurrentDate':
@@ -363,14 +383,30 @@
 		getCurrentDate();
 		setInterval(getNewMessages, 1000);
 
+		var leftCnt = document.getElementById('left_container');
+		var rightCnt = document.getElementById('right_container');
+
 		var leftarrow = document.getElementById('chatinfo-leftarrow');
 		leftarrow.onclick = function() {
 
-			var leftCnt = document.getElementById('left_container');
-			var rightCnt = document.getElementById('right_container');
-			console.log({leftCnt});
-			leftCnt.style.display = 'block';
+			leftCnt.style.display = 'grid';
 			rightCnt.style.display = 'none';
+		}
+
+		
+
+		window.onresize = function() {
+			console.log(window.innerWidth);
+			if (window.innerWidth > 1000) {
+				leftCnt.style.display = 'grid';
+				rightCnt.style.display = 'grid';
+			}
+			else {
+				leftCnt.style.display = 'none';
+				rightCnt.style.display = 'grid';
+			}
+
+
 		}
 
 
