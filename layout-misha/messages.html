@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сообщения</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/messages-styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
+	<meta charset="utf-8">
+	<script src="index.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class=header-top-div>
+			<div class="header-logo">
+				<img src="images/header-logo.png" width="58" height="58">
+			</div>
+			<a href="#" onclick="setting_show()">
+			<div class="header-settings"></div></a>
+		</div>
+		<div class="header-settings-div" id='set-div'>
+			<ul class="settings-list">
+				<li class="settings-list-item"><a href="profile.html">Моя страница</a></li>
+				<li class="settings-list-item"><a href="">Настройки</a></li>
+				<li class="settings-list-item"><a href="">Поддержка</a></li>
+				<li class="settings-list-item"><a href="">Выйти</a></li>
+			</ul>
+		</div>
+		<div class="header-image">
+			<img src="images/user.png" width="150" height="150">
+		</div>
+		<div class="profile-image"></div>
+		<div class="header-bottom-div">
+			<div class="header-bottom-buttons">
+				<div class="button-div">
+					<a href="#dialog" name="dialog" class="dialog-button">Диалоги</a> 
+				</div>
+				<div class="button-div">
+				 <a href="#friend" name="friend"class="friends-button">Друзья</a>
+				</div>
+			</div>
+		</div>  
+	</div>
+
+	<div class="messages">
+		<div class="messages-box">
+			<div class="box-header">
+				<a href="">
+				<div class="box-header-back">
+					<div class="box-header-back-img"></div>
+				</div></a>
+				<div class="box-header-text">Название беседы</div>
+				<a href="">
+				<div class="box-header-settings">
+					<div class="box-header-settings-img"></div>
+				</div></a>
+			</div>
+			<div class="messages-text">
+				<div class="user-message">
+					<div class="user-message-icon"></div>
+					<div class="user-message-name">Имя отправителя</div>
+					<div class="user-message-date">14.01.2019 11:10</div>
+					<div class="user-message-text">лалалал</div>
+				</div>
+			</div>
+			<div class="actions">
+				<a href="">
+				<div class="attach-button">
+					<div class="attach-button-img"></div>
+				</div></a>
+				<div class="send-text">
+					<input type="text" name="send-text" class="send-text-input" placeholder="Введите сообщение">
+				</div>
+				<a href="">
+				<div class="send-button">
+					<div class="send-button-img"></div>
+				</div></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="copyright"> 
+			<span>&copy; 2018</span>
+		</div>
+		<div class="footer-up-button"></div>
+	</div>
+
+</body>
+</html>

@@ -6,9 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
 	<script src="index.js"></script>
-	<script src="sendComments.js"></script>
-	<script src="sendPost.js"></script>
-	<script src="../like/js/sendLike.js" type="text/javascript"></script>
 </head>
 <body id="body">
 	<div class="bodydark" id='dark'></div>
@@ -47,7 +44,7 @@
 					<a href="dialogs.html" name="dialog" class="dialog-button">Диалоги</a> 
 				</div>
 				<div class="button-div">
-				 <a href="#friend" name="friend"class="friends-button">Друзья</a>
+				 <a href="friends.html" name="friend"class="friends-button">Друзья</a>
 				</div>
 			</div>
 		</div>  
@@ -61,49 +58,30 @@
 
 	<div class="main" id="main">
 		<div class="user">
-			<?php
-			//require_once __DIR__.'\..\profile-generate\profile-name.php';
-			?>
+			<div class="user-name">Имя </div>
+			<div class="user-lastname"> Фамилия</div>
 		</div>
 		<div class="new-post">
 			<div class="new-post-header">Новый пост</div>
-			<div class="new-post-text">
-<<<<<<< HEAD:Source/post_out/profile2.php
-				<input type="text" name="new-post-text" class="new-post-input" placeholder="Введите..." value="">
-=======
-				
+			<div class="new-post-text">				
 				<textarea class="new-post-input" placeholder="Введите..."></textarea>
->>>>>>> parent of e2435a2... добавил пример картинки в новом посте:layout-misha/profile.html
+			</div>
+			<div class="new-post-attach" id="attach" onmouseover="attach_img()">
+				<img src="images/example.jpg" class="attach-img">
+			</div>
+			<div class="new-post-delete" id="delete">
+				<img src="images/cross.png" class="delete-img">
 			</div>
 			<div class="new-post-img">
-				<button class="new-img-button" onclick="postWriter.openFile()"></button>
+				<button class="new-img-button"></button>
 			</div>
-			<div class="new-post-pre-img"></div>
 			<div class="new-post-publish">
-				<button class="new-post-button" onclick = 'postWriter.send()'></button>
+				<button class="new-post-button"></button>
 			</div>
-			
-				
-			
-			
 		</div>
 		<div class="news" id="news">
 				<div class="news-header">Новости</div>
 				<div class="news-header-line"></div>
-
-				<?php
-			require_once '../auth/auth-class.php';
-
-			require_once '../connect.php';
-			require_once '../const.php';
-			require_once '../like/write-like-module.php';
-			$auth->auth('test@gmail.com','1');
-			//echo $auth->get_Id();
-			require_once 'write-posts.php';
-			writeUserPosts(3);
-			
-			?>
-
 			<div class="news-post" id="news-post" >
 				<div class="news-post-date">14.03.2019 10:27</div>
 				<div class="news-post-img" onclick="news_post()">
@@ -240,11 +218,5 @@
 			</a>
 		</div>
 	</div>
-	<script>
-				var comments = new comments(3);
-				var postWriter = new post(3);
-
-			</script>
-			
 </body>
 </html>
