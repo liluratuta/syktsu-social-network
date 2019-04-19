@@ -62,13 +62,18 @@
 	<div class="main" id="main">
 		<div class="user">
 			<?php
-			require_once __DIR__.'\..\profile-generate\profile-name.php';
+			//require_once __DIR__.'\..\profile-generate\profile-name.php';
 			?>
 		</div>
 		<div class="new-post">
 			<div class="new-post-header">Новый пост</div>
 			<div class="new-post-text">
+<<<<<<< HEAD:Source/post_out/profile2.php
 				<input type="text" name="new-post-text" class="new-post-input" placeholder="Введите..." value="">
+=======
+				
+				<textarea class="new-post-input" placeholder="Введите..."></textarea>
+>>>>>>> parent of e2435a2... добавил пример картинки в новом посте:layout-misha/profile.html
 			</div>
 			<div class="new-post-img">
 				<button class="new-img-button" onclick="postWriter.openFile()"></button>

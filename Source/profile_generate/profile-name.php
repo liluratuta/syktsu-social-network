@@ -14,5 +14,6 @@
 
 	echo "<div class = 'user-name'>".$row['firstname']."</div>";
 	echo "<div class = 'user-lastname'>".$row['lastname']."</div>";
-
+	
+	
 ?>
