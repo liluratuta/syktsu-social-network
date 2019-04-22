@@ -219,7 +219,7 @@ button{
 .new-post-input:focus{
 	outline: none;
 }
-.new-post-pre-img img{
+.new-post-pre-img{
 	width: 100px;
 	height: 75px;
 }
