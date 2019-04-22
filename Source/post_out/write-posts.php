@@ -53,7 +53,7 @@ function writeOnePost($in_data){
 		echoDiv('news-post-date');
 			echo $in_data['date_time']."</div>";
 		echoDiv('news-post-img');
-			echo "<img src = '".$in_data['imageURL']."' width = '100%' height = '100%'>";
+			echo "<img src = '".$in_data['imageURL']."' width = '100%' height = '100%'  onclick = 'openPost.open(".$in_data['id'].")'>";
 			echo "</div>"; //тут изображение
 		echoDiv('news-post-text');
 			echo $in_data['text']."</div>";

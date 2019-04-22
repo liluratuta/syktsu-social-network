@@ -188,6 +188,10 @@ button{
 	font-size: 16px;
 	min-height: 50px;
 	white-space: normal;
+	resize: none;
+	max-height: 250px;
+	font-family: 'Source Sans Pro', sans-serif;
+	overflow: auto;
 }
 .new-post-button{
 	width: 32px;
@@ -204,11 +208,12 @@ button{
 	background-image: url(../images/image1.png);
 	background-size: cover;
 	border: none;
+	outline: none;
 }
 .new-post-img{
 	display: inline-block;
 	width: 35px;
-	margin-left: 12px;
+	margin-left: 17.5px;
 }
 .new-post-publish{
 	margin-top: 5px;
@@ -218,11 +223,39 @@ button{
 .new-post-input:focus{
 	outline: none;
 }
+
+
+<<<<<<< HEAD
 .new-post-pre-img img{
 	width: 100px;
 	height: 75px;
 }
-
+.new-post-attach{
+	margin-left: 17.5px;
+	margin-top: 10px;
+}
+.attach-img{
+	width: 60px;
+	height: 60px;
+}
+.new-post-delete{
+	width: 60px;
+	height: 60px;
+	background-color: #C1D6EB;
+	opacity: 0.7;
+	position: absolute;
+	left: 583.5px;
+	top: 564px;
+	display: none;
+}
+.delete-img{
+	width: 20px;
+	height: 20px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+/*=======
+>>>>>>> parent of e2435a2... добавил пример картинки в новом посте*/
 .news{
 	width: 40%;
 	margin-left: auto;
@@ -231,7 +264,11 @@ button{
 	display: block;
 }
 .news-post{
+/*<<<<<<< HEAD*/
 	border-bottom: 1px solid #000;
+/*=======*/
+	
+/*>>>>>>> parent of e2435a2... добавил пример картинки в новом посте*/
 	margin-bottom: 10px;
 	margin-top: 10px;
 	display: block;
@@ -278,21 +315,21 @@ button{
 }
 .like-icon{
 	background-image: url(../images/like.png);
-	height: 30px;
-	width: 30px;
+	height: 25px;
+	width: 25px;
 	background-size: cover;
 	display: block;
 }
 .like-true .like .like-icon{
 	background-image: url(../images/like-true.png);
-	height: 30px;
-	width: 30px;
+	height: 25px;
+	width: 25px;
 	background-size: cover;
 }
 .dislike-true .dislike .dislike-icon{
 	background-image: url(../images/dislike-true.png);
-	height: 30px;
-	width: 30px;
+	height: 25px;
+	width: 25px;
 	background-size: cover;
 
 }
@@ -316,8 +353,8 @@ button{
 .comment-icon{
 	background-image: url(../images/comment.png);
 	background-size: cover;
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 }
 .comment-out{
 	width: 90%;
@@ -360,15 +397,16 @@ button{
 	margin-left: 454px;
 }
 .comment-pop-out{
-	position: fixed;
-	left: 380px;
-	top: 50px;
+	position: absolute;
+	left: 465px;
+	top: 750px;
 	background-color: #fff;
 	border: 1px solid #E6ECF0;
 	border-radius: 10px;
 	min-height: 100px;
 	width: 587px;
 	display: none;
+	z-index: 10;
 }
 .comment-pop-out-user{
 	display: block;
@@ -478,9 +516,9 @@ button{
 	width: 45%;
 	background-color: #fff;
 	position: absolute;
-	left: 450px;
+	left: 370px;
 	top: 440px;
-	display: none;
+	display: block;
 	border: 1.5px solid #556080;
 	border-radius: 10px;
 }
@@ -543,7 +581,7 @@ button{
 		left: 1740px;
 	}
 	.new-post-publish{
-		margin-left: 710px;
+		margin-left: 657px;
 	}
 	.like-div{
 		margin-left: 540px;
@@ -602,6 +640,9 @@ button{
 	.pop-out-like-div {
     margin-left: 474px;
 	}
+	.footer-up-button{
+		left: 1820px;
+	}
 }
 @media(max-width: 1360px){
 	.header-settings{
@@ -622,4 +663,19 @@ button{
 	.pop-out-like-div {
     margin-left: 474px;
 	}
+	.new-post-delete{
+		left: 422.5px;
+	}
+}
+@media(max-width: 360px){
+	.profile-image{
+		display: none;
+	}
+	.header-settings{
+		left: 327px;
+	}
+	.header-settings-div{
+		left: 257px;
+	}
+
 }
