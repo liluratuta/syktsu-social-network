@@ -667,6 +667,29 @@ button{
 		left: 422.5px;
 	}
 }
+@media(max-width: 1345px){
+	.header-settings{
+		left: 1302px;
+	}
+	.header-settings-div{
+		left: 1222px;
+	}
+	.new-post-publish{
+		margin-left: 497px;
+	}
+	.like-div{
+		margin-left: 394px;
+	}
+	.comment-like {
+    	margin-left: 394px;
+	}
+	.pop-out-like-div {
+    margin-left: 474px;
+	}
+	.new-post-delete{
+		left: 422.5px;
+	}
+}
 @media(max-width: 360px){
 	.profile-image{
 		display: none;
