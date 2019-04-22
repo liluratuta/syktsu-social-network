@@ -243,17 +243,6 @@
 
 		var req = new XMLHttpRequest();
 
-		var sendButton;
-		var entryField;
-		var currentDate = 0;
-
-		if (getUrlParameter('chat_id') != undefined) {
-
-			sendButton = document.getElementById("sendform-button");
- 			entryField = document.getElementById("sendform-entryfield");
-
-		}
-
 		function getCurrentDate() {
 			req.open("GET", "get_current_date.php", true);
 			req.onreadystatechange = handleServerResponse;
@@ -272,38 +261,59 @@
 			req.open("POST", "get_last_messages.php", true);
 			req.onreadystatechange = handleServerResponse;
 			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
+			req.send("chat_id="+getUrlParameter('chat_id'));
 		}
+
+		var chatIsOpen = (getUrlParameter('chat_id') == undefined) ? false : true;
+
+		var sendButton;
+		var entryField;
+		var leftarrow;
+		var currentDate = 0;
+
+		if (chatIsOpen) {
+
+			sendButton = document.getElementById("sendform-button");
+ 			entryField = document.getElementById("sendform-entryfield");
+
+ 			
+
+ 			entryField.addEventListener("keypress", function(event) {
+				if (!event.shiftKey && event.keyCode === 13) {
+
+					event.preventDefault();
+
+					sendButton.click();
+				}
+			}, false);
+
+			sendButton.onclick = function sendMessage() {
+			
+				// var entryField = document.getElementById("sendform-entry-field");
+				if (entryField.value == "") {
+					return;
+				}
+
+				req.open("POST", "send_message_async.php", true);
+				req.onreadystatechange = handleServerResponse;
+
+				req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				
+				var message = "data="+entryField.innerHTML+"&chat_id="+getUrlParameter('chat_id');
+
+				req.send(message);
+			};
+		}
+
+		
 		
 
 
 		// Функция запроса на отправку сообщения
 
-		entryField.addEventListener("keypress", function(event) {
-			if (!event.shiftKey && event.keyCode === 13) {
+		
 
-				event.preventDefault();
-
-				sendButton.click();
-			}
-		}, false);
-
-		sendButton.onclick = function sendMessage() {
-			
-			// var entryField = document.getElementById("sendform-entry-field");
-			if (entryField.value == "") {
-				return;
-			}
-
-			req.open("POST", "send_message_async.php", true);
-			req.onreadystatechange = handleServerResponse;
-
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			
-			var message = "data="+entryField.innerHTML+"&chat_id="+getUrlParameter('chat_id');
-
-			req.send(message);
-		}
+		
 
 		// Функция для вывода сообщения в чат
 
@@ -351,7 +361,7 @@
 
 			container.appendChild(message_line);
 
-			console.log('width', container.offsetHeight, container.clientHeight, container.scrollHeight);
+			// console.log('width', container.offsetHeight, container.clientHeight, container.scrollHeight);
 			container.scrollTo(0, container.scrollHeight);
 
 			// entryField.value = '';
@@ -378,6 +388,7 @@
 					case 'getCurrentDate':
 
 						currentDate = serverRequest['date'];
+						// console.log(currentDate);
 						break;
 
 					case 'getNewMessages':
@@ -413,30 +424,45 @@
 		}
 
 		getCurrentDate();
-		getLastMessages();
-		setInterval(getNewMessages, 1000);
+
+		if (chatIsOpen) {
+			getLastMessages();
+			setInterval(getNewMessages, 1000);
+
+			leftarrow = document.getElementById('chatinfo-leftarrow');
+		}
 
 		var leftCnt = document.getElementById('left_container');
 		var rightCnt = document.getElementById('right_container');
 
-		var leftarrow = document.getElementById('chatinfo-leftarrow');
-		leftarrow.onclick = function() {
+		if (leftarrow) {
+			leftarrow.onclick = function() {
 
+				leftCnt.style.display = 'grid';
+				rightCnt.style.display = 'none';
+			}
+		}
+
+
+		if (window.innerWidth <= 1000 && !chatIsOpen) {
+			console.log('text');
 			leftCnt.style.display = 'grid';
 			rightCnt.style.display = 'none';
 		}
 
-		
-
 		window.onresize = function() {
-			console.log(window.innerWidth);
+			// console.log(window.innerWidth);
 			if (window.innerWidth > 1000) {
 				leftCnt.style.display = 'grid';
 				rightCnt.style.display = 'grid';
 			}
-			else {
+			else if (chatIsOpen){
 				leftCnt.style.display = 'none';
 				rightCnt.style.display = 'grid';
+			}
+			else {
+				leftCnt.style.display = 'grid';
+				rightCnt.style.display = 'none';
 			}
 
 
