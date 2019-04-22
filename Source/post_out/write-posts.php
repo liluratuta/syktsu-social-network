@@ -25,7 +25,7 @@ function writeFullCommentary($id_post){
 			'text' => $row['text']
 		]);
 	}
-
+	
 
 }
 
@@ -53,15 +53,15 @@ function writeOnePost($in_data){
 		echoDiv('news-post-date');
 			echo $in_data['date_time']."</div>";
 		echoDiv('news-post-img');
-			echo "<img src = '".$in_data['imageURL']."' width = '100%' height = '100%'>";
+			echo "<img src = '".$in_data['imageURL']."' width = '100%' height = '100%'  onclick = 'openPost.open(".$in_data['id'].")'>";
 			echo "</div>"; //тут изображение
 		echoDiv('news-post-text');
 			echo $in_data['text']."</div>";
 		echoDiv('feedback');
 			echoDiv('comment');
-				echo "<a href = '#'>";
+				echo "<a href = '#comment' title = 'comment' onclick = 'comments.activePost(".$in_data['id'].")' >";
 					echoDiv('comment-icon');
-						echo '</div>';
+						echo '</div>'; 
 					echo '</a>';
 				echo '</div>';
 				//тут где то коменты
@@ -70,8 +70,6 @@ function writeOnePost($in_data){
 			drawLikePost($in_data['id'], 1);
 			echo "</div>";
 		echoDiv('comment-pop-out'); 
-			echoDiv('comment-pop-out-text');
-				echo '</div>';
 			echo "</div>";
 		writeFullCommentary($in_data['id']);
 	echo "</div>";

@@ -28,7 +28,7 @@
 
 	if ($_POST['data'] != '') {
 		$mysqli->query("INSERT INTO messages(id, user_id, chat_id, data, date) 
-				    VALUES (NULL, ".$user_id.",".$chat_id.",'".$_POST['data']."',NOW())");
+				    VALUES (NULL, ".$user_id.",".$chat_id.",'".htmlspecialchars($_POST['data'])."',NOW())");
 	}
 
 	$user_data = ($mysqli->query("SELECT * from users where id=".$user_id))->fetch_assoc();

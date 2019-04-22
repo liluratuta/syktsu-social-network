@@ -46,12 +46,44 @@
 	background-color: #E6ECF0;
 }
 .dialogs-table-td{
-	outline: 1px solid #000;
 	border-radius: 5px;
-	width: 450px;
 	height: 50px;
 	padding-left: 10px;
 }
 .dialog-name{
 	font-weight: 700;
+}
+.dialog-user-img{
+	background-image: url(../images/user.png);
+	background-size: cover;
+	height: 20px;
+	width: 20px;
+	display: inline-block;
+}
+.dialog-text{
+	display: inline-block;
+	width: 300px;
+	vertical-align: top;
+	padding-top: 1px;
+}
+.dialog-time{
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 1px;
+}
+@media(max-width: 1920px){
+	.dialogs-table-td{
+		width: 550px;
+	}
+	.dialog-time{
+	margin-left: 30px;
+	}
+}
+@media(max-width: 1500px){
+	.dialogs-table-td{
+		width: 400px;
+	}
+	.dialog-time{
+		margin-left: 20px;
+	}
 }

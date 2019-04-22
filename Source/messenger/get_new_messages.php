@@ -40,9 +40,10 @@
 		$user_data = ($mysqli->query("SELECT * from users where id=".$row['user_id']))->fetch_assoc();
 
 		$response .= "{
+				\"user_id\":\"".$user_data['id']."\",
 			 	\"icon_src\":\"".$user_data['icon']."\",
 			 	\"user_name\":\"".$user_data['firstname']." ".$user_data['lastname']."\",
-			 	\"data\":\"".$row['data']."\",
+			 	\"data\":\"".htmlspecialchars_decode($row['data'])."\",
 			 	\"date\":\"".$row['date']."\"
 			},";
 	}

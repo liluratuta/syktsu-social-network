@@ -10,8 +10,12 @@
 <?php
 	function showChatPreview($chat_data) {
 
-		echo "<a class=\"сhat-preview\" href=\"?chat_id=".$chat_data['id']."\">
-		<img class=\"chat_icon\" src=\"".$chat_data['icon']."\">".$chat_data['name']."</a>";
+		echo "<a class=\"chatpreview\" href=\"?chat_id=".$chat_data['id']."\">";
+		echo "<img class=\"chatpreview-icon\" src=\"".$chat_data['icon']."\">";
+		echo "<div>
+				<p class=\"chatpreview-title\">".$chat_data['name']."</p>
+				<p class=\"chatpreview-lastmessage\">Last message</p>
+			</div></a>";		
 	}
 
 	function showChatList($user_id) {
@@ -39,54 +43,83 @@
 
 	function showChatHeader($chat_id, $chat_data, $user_role) {
 
-		echo "<div id=\"chat_info_container\">";
-		echo "<img class=\"chat_icon\" src=\"".$chat_data['icon']."\">";
-		echo "<div id=\"chat_info_title\">".$chat_data['name']."</div>";
+		echo "<div id=\"chatinfo-container\">";
+		echo "<div id=\"chatinfo-leftarrow\"></div>";
 		
+		echo "<div id=\"chatinfo-header\">";
+			echo "<img id=\"chatinfo-icon\" src=\"".$chat_data['icon']."\">";
+
+			echo "<div>";
+			echo "<div id=\"chatinfo-title\">".$chat_data['name']."</div>";
+			echo "<p id=\"chatinfo-usercnt\">124 участника</p>";
+			echo "</div>";
+		echo "</div>";
+
 		if ($user_role == 0) {
-			echo "<a id=\"options_button\" href=\"settings.php?chat_id=".$chat_id."\">...</a>";
+			echo "<div id=\"chatinfo-settings\"></div>";
 		}
 	
 		echo "</div>";
 	}
 
 	function showMessage($user_data, $message_data) {
-		echo "<div class=\"message_box\">";
-		echo "<img class=\"user_icon\" src=\"".$user_data['icon']."\">";
-		echo "<p>".$user_data['firstname']." ".$user_data['lastname']."</p>";
-		echo "<p>".$message_data['data']."</p>";
-		echo "<p>".$message_data['date']."</p>";
+		global $user_id;
+
+		echo "<div class=\"messagebox";
+
+		if ($message_data['user_id'] == $user_id) {
+			echo " messagebox-float";
+		}
+
+		echo "\">";
+		echo "<div class=\"messagebox-userdata\">";
+		echo "<img class=\"messagebox-icon\" src=\"".$user_data['icon']."\">";
+		echo "<p class=\"messagebox-username\">".$user_data['firstname']." ".$user_data['lastname']."</p>";
+		echo "</div>";
+		echo "<p class=\"messagebox-data\">".htmlspecialchars_decode($message_data['data'])."</p>";
+		echo "<p class=\"messagebox-date\">".$message_data['date']."</p>";
 		echo "</div>";
 	}
 
 	function showMessageList($chat_id) {
-		global $mysqli;
+		// global $mysqli;
 
-		echo "<div id=\"message_list_container\">";
+		echo "<div id=\"messagelist-container\">";
 
-		$m_list = $mysqli->query("SELECT * from messages 
-								 where chat_id=".$chat_id." order by date desc limit 5");
+		// $m_list = $mysqli->query("SELECT * from messages 
+		// 						 where chat_id=".$chat_id." order by date desc limit 5");
 
-		while ($m_row = $m_list->fetch_assoc()) {
-			$user_data = ($mysqli->query("SELECT * from users where id=".$m_row['user_id']))->fetch_assoc();
+		// while ($m_row = $m_list->fetch_assoc()) {
+		// 	$user_data = ($mysqli->query("SELECT * from users where id=".$m_row['user_id']))->fetch_assoc();
 
-			echo "<div class=\"message_list_line\">";
+		// 	echo "<div class=\"messagelist-line\">";
 			
-			showMessage($user_data, $m_row);
+		// 	showMessage($user_data, $m_row);
 
-			echo "</div>";
-		}
+		// 	echo "</div>";
+		// }
 
 		echo "</div>";
 	}
 
 	function showSendForm($chat_id) {
-		echo "<div id=\"send_form_container\">";
-		// echo "<form action=\"send_message.php?chat_id=".$chat_id."\" method=\"POST\">";
-		echo "<input id=\"sendform-entry-field\" style=\"width: 60%;\" type=\"text\" name=\"data\">";
-		echo "<input id=\"sendform-button\" type=\"submit\" name=\"sender\" value=\"send\">";
-		// echo "</form>";
-		echo "</div>";
+
+		echo "<div id=\"sendform-container\">
+		<div id=\"sendform-box\">
+			<div contenteditable=\"true\" id=\"sendform-entryfield\"></div>
+		</div>
+		<div id=\"sendform-button\"></div>
+		</div>";
+
+// 		<div id=\"sendform-box\">
+// </div>
+
+		// echo "<div id=\"send_form_container\">";
+		// // echo "<form action=\"send_message.php?chat_id=".$chat_id."\" method=\"POST\">";
+		// echo "<input id=\"sendform-entry-field\" style=\"width: 60%;\" type=\"text\" name=\"data\">";
+		// echo "<input id=\"sendform-button\" type=\"submit\" name=\"sender\" value=\"send\">";
+		// // echo "</form>";
+		// echo "</div>";
 	}
 
 	function showRightSide($user_id) {
@@ -153,7 +186,12 @@
 	
 	<div id="left_container">
 		
-		<a id="create-chat_button" href="create_new_chat.php">создать чат</a>
+		<!-- <a id="create-chat_button" href="create_new_chat.php">создать чат</a> -->
+
+		<a id="newchat" href="create_new_chat.php">
+			<div id="newchat-icon"></div>
+			<p id="newchat-title">Создать новый чат</p>
+		</a>
 		
 		<?php showChatList($user_id);?>
 		
@@ -186,27 +224,7 @@
 	</div>
 
 	<script type="text/javascript">
-		var req = new XMLHttpRequest();
-
-		var sendButton = document.getElementById("sendform-button");
-
-		currentDate = 0;
-
-		function getCurrentDate() {
-			req.open("GET", "get_current_date.php", true);
-			req.onreadystatechange = handleServerResponse;
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			req.send();
-		}
-
-		function getNewMessages() {
-			req.open("POST", "get_new_messages.php", true);
-			req.onreadystatechange = handleServerResponse;
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
-		}
-		
-		// Функция для плучения переменных из URL
+				// Функция для плучения переменных из URL
 
 		var getUrlParameter = function getUrlParameter(sParam) {
 		    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -223,40 +241,95 @@
 		    }
 		};
 
+		var req = new XMLHttpRequest();
+
+		function getCurrentDate() {
+			req.open("GET", "get_current_date.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send();
+		}
+
+		function getNewMessages() {
+			req.open("POST", "get_new_messages.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
+		}
+
+		function getLastMessages() {
+			req.open("POST", "get_last_messages.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send("chat_id="+getUrlParameter('chat_id'));
+		}
+
+		var chatIsOpen = (getUrlParameter('chat_id') == undefined) ? false : true;
+
+		var sendButton;
+		var entryField;
+		var leftarrow;
+		var currentDate = 0;
+
+		if (chatIsOpen) {
+
+			sendButton = document.getElementById("sendform-button");
+ 			entryField = document.getElementById("sendform-entryfield");
+
+ 			
+
+ 			entryField.addEventListener("keypress", function(event) {
+				if (!event.shiftKey && event.keyCode === 13) {
+
+					event.preventDefault();
+
+					sendButton.click();
+				}
+			}, false);
+
+			sendButton.onclick = function sendMessage() {
+			
+				// var entryField = document.getElementById("sendform-entry-field");
+				if (entryField.value == "") {
+					return;
+				}
+
+				req.open("POST", "send_message_async.php", true);
+				req.onreadystatechange = handleServerResponse;
+
+				req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				
+				var message = "data="+entryField.innerHTML+"&chat_id="+getUrlParameter('chat_id');
+
+				req.send(message);
+			};
+		}
+
+		
+		
+
+
 		// Функция запроса на отправку сообщения
 
-		sendButton.onclick = function sendMessage() {
-			
-			var entryField = document.getElementById("sendform-entry-field");
-			if (entryField.value == "") {
-				return;
-			}
+		
 
-			req.open("POST", "send_message_async.php", true);
-			req.onreadystatechange = handleServerResponse;
-
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			
-			var message = "data="+entryField.value+"&chat_id="+getUrlParameter('chat_id');
-
-			req.send(message);
-		}
+		
 
 		// Функция для вывода сообщения в чат
 
 		function messageOutput(message_data, success) {
-			var entryField = document.getElementById("sendform-entry-field");
-			var container = document.getElementById("message_list_container");
+			// var entryField = document.getElementById("sendform-entry-field");
+			var container = document.getElementById("messagelist-container");
 
 			var message_line = document.createElement('div');
-			message_line.className = 'message_list_line';
+			message_line.className = 'messagelist-line';
 			var message_box = document.createElement('div');
-			message_box.className = 'message_box';
+			message_box.className = 'messagebox';
 
-			var icon = document.createElement('img'); icon.className = 'user_icon'; 
-			var name = document.createElement('p'); 
-			var data = document.createElement('p'); 
-			var date = document.createElement('p'); 
+			var icon = document.createElement('img'); icon.className = 'messagebox-icon'; 
+			var name = document.createElement('p'); name.className = 'messagebox-username';
+			var data = document.createElement('p'); data.className = 'messagebox-data';
+			var date = document.createElement('p'); date.className = 'messagebox-date';
 
 			if (success == 'false') {
 				data.innerHTML = 'Сообщение не отправлено';
@@ -273,8 +346,14 @@
 			data.innerHTML = message_data['data'];
 			date.innerHTML = message_data['date'];
 
-			message_box.appendChild(icon);
-			message_box.appendChild(name);
+			messagebox_userdata = document.createElement('div');
+			messagebox_userdata.className = 'messagebox-userdata';
+
+
+			messagebox_userdata.appendChild(icon);
+			messagebox_userdata.appendChild(name);
+			
+			message_box.appendChild(messagebox_userdata);
 			message_box.appendChild(data);
 			message_box.appendChild(date);
 
@@ -282,7 +361,10 @@
 
 			container.appendChild(message_line);
 
-			entryField.value = '';
+			// console.log('width', container.offsetHeight, container.clientHeight, container.scrollHeight);
+			container.scrollTo(0, container.scrollHeight);
+
+			// entryField.value = '';
 		}
 
 		// Обработчик ответов от сервера
@@ -297,13 +379,20 @@
 
 				switch(serverRequest['header']) {
 					case 'sendMessage':
+
 						messageOutput(serverRequest, serverRequest['request_success']);
 						currentDate = serverRequest['date'];
+						entryField.innerHTML = '';
 						break;
+
 					case 'getCurrentDate':
+
 						currentDate = serverRequest['date'];
+						// console.log(currentDate);
 						break;
+
 					case 'getNewMessages':
+
 						if (serverRequest['request_success'] == 'true') {
 							
 							var m_index = 0;
@@ -311,17 +400,73 @@
 							for(m_index in serverRequest['message_list']) {
 								messageOutput(serverRequest['message_list'][m_index], 'true')
 							}
+
 							currentDate = serverRequest['message_list'][m_index]['date'];
 						}
 						break;
+					case 'getLastMessages':
+
+						if (serverRequest['request_success'] == 'true') {
+							
+							var m_index = 0;
+
+							for(m_index in serverRequest['message_list']) {
+								messageOutput(serverRequest['message_list'][m_index], 'true')
+							}
+
+							currentDate = serverRequest['message_list'][m_index]['date'];
+						}
+						break;
+						
 				}
 			}
 
 		}
 
 		getCurrentDate();
-		setInterval(getNewMessages, 1000);
 
+		if (chatIsOpen) {
+			getLastMessages();
+			setInterval(getNewMessages, 1000);
+
+			leftarrow = document.getElementById('chatinfo-leftarrow');
+		}
+
+		var leftCnt = document.getElementById('left_container');
+		var rightCnt = document.getElementById('right_container');
+
+		if (leftarrow) {
+			leftarrow.onclick = function() {
+
+				leftCnt.style.display = 'grid';
+				rightCnt.style.display = 'none';
+			}
+		}
+
+
+		if (window.innerWidth <= 1000 && !chatIsOpen) {
+			console.log('text');
+			leftCnt.style.display = 'grid';
+			rightCnt.style.display = 'none';
+		}
+
+		window.onresize = function() {
+			// console.log(window.innerWidth);
+			if (window.innerWidth > 1000) {
+				leftCnt.style.display = 'grid';
+				rightCnt.style.display = 'grid';
+			}
+			else if (chatIsOpen){
+				leftCnt.style.display = 'none';
+				rightCnt.style.display = 'grid';
+			}
+			else {
+				leftCnt.style.display = 'grid';
+				rightCnt.style.display = 'none';
+			}
+
+
+		}
 
 
 	</script>
