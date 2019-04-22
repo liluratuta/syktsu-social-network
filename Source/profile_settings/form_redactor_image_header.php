@@ -1,4 +1,4 @@
-<form id="radactor_form" action="redactor_image_header.php" method="POST">
+<form id="redactor_form" action="redactor_image_header.php" method="POST">
  	<label for="editor-picture">Ссылка на изображение</label>
 	<input id="picture" type="text" name="picture">
 
