@@ -34,8 +34,14 @@
     <?php
         require_once("form_redactor_name.php");
         require_once("form_redactor_password.php");
-        require_once("form_redactor_image_header.php");
     ?>
+    <div>
+    <label class="block-label"><h4 class="title" align="left">Изменить шапку профиля</h4></label>
+    <?php
+        require_once("form_redactor_image_header.php");
+        require_once("form_upload_image_header.php");
+    ?>
+    </div>
 <form action="logout.php">
     <input class="block-button" type="submit" name="logout" value="Выйти">
 </form>

@@ -60,7 +60,7 @@
 			require_once '../connect.php';
 			require_once '../const.php';
 			require_once '../like/write-like-module.php';
-			$auth->auth('test@gmail.com','1');
+			$auth->auth('13zhora13@gmail.com','123456');
 			//echo $auth->get_Id();
 			require_once 'write-posts.php';
 			writeUserPosts(3);
