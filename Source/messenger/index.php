@@ -179,6 +179,7 @@
 	<meta charset="utf-8">
 
 	<link rel="stylesheet" type="text/css" href="css/messenger.css">
+	<link rel="stylesheet" type="text/css" href="css/poput.css">
 </head>
 <body>
 
@@ -202,26 +203,12 @@
 		<?php showRightSide($user_id); ?>		
 		
 	</div>
+	
 
-	<div style="display:none" id="cover"></div>
+</div>
 
-	<div style="display:none" id="poput">
-		<div id="poput-menu">
-			
-			<input id="poput-menu-element-settings" class="poput-menu-element-radio" type="radio" name="poput-menu-element">
-			<label for="poput-menu-element-settings">Настройки</label>
-
-			<input id="poput-menu-element-users" class="poput-menu-element-radio" type="radio" name="poput-menu-element" >
-			<label for="poput-menu-element-users">Участники</label>
-
-			<input id="poput-menu-element-addusers" class="poput-menu-element-radio" type="radio" name="poput-menu-element">
-			<label for="poput-menu-element-addusers">Добавить друзей</label>
-
-		</div>
-		<div id="poput-body">
-			<?php require_once("settings-test.php"); ?>
-		</div>
-	</div>
+<!-- <div id="cover"></div> -->
+<!-- <div id="poput"></div> -->
 
 	<script type="text/javascript">
 				// Функция для плучения переменных из URL
@@ -470,9 +457,6 @@
 
 
 	</script>
-	
-
-</div>
 
 </body>
 </html>
