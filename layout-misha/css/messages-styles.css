@@ -146,3 +146,17 @@
     left: 1238px;
 	}
 }
+@media (max-width: 1600px){
+	.box-header-back{
+		left: 503px;
+	}
+	.box-header-settings {
+    left: 989px;
+	}
+	.attach-button {
+    left: 503px;
+	}
+	.send-button {
+    left: 989px;
+	}
+}

@@ -604,7 +604,7 @@ button{
 		left: 1380px;
 	}
 	.new-post-publish{
-		margin-left: 513px;
+		margin-left: 511.8px;
 	}
 	.like-div{
 		margin-left: 394px;
@@ -645,6 +645,9 @@ button{
 		top: 565.5px;
 	}
 	.new-post-attach {
+    	margin-left: 14.1px;
+	}
+	.new-post-img {
     	margin-left: 14.1px;
 	}
 }
