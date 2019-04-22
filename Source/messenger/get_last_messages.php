@@ -19,7 +19,7 @@
 		exit();
 	}
 	
-	$message_list = $mysqli->query("SELECT * from messages where chat_id=".$chat_id." order by id limit 10");
+	$message_list = $mysqli->query("SELECT * from (SELECT * from messages where chat_id=".$chat_id." order by id desc limit 10) AS T where 1 order by T.id asc");
 
 	if (mysqli_num_rows($message_list) == 0) {
 		echo "{
