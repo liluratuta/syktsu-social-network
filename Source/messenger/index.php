@@ -207,256 +207,334 @@
 
 </div>
 
-<!-- <div id="cover"></div> -->
-<!-- <div id="poput"></div> -->
+<div id="cover">
+<div id="poput">
 
-	<script type="text/javascript">
-				// Функция для плучения переменных из URL
+	<div id="settings-container">
+		<div class="settings-subcontainer">
+			<div class="settings-box">
+				<img id="settings-icon" src="img/Group.png">
+			</div>
+			<div class="settings-box">
+				<label class="settings-label">
+					Иконка чата
+				</label>
+				<div class="settings-box-body">
+					<input id="settings-icon-src" class="settings-entryfield" type="text" name="" value="Group.png">
+				</div>
+			</div>
+		</div>
 
-		var getUrlParameter = function getUrlParameter(sParam) {
-		    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-		        sURLVariables = sPageURL.split('&'),
-		        sParameterName,
-		        i;
+		<div class="settings-box">
+			<label class="settings-label">Название группы</label>
+			<div class="settings-body">
+				<input id="settings-name" class="settings-entryfield" type="text" name="" value="Name">
+			</div>
+		</div>
 
-		    for (i = 0; i < sURLVariables.length; i++) {
-		        sParameterName = sURLVariables[i].split('=');
+		<div class="settings-box">
+			<label class="settings-label">Тип доступа</label>
+			<div class="settings-body">
+				<div class="settings-radiogroup">
 
-		        if (sParameterName[0] === sParam) {
-		            return sParameterName[1] === undefined ? true : sParameterName[1];
-		        }
-		    }
-		};
+					<input id="radio-accesstype-private" class="settings-radio" type="radio" name="access-type" value="private">
+					<label for="radio-accesstype-private" class="settings-radio-label">Private</label>
 
-		var req = new XMLHttpRequest();
+					<input id="radio-accesstype-public" class="settings-radio" type="radio" name="access-type" value="public">
+					<label for="radio-accesstype-public" class="settings-radio-label">Public</label>
+				
+				</div>
+			</div>
+		</div>
 
-		function getCurrentDate() {
-			req.open("GET", "get_current_date.php", true);
-			req.onreadystatechange = handleServerResponse;
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			req.send();
-		}
+		<div class="settings-box">
+			<label class="settings-label">Роль пользователя по умолчанию</label>
+			<div class="settings-body">
+				<div class="settings-radiogroup">
 
-		function getNewMessages() {
-			req.open("POST", "get_new_messages.php", true);
-			req.onreadystatechange = handleServerResponse;
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
-		}
+					<input id="radio-userrole-reader" class="settings-radio" type="radio" name="user-role" value="reader">
+					<label for="radio-userrole-reader" class="settings-radio-label">Reader</label>
 
-		function getLastMessages() {
-			req.open("POST", "get_last_messages.php", true);
-			req.onreadystatechange = handleServerResponse;
-			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			req.send("chat_id="+getUrlParameter('chat_id'));
-		}
+					<input id="radio-userrole-writer" class="settings-radio" type="radio" name="user-role" value="writer">
+					<label for="radio-userrole-writer" class="settings-radio-label">Writer</label>
+				
+					<input id="radio-userrole-admin" class="settings-radio" type="radio" name="user-role" value="admin">
+					<label for="radio-userrole-admin" class="settings-radio-label">Admin</label>
 
-		var chatIsOpen = (getUrlParameter('chat_id') == undefined) ? false : true;
+				</div>
+			</div>
+		</div>
 
-		var sendButton;
-		var entryField;
-		var leftarrow;
-		var currentDate = 0;
+		<div id="settings-submit">Сохранить изменения</div>
 
-		if (chatIsOpen) {
+	</div>
 
-			sendButton = document.getElementById("sendform-button");
- 			entryField = document.getElementById("sendform-entryfield");
+	<div id="usermanager-menu">
+			<input id="menu-tab-usersmanager" class="menu-tab" type="radio" name="usermanager-menu" checked="true">
+			<label for="menu-tab-usersmanager" class="menu-tab-label">Управление подписчиками</label>
 
- 			
+			<input id="menu-tab-addusers" class="menu-tab" type="radio" name="usermanager-menu">
+			<label for="menu-tab-addusers" class="menu-tab-label">Добавить друзей в чат</label>			
+		</div>
 
- 			entryField.addEventListener("keypress", function(event) {
-				if (!event.shiftKey && event.keyCode === 13) {
-
-					event.preventDefault();
-
-					sendButton.click();
-				}
-			}, false);
-
-			sendButton.onclick = function sendMessage() {
+	<div id="usermanager-list">
+		<!-- <div id="usermanager-userlist">list</div> -->
+		<div class="chat-user">
+			<img src="">
 			
-				// var entryField = document.getElementById("sendform-entry-field");
-				if (entryField.value == "") {
-					return;
-				}
+		</div>
+	</div>
+</div>
 
-				req.open("POST", "send_message_async.php", true);
-				req.onreadystatechange = handleServerResponse;
+</div>
 
-				req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				
-				var message = "data="+entryField.innerHTML+"&chat_id="+getUrlParameter('chat_id');
+<script type="text/javascript">
+			// Функция для плучения переменных из URL
 
-				req.send(message);
-			};
-		}
+	var getUrlParameter = function getUrlParameter(sParam) {
+	    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+	        sURLVariables = sPageURL.split('&'),
+	        sParameterName,
+	        i;
 
+	    for (i = 0; i < sURLVariables.length; i++) {
+	        sParameterName = sURLVariables[i].split('=');
+
+	        if (sParameterName[0] === sParam) {
+	            return sParameterName[1] === undefined ? true : sParameterName[1];
+	        }
+	    }
+	};
+
+	var req = new XMLHttpRequest();
+
+	function getCurrentDate() {
+		req.open("GET", "get_current_date.php", true);
+		req.onreadystatechange = handleServerResponse;
+		req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		req.send();
+	}
+
+	function getNewMessages() {
+		req.open("POST", "get_new_messages.php", true);
+		req.onreadystatechange = handleServerResponse;
+		req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
+	}
+
+	function getLastMessages() {
+		req.open("POST", "get_last_messages.php", true);
+		req.onreadystatechange = handleServerResponse;
+		req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		req.send("chat_id="+getUrlParameter('chat_id'));
+	}
+
+	var chatIsOpen = (getUrlParameter('chat_id') == undefined) ? false : true;
+
+	var sendButton;
+	var entryField;
+	var leftarrow;
+	var currentDate = 0;
+
+	if (chatIsOpen) {
+
+		sendButton = document.getElementById("sendform-button");
+			entryField = document.getElementById("sendform-entryfield");
+
+			
+
+			entryField.addEventListener("keypress", function(event) {
+			if (!event.shiftKey && event.keyCode === 13) {
+
+				event.preventDefault();
+
+				sendButton.click();
+			}
+		}, false);
+
+		sendButton.onclick = function sendMessage() {
 		
-		
-
-
-		// Функция запроса на отправку сообщения
-
-		
-
-		
-
-		// Функция для вывода сообщения в чат
-
-		function messageOutput(message_data, success) {
 			// var entryField = document.getElementById("sendform-entry-field");
-			var container = document.getElementById("messagelist-container");
-
-			var message_line = document.createElement('div');
-			message_line.className = 'messagelist-line';
-			var message_box = document.createElement('div');
-			message_box.className = 'messagebox';
-
-			var icon = document.createElement('img'); icon.className = 'messagebox-icon'; 
-			var name = document.createElement('p'); name.className = 'messagebox-username';
-			var data = document.createElement('p'); data.className = 'messagebox-data';
-			var date = document.createElement('p'); date.className = 'messagebox-date';
-
-			if (success == 'false') {
-				data.innerHTML = 'Сообщение не отправлено';
-				
-				message_box.appendChild(data);
-				message_line.appendChild(message_box);
-				container.appendChild(message_line);
-
+			if (entryField.value == "") {
 				return;
 			}
+
+			req.open("POST", "send_message_async.php", true);
+			req.onreadystatechange = handleServerResponse;
+
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			
-			icon.src = message_data['icon_src'];
-			name.innerHTML = message_data['user_name'];
-			data.innerHTML = message_data['data'];
-			date.innerHTML = message_data['date'];
+			var message = "data="+entryField.innerHTML+"&chat_id="+getUrlParameter('chat_id');
 
-			messagebox_userdata = document.createElement('div');
-			messagebox_userdata.className = 'messagebox-userdata';
+			req.send(message);
+		};
+	}
+
+	
+	
 
 
-			messagebox_userdata.appendChild(icon);
-			messagebox_userdata.appendChild(name);
+	// Функция запроса на отправку сообщения
+
+	
+
+	
+
+	// Функция для вывода сообщения в чат
+
+	function messageOutput(message_data, success) {
+		// var entryField = document.getElementById("sendform-entry-field");
+		var container = document.getElementById("messagelist-container");
+
+		var message_line = document.createElement('div');
+		message_line.className = 'messagelist-line';
+		var message_box = document.createElement('div');
+		message_box.className = 'messagebox';
+
+		var icon = document.createElement('img'); icon.className = 'messagebox-icon'; 
+		var name = document.createElement('p'); name.className = 'messagebox-username';
+		var data = document.createElement('p'); data.className = 'messagebox-data';
+		var date = document.createElement('p'); date.className = 'messagebox-date';
+
+		if (success == 'false') {
+			data.innerHTML = 'Сообщение не отправлено';
 			
-			message_box.appendChild(messagebox_userdata);
 			message_box.appendChild(data);
-			message_box.appendChild(date);
-
 			message_line.appendChild(message_box);
-
 			container.appendChild(message_line);
 
-			// console.log('width', container.offsetHeight, container.clientHeight, container.scrollHeight);
-			container.scrollTo(0, container.scrollHeight);
-
-			// entryField.value = '';
+			return;
 		}
+		
+		icon.src = message_data['icon_src'];
+		name.innerHTML = message_data['user_name'];
+		data.innerHTML = message_data['data'];
+		date.innerHTML = message_data['date'];
 
-		// Обработчик ответов от сервера
+		messagebox_userdata = document.createElement('div');
+		messagebox_userdata.className = 'messagebox-userdata';
 
-		function handleServerResponse() {
-			// if (req.status != 200) {
-			//  	console.log("status: "+req.status);
-			// }
 
-			if ((req.readyState == 4) && (req.status == 200)) {
-				serverRequest = JSON.parse(req.responseText);
+		messagebox_userdata.appendChild(icon);
+		messagebox_userdata.appendChild(name);
+		
+		message_box.appendChild(messagebox_userdata);
+		message_box.appendChild(data);
+		message_box.appendChild(date);
 
-				switch(serverRequest['header']) {
-					case 'sendMessage':
+		message_line.appendChild(message_box);
 
-						messageOutput(serverRequest, serverRequest['request_success']);
-						currentDate = serverRequest['date'];
-						entryField.innerHTML = '';
-						break;
+		container.appendChild(message_line);
 
-					case 'getCurrentDate':
+		// console.log('width', container.offsetHeight, container.clientHeight, container.scrollHeight);
+		container.scrollTo(0, container.scrollHeight);
 
-						currentDate = serverRequest['date'];
-						// console.log(currentDate);
-						break;
+		// entryField.value = '';
+	}
 
-					case 'getNewMessages':
+	// Обработчик ответов от сервера
 
-						if (serverRequest['request_success'] == 'true') {
-							
-							var m_index = 0;
+	function handleServerResponse() {
+		// if (req.status != 200) {
+		//  	console.log("status: "+req.status);
+		// }
 
-							for(m_index in serverRequest['message_list']) {
-								messageOutput(serverRequest['message_list'][m_index], 'true')
-							}
+		if ((req.readyState == 4) && (req.status == 200)) {
+			serverRequest = JSON.parse(req.responseText);
 
-							currentDate = serverRequest['message_list'][m_index]['date'];
-						}
-						break;
-					case 'getLastMessages':
+			switch(serverRequest['header']) {
+				case 'sendMessage':
 
-						if (serverRequest['request_success'] == 'true') {
-							
-							var m_index = 0;
+					messageOutput(serverRequest, serverRequest['request_success']);
+					currentDate = serverRequest['date'];
+					entryField.innerHTML = '';
+					break;
 
-							for(m_index in serverRequest['message_list']) {
-								messageOutput(serverRequest['message_list'][m_index], 'true')
-							}
+				case 'getCurrentDate':
 
-							currentDate = serverRequest['message_list'][m_index]['date'];
-						}
-						break;
+					currentDate = serverRequest['date'];
+					// console.log(currentDate);
+					break;
+
+				case 'getNewMessages':
+
+					if (serverRequest['request_success'] == 'true') {
 						
-				}
+						var m_index = 0;
+
+						for(m_index in serverRequest['message_list']) {
+							messageOutput(serverRequest['message_list'][m_index], 'true')
+						}
+
+						currentDate = serverRequest['message_list'][m_index]['date'];
+					}
+					break;
+				case 'getLastMessages':
+
+					if (serverRequest['request_success'] == 'true') {
+						
+						var m_index = 0;
+
+						for(m_index in serverRequest['message_list']) {
+							messageOutput(serverRequest['message_list'][m_index], 'true')
+						}
+
+						currentDate = serverRequest['message_list'][m_index]['date'];
+					}
+					break;
+					
 			}
-
 		}
 
-		getCurrentDate();
+	}
 
-		if (chatIsOpen) {
-			getLastMessages();
-			setInterval(getNewMessages, 1000);
+	getCurrentDate();
 
-			leftarrow = document.getElementById('chatinfo-leftarrow');
+	if (chatIsOpen) {
+		getLastMessages();
+		setInterval(getNewMessages, 1000);
+
+		leftarrow = document.getElementById('chatinfo-leftarrow');
+	}
+
+	var leftCnt = document.getElementById('left_container');
+	var rightCnt = document.getElementById('right_container');
+
+	if (leftarrow) {
+		leftarrow.onclick = function() {
+
+			leftCnt.style.display = 'grid';
+			rightCnt.style.display = 'none';
 		}
+	}
 
-		var leftCnt = document.getElementById('left_container');
-		var rightCnt = document.getElementById('right_container');
 
-		if (leftarrow) {
-			leftarrow.onclick = function() {
+	if (window.innerWidth <= 1000 && !chatIsOpen) {
+		console.log('text');
+		leftCnt.style.display = 'grid';
+		rightCnt.style.display = 'none';
+	}
 
-				leftCnt.style.display = 'grid';
-				rightCnt.style.display = 'none';
-			}
+	window.onresize = function() {
+		// console.log(window.innerWidth);
+		if (window.innerWidth > 1000) {
+			leftCnt.style.display = 'grid';
+			rightCnt.style.display = 'grid';
 		}
-
-
-		if (window.innerWidth <= 1000 && !chatIsOpen) {
-			console.log('text');
+		else if (chatIsOpen){
+			leftCnt.style.display = 'none';
+			rightCnt.style.display = 'grid';
+		}
+		else {
 			leftCnt.style.display = 'grid';
 			rightCnt.style.display = 'none';
 		}
 
-		window.onresize = function() {
-			// console.log(window.innerWidth);
-			if (window.innerWidth > 1000) {
-				leftCnt.style.display = 'grid';
-				rightCnt.style.display = 'grid';
-			}
-			else if (chatIsOpen){
-				leftCnt.style.display = 'none';
-				rightCnt.style.display = 'grid';
-			}
-			else {
-				leftCnt.style.display = 'grid';
-				rightCnt.style.display = 'none';
-			}
+
+	}
 
 
-		}
-
-
-	</script>
+</script>
 
 </body>
 </html>
