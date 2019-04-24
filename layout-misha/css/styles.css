@@ -231,6 +231,8 @@ button{
 .new-post-attach{
 	margin-left: 17.5px;
 	margin-top: 10px;
+	position: relative;
+	width: 60px;
 }
 .attach-img{
 	width: 60px;
@@ -242,9 +244,11 @@ button{
 	background-color: #C1D6EB;
 	opacity: 0.7;
 	position: absolute;
-	left: 583.5px;
-	top: 564px;
+	top: 0px;
 	display: none;
+}
+.new-post-attach:hover .new-post-delete{
+	display: block;
 }
 .delete-img{
 	width: 20px;
@@ -583,9 +587,6 @@ button{
 	.pop-out-like-div {
     	margin-left: 636px;
 	}
-	.new-post-delete{
-		left: 587.5px;
-	}
 	.new-post-attach {
     	margin-left: 17.5px;
 	}
@@ -642,10 +643,6 @@ button{
 	.footer-up-button{
 		left: 1460px;
 	}
-	.new-post-delete{
-		left: 469.8px;
-		top: 565.5px;
-	}
 	.new-post-attach {
     	margin-left: 14.1px;
 	}
@@ -672,9 +669,6 @@ button{
 	.pop-out-like-div {
     margin-left: 474px;
 	}
-	.new-post-delete{
-		left: 422.5px;
-	}
 }
 @media(max-width: 1345px){
 	.header-settings{
@@ -694,9 +688,6 @@ button{
 	}
 	.pop-out-like-div {
     margin-left: 474px;
-	}
-	.new-post-delete{
-		left: 422.5px;
 	}
 }
 @media(max-width: 360px){
