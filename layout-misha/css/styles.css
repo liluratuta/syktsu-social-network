@@ -48,6 +48,7 @@ button{
 	width: 100%;
 	background-color: #fff;
 	height: 60px;
+	position: relative;
 }
 .header-logo{
 	width: 58px;
@@ -82,6 +83,7 @@ button{
 	background-size: cover;
 	background-color: #000;
 	opacity: 0.7;
+	position: relative;
 }
 .header-bottom-div{
 	height: 60px;
@@ -99,7 +101,7 @@ button{
 	width: 38px;
 	display: inline-block;
 	position: absolute;
-	left: 1460px;
+	right: 10px;
 	top: 10px;
 }
 .header-settings-div{
@@ -108,8 +110,8 @@ button{
 	background-color: #fff;
 	border-radius: 5px;
 	position: absolute;
-	top: 65px;
-	left: 1380px;
+	top: 10px;
+	right: 10px;
 }
 .settings-list{
 	font-size: 16px;
@@ -159,7 +161,7 @@ button{
 	font-size: 20px;
 }
 .new-post{
-	width: 40%;
+	width: 607px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #fff;
@@ -257,7 +259,7 @@ button{
 	margin-top: 20px;
 }
 .news{
-	width: 40%;
+	width: 607px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #fff;
@@ -367,6 +369,9 @@ button{
 	height: 45px;
 	display: inline-block;
 	vertical-align: top;
+}
+.comment-out-img-img{
+	border-radius: 100px;
 }
 .comment-out-inf{
 	display: inline-block;
@@ -511,8 +516,6 @@ button{
 	width: 45%;
 	background-color: #fff;
 	position: absolute;
-	left: 370px;
-	top: 440px;
 	display: none;
 	border: 1.5px solid #556080;
 	border-radius: 10px;
@@ -569,12 +572,6 @@ button{
 	padding-right: 10px;
 }
 @media(max-width: 1920px){
-	.header-settings{
-		left: 1820px;
-	}
-	.header-settings-div{
-		left: 1740px;
-	}
 	.new-post-publish{
 		margin-left: 657px;
 	}
@@ -595,17 +592,11 @@ button{
 	}
 }
 @media(max-width: 900px){
-	.header-settings{
-		left: 1236px;
-	}
+
 }
 @media(max-width: 1600px){
-	.header-settings{
-		left: 1460px;
-	}
-	.header-settings-div{
-		left: 1380px;
-	}
+
+
 	.new-post-publish{
 		margin-left: 511.8px;
 	}
@@ -651,12 +642,8 @@ button{
 	}
 }
 @media(max-width: 1360px){
-	.header-settings{
-		left: 1302px;
-	}
-	.header-settings-div{
-		left: 1222px;
-	}
+
+
 	.new-post-publish{
 		margin-left: 497px;
 	}
@@ -671,12 +658,8 @@ button{
 	}
 }
 @media(max-width: 1345px){
-	.header-settings{
-		left: 1302px;
-	}
-	.header-settings-div{
-		left: 1222px;
-	}
+
+
 	.new-post-publish{
 		margin-left: 497px;
 	}
@@ -694,11 +677,6 @@ button{
 	.profile-image{
 		display: none;
 	}
-	.header-settings{
-		left: 327px;
-	}
-	.header-settings-div{
-		left: 257px;
-	}
+
 
 }
