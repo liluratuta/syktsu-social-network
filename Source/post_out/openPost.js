@@ -1,10 +1,12 @@
 function openPost(){
 	//OPTIONS:
+	const max_lenght_post_text = 50;
 	const image_folder = 'http://localhost/syktsu-social-network/Source/image_upload/uploads/';
+	const close_form_dilay = 200;
 
 	//CONSTRUCTOR:
 	const news_form = document.getElementById('news');
-
+	var self = this;
 	//PUBLIC:
 	this.open = function(post_id){
 		var elem = document.getElementById('post-'+post_id);
@@ -13,7 +15,7 @@ function openPost(){
 			addClassChild(elem, 'news-post-img', 'news-post-pop-out-img');
 			addClassChild(elem, 'news-post-text', 'news-post-pop-out-text');
 
-			var img = elem.getElementsByClassName('news-post-text');
+			//var img = elem.getElementsByClassName('news-post-text');
 
 			var http = new XMLHttpRequest();
 	    	var url = "get-full-text.php"; //менять эту настройку	
@@ -28,25 +30,84 @@ function openPost(){
 			    		console.log(http.responseText);
 			    		return;
 			    	}
+			    	//console.log(server_options.text);
+			    	var text = server_options
 			    	replaceTextImg(elem, server_options.text, server_options.images);
 
 				}
 			}
 			http.send(params);
-			elem.classList.add('news-post-pop-out');
+			elem.classList.toggle('news-post-pop-out');
+
+			bindClose(elem);
+
 	};
+	this.close = function() {
+		var elem = document.getElementsByClassName('news-post-pop-out')[0];
+
+			removeClass(elem, 'news-post-pop-out-date');
+			removeClass(elem, 'news-post-pop-out-img');
+			removeClass(elem, 'news-post-pop-out-text');
+
+		var text_form = elem.getElementsByClassName('news-post-text')[0];
+		var str = text_form.innerHTML;
+			str = str.substring(0, max_lenght_post_text);
+		text_form.innerHTML = str;
+
+		elem.classList.toggle('news-post-pop-out');
+
+		//document.body.style.overflow = '';
+		setTimeout(function(){
+
+			self.need_close = false;
+			self.form_elem = undefined;
+			console.log('стер переменные', self.need_close);
+		},close_form_dilay);
+
+		function removeClass(elem, deleted_class){
+			var find = elem.getElementsByClassName(deleted_class)[0];
+			find.classList.remove(deleted_class);
+		}
+	}
+	this.clickPost = function(elem){
+		const ignore_class = ['like', 
+							  'dislike',
+							  'like-number',
+							  'comment',
+							  'comment-out',
+							  'comment-pop-out'];
+
+		while (elem){
+			console.log('работаем с elem:', elem);
+			if(elem.classList == undefined)
+				return false;
+			for (key in ignore_class) 
+				if(elem.classList.contains(ignore_class[key]))
+					return false;
+			if (elem.classList.contains('news-post')) 
+				return getIdByElem(elem);
+			elem = elem.parentNode;
+		}
+		return false;
+		function getIdByElem(elem){
+			var text = elem.getAttribute('id');
+			return text.substring(text.indexOf('-') + 1);
+		}
+	}
 	//PRIVATE:
 	function addClassChild(parent, delete_class, add_class){
 		var elem = parent.getElementsByClassName(delete_class)[0];
 			elem.classList.add(add_class);
 	}
-	function replaceTextImg(elem,text,imgJson){
-		var img;
+	function replaceTextImg(elem,text_inf,imgJson){
+		
 		var text = elem.getElementsByClassName('news-post-text')[0];
-			text.innerHTML = text;
-		var more_imgs = document.createElement('div');
+			text.innerHTML = text_inf;
+		
 
 		if(imgArray == 'not-images') return;
+		var img;
+		var more_imgs = document.createElement('div');
 			var imgArray = JSON.parse(imgJson);
 			for (let key in imgArray) {
 				img = document.createElement('img');
@@ -54,5 +115,13 @@ function openPost(){
 					more_imgs.appendChild(img);
 			}
 			elem.appendChild(more_imgs);
+	}
+	function bindClose(elem){	
+		setTimeout(function(){
+			self.need_close = true;
+			self.form_elem = elem;
+			//console.log('смена переменной', self.need_close);
+			//document.body.style.overflow = 'hidden';
+		},close_form_dilay);
 	}
 }

@@ -2,18 +2,24 @@ function comments(id_page){
 	//OPTIONS:
 	const length_short_text = 60;
 	const update_interval = 500;
+	const close_form_dilay = 100;
 	//constructor
 	var post_elem, form_elem, input_text, id,last_server_id;
+	var self = this;
+	this.need_close = false;
+	this.form_elem;
+
+
 	getLastServerId();
 	startUpdate();
 	//publish
 	this.activePost = function(post_id){
-		closeCommentForm();
+		this.closeCommentForm();
 
 		id = post_id;
 		post_elem = document.getElementById('post-' + post_id);
 		form_elem = post_elem.getElementsByClassName('comment-pop-out')[0];
-		form_elem.style.display = 'block';
+		form_elem.classList.toggle('unset-display-none');
 
 		var user = document.createElement('div');
 			var div = document.createElement('div');
@@ -57,6 +63,12 @@ function comments(id_page){
 
 			comment_text.classList.add('comment-pop-out-text');
 			form_elem.appendChild(comment_text);
+
+
+			installPositionForm(form_elem);
+			document.body.style.overflow = 'hidden';
+
+			bindClose();
 	}
 
 	this.send = function(){
@@ -71,7 +83,7 @@ function comments(id_page){
 		http.open("POST", url, true);
 		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-		closeCommentForm();
+		this.closeCommentForm();
 
 		http.onreadystatechange = function() {
 		    if(http.readyState == 4 && http.status == 200) {
@@ -139,14 +151,12 @@ function comments(id_page){
 		}
 		http.send(params);
 	}
-	function closeCommentForm(){
+	this.closeCommentForm = function(){
 		if(form_elem === undefined) return;
 
 
-		form_elem.style.display = 'none';
-		//post_elem.removeChild(form_elem);
+		form_elem.classList.toggle('unset-display-none');
 
-		//var myNode = document.getElementById("foo");
 		while (form_elem.firstChild) 
     		form_elem.removeChild(form_elem.firstChild);
 
@@ -154,6 +164,14 @@ function comments(id_page){
 		form_elem = undefined;
 		post_elem = undefined;
 
+		document.body.style.overflow = '';
+		setTimeout(function(){
+
+			self.need_close = false;
+			self.form_elem = undefined;
+			console.log('стер переменные', self.need_close);
+		},close_form_dilay);
+		
 	}
 	function getPostText(){
 		var elem = post_elem.getElementsByClassName('news-post-text')[0];
@@ -179,16 +197,21 @@ function comments(id_page){
 		return output;
 	}
 // 	//bind
-// 	window.onload = function () {
-// 		document.body.onclick = function (e) {
-//    		  	e = e || event;
-//        		target = e.target || e.srcElement;
-//        		if (form_elem != undefined)
-//        			if (!form_elem.contains(target)) 
-//            			closeCommentForm();
-       		
-		
-// 	}
-// }
+	function bindClose(){	
+		setTimeout(function(){
+			self.need_close = true;
+			self.form_elem = form_elem;
+			//console.log('смена переменной', self.need_close);
+		},close_form_dilay);
+	}
+	function installPositionForm(elem){
+		var X = document.body.clientWidth / 2;
+		//var Y = document.body.clientHeight / 2;
+		X = X - elem.clientWidth / 2;
+		//Y = Y - elem.clientHeight / 2;
+		elem.style.left = X + 'px';
+		//elem.style.top = Y + 'px';
+		//elem.setAttribute('style', 'top: ' + Y +'; left: ' + X);
+	}
 }
 
