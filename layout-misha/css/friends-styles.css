@@ -33,7 +33,7 @@
 	border: 1px solid #E6ECF0;
 	display: inline-block;
 	margin-right: 10px;
-
+	position: relative;
 }
 .fr-user-img{
 	width: 100px;
@@ -41,7 +41,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10px;
-	border: 2px solid #E6ECF0;
+
 }
 .fr-img{
 	border-radius: 100px;
@@ -51,14 +51,17 @@
 }
 .fr-user-fr{
 	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 5px;
+	padding-top: 13px;
+	padding-bottom: 7px;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
 	margin-top: 20px;
 	background-color: #C1D6EB;
 	height: 30px;
+}
+.fr-user-fr:hover .fr-user-unfr{
+	display: block;
 }
 .fr-user-unfr{
 	text-align: center;
@@ -68,9 +71,9 @@
 	background-color: #FFCCD3;
 	border-radius: 0px;
 	width: 200px;
-	height: 45px;
+	height: 50px;
 	position: absolute;
-	top: 669px;
+	top: 150px;
 	display: none;
 	font-size: 14px;
 }

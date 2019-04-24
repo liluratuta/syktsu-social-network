@@ -91,7 +91,6 @@ function new_comment(){
 function unfr_show(){
 var elem1 = document.getElementById('fr_user');
 var elem2 = document.getElementById('unfr_user');
-elem1.style.display = 'none';
 elem2.style.display = 'block';
 }
 function fr_show(){
