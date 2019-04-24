@@ -4,7 +4,7 @@
 }
 .fr-box{
 	margin-top: 30px;
-	width: 50%;
+	width: 653px;
 	min-height: 500px;
 	background-color: #fff;
 	border-radius: 10px;
@@ -78,7 +78,5 @@
 	font-size: 14px;
 }
 @media(max-width: 1920px){
-	.fr-box{
-		width: 40%;
-	}
+
 }
