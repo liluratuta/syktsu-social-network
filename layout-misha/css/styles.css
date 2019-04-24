@@ -547,6 +547,16 @@ button{
 	top: 435px;
 	left: 0px;
 }
+.news-post-pop-out-ext-img{
+	margin-top: 10px;
+}
+.ext-img{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+ 
+}
 .pop-out-like-div{
 	margin-left: 474px;
 }
