@@ -36,6 +36,8 @@ function openPost(){
 
 				}
 			}
+
+
 			http.send(params);
 			elem.classList.toggle('news-post-pop-out');
 
@@ -58,11 +60,14 @@ function openPost(){
 
 		//document.body.style.overflow = '';
 		setTimeout(function(){
-
 			self.need_close = false;
 			self.form_elem = undefined;
 			console.log('стер переменные', self.need_close);
 		},close_form_dilay);
+
+		var deleted_img = elem.getElementsByClassName('news-post-pop-out-ext-img')[0];
+			if(deleted_img != undefined) 
+				elem.removeChild(deleted_img);
 
 		function removeClass(elem, deleted_class){
 			var find = elem.getElementsByClassName(deleted_class)[0];
@@ -106,13 +111,17 @@ function openPost(){
 		
 
 		if(imgArray == 'not-images') return;
-		var img;
+		var img, div_img;
 		var more_imgs = document.createElement('div');
+			more_imgs.classList.add('news-post-pop-out-ext-img');
 			var imgArray = JSON.parse(imgJson);
 			for (let key in imgArray) {
-				img = document.createElement('img');
-					img.setAttribute('src', image_folder + imgArray[key]);
-					more_imgs.appendChild(img);
+				div_img = document.createElement('div');
+					div_img.classList.add('ext-img');
+					img = document.createElement('img');
+						img.setAttribute('src', image_folder + imgArray[key]);
+						div_img.appendChild(img);
+					more_imgs.appendChild(div_img);
 			}
 			elem.appendChild(more_imgs);
 	}

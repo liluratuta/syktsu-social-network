@@ -25,8 +25,6 @@ function writeFullCommentary($id_post){
 			'text' => $row['text']
 		]);
 	}
-	
-
 }
 
 function writeOneCommentary($in_data){ //добавить ёбанную кнопку, чтобы было ровно!!!
