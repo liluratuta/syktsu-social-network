@@ -1,6 +1,6 @@
 <?php 
 //require_once '../connect.php';
-
+require_once __DIR__.'\..\const.php';
 // Название <input type="file">
 $input_name = 'file';
 //print_r($_FILES[$input_name]);
@@ -15,7 +15,12 @@ $deny = array(
 );
 
 // Директория куда будут загружаться файлы.
-$path = __DIR__ . '/uploads/';
+
+
+$path = $CONST_IMAGES_FOLDER_FOR_SCRIPT;
+
+$url = (new datetime())->format('Y/m/d');
+$path .= $url;
 
 if (isset($_FILES[$input_name])) {
     // Проверим директорию для загрузки.
@@ -113,7 +118,7 @@ if (isset($_FILES[$input_name])) {
         
         // Выводим сообщение о результате загрузки.
         if (!empty($success)) {
-            echo "good".$name;
+            echo "good".$url.$name;
         } else {
             echo '<p>' . $error . '</p>';
         }
