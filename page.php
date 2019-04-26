@@ -9,6 +9,7 @@ require_once __DIR__.'\Source\page-generate\PG-functions.php';
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
 	<script src="Source/page-js/index.js"></script>
+	<script src="Source/page-js/Auth.js"></script>
 	<script src="Source/page-js/openPost.js"></script>
 	<script src="Source/page-js/sendComments.js"></script>
 	<script src="Source/page-js/sendPost.js"></script>
@@ -37,15 +38,15 @@ require_once __DIR__.'\Source\page-generate\PG-functions.php';
 		<div class="profile-image">
 			<div class="header-settings-div" id='set-div'>
 			<ul class="settings-list">
-				<li class="settings-list-item"><a href="profile.html">Моя страница</a></li>
+				<li class="settings-list-item"><a >Моя страница</a></li>
 				<li class="settings-list-item"><a href="../Source/profile_settings/index.php">Настройки</a></li>
 				<li class="settings-list-item"><a href="">Поддержка</a></li>
-				<li class="settings-list-item"><a href="auth_reg.html">Выйти</a></li>
+				<li class="settings-list-item"><a href="#">Выйти</a></li>
 			</ul>
 		</div>
 		</div>
 
-		<div class="header-image">
+		<div class="header-image" <?php if($id == $auth->get_id()) echo "onclick = 'authUser.replaceUserIcon()'" ?>>
 			<img src=<?php echo "'".getImageUrlForPage()."'"; ?>width="150" height="150" class="header-image-img">
 		</div>
 		
@@ -117,6 +118,7 @@ require_once __DIR__.'\Source\page-generate\PG-functions.php';
 		var comments = new comments(<?php echo $id; ?>);
 		var postWriter = new post(<?php if($id == $auth->get_id()) echo $id; else echo "'none'"; ?>);
 		var openPost = new openPost();
+		var authUser = new auth(<?php echo $auth->get_id(); ?>);
 	</script>
 
 

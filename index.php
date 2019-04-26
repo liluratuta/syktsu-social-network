@@ -85,7 +85,7 @@
 	<script>
 
 		//window.onload = function() {
-    		var authUser = new auth();
+    		var authUser = new auth('not');
   		//};
 		
 

@@ -92,6 +92,7 @@ class authclass {
     public function out() {
         $_SESSION = array(); 
         session_destroy(); 
+        return true;
     }
 }
 $auth = new authclass();
