@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/auth-reg-styles.css">
 	<meta charset="utf-8">
+	<script src="Source/page-js/index.js"></script>
+	<script src="Source/page-js/Auth.js"></script>
 	
 </head>
 <body>
@@ -79,8 +81,7 @@
 		</div>
 	</div>
 		
-	<script src="Source/page-js/index.js"></script>
-	<script src="Source/page-js/Auth.js"></script>
+	
 	<script>
 
 		//window.onload = function() {

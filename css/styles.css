@@ -231,15 +231,12 @@ button{
 .new-post-input:focus{
 	outline: none;
 }
-.new-post-pre-img img{
-	width: 100px;
-	height: 75px;
-}
 .new-post-attach{
 	margin-left: 17.5px;
 	margin-top: 10px;
 	position: relative;
 	width: 60px;
+	float: left;
 }
 .attach-img{
 	width: 60px;
@@ -695,4 +692,15 @@ button{
 	}
 
 
+}
+.unset-display-none {
+	display: block;
+}
+.comment-pop-out {
+	position: fixed;
+	top: 50px;
+	box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.8);
+}
+.news-post-pop-out {
+	box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.8);
 }
