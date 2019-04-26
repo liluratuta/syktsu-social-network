@@ -1,0 +1,162 @@
+.messages{
+	width: 100%;
+	min-height: 635px;
+}
+.messages-box{
+	width: 35%;
+	min-height: 600px;
+	background-color: #fff;
+	margin-top: 35px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.box-header{
+	width: 100%;
+	height: 55px;
+	border-bottom: 1px solid #000;
+}
+.box-header-back{
+	display: inline-block;
+	position: absolute;
+	left: 499px;
+	top: 470px;
+
+}
+.box-header-back-img{
+	width: 25px;
+	height: 25px;
+	background-image: url(../images/back.png);
+	background-size: cover;
+}
+.box-header-text{
+	padding-top: 15px;
+	width: 170px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+.box-header-settings{
+	position: absolute;
+	left: 980px;
+	top: 470px;
+	display: inline-block;
+}
+.box-header-settings-img{
+	height: 25px;
+	width: 25px;
+	background-image: url(../images/settings.png);
+	background-size: cover;
+	display: inline-block;
+}
+.messages-text{
+	height: 500px;
+	width: 100%;
+}
+.actions{
+	width: 100%;
+	height: 45px;
+	border-top: 1px solid #000;
+}
+.attach-button{
+	position: absolute;
+	left: 499px;
+	top: 1020px;
+}
+.attach-button-img{
+	height: 26px;
+	width: 28px;
+	background-image: url(../images/attach.png);
+	background-size: cover;
+	display: inline-block;
+
+}
+.send-button{
+	position: absolute;
+	left: 980px;
+	top: 1020px;
+}
+.send-button-img{
+	height: 26px;
+	width: 28px;
+	background-image: url(../images/send.png);
+	background-size: cover;
+	display: inline-block;
+}
+.send-text{
+	border: 1px solid #000;
+	border-radius: 15px;
+	height: 38px;
+	width: 400px;
+	margin-top: 3px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.send-text-input{
+	border: none;
+	height: 36px;
+	margin-left: 10px;
+	width: 380px;
+	border-radius: 15px;
+	font-size: 16px;
+}
+.send-text-input:focus{
+	outline: none;
+
+}
+.user-message{
+	margin-left: 10px;
+}
+.user-message-icon{
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background-image: url(../images/user.png);
+	background-size: cover;
+}
+.user-message-name{
+	vertical-align: top;
+	display: inline-block;
+	color: #42648b;
+	font-weight: 500px;
+}
+.user-message-date{
+	vertical-align: top;
+	padding-top: 4px;
+	display: inline-block;
+	font-size: 12px;
+	color: #777;
+	font-family: 'Source Sans Pro';
+}
+.user-message-text{
+	margin-left: 20px;
+	color: #303030;
+}
+@media (max-width: 1920px){
+	.box-header-back{
+		left: 623px;
+	}
+	.box-header-settings {
+    left: 1238px;
+	}
+	.attach-button {
+    left: 623px;
+	}
+	.send-button {
+    left: 1238px;
+	}
+}
+@media (max-width: 1600px){
+	.box-header-back{
+		left: 503px;
+	}
+	.box-header-settings {
+    left: 989px;
+	}
+	.attach-button {
+    left: 503px;
+	}
+	.send-button {
+    left: 989px;
+	}
+}

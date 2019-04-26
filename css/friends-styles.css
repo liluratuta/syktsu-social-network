@@ -1,0 +1,82 @@
+.friends{
+	width: 100%;
+	min-height: 530px;
+}
+.fr-box{
+	margin-top: 30px;
+	width: 653px;
+	min-height: 500px;
+	background-color: #fff;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.fr-header-text{
+	padding-top: 5px;
+	font-size: 32px;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 10px;
+	font-family: 'Roboto', sans-serif;
+}
+.fr-header{
+	border-bottom: 1px solid #000;
+}
+.fr-list{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.fr-user{
+	width: 200px;
+	height: 200px;
+	border: 1px solid #E6ECF0;
+	display: inline-block;
+	margin-right: 10px;
+	position: relative;
+}
+.fr-user-img{
+	width: 100px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+
+}
+.fr-img{
+	border-radius: 100px;
+}
+.fr-user-name{
+	text-align: center;
+}
+.fr-user-fr{
+	text-align: center;
+	padding-top: 13px;
+	padding-bottom: 7px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	margin-top: 20px;
+	background-color: #C1D6EB;
+	height: 30px;
+}
+.fr-user-fr:hover .fr-user-unfr{
+	display: block;
+}
+.fr-user-unfr{
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: none;
+	background-color: #FFCCD3;
+	border-radius: 0px;
+	width: 200px;
+	height: 50px;
+	position: absolute;
+	top: 150px;
+	display: none;
+	font-size: 14px;
+}
+@media(max-width: 1920px){
+
+}
