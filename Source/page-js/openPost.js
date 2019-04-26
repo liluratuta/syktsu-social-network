@@ -83,7 +83,7 @@ function openPost(){
 							  'comment-pop-out'];
 
 		while (elem){
-			console.log('работаем с elem:', elem);
+			//console.log('работаем с elem:', elem);
 			if(elem.classList == undefined)
 				return false;
 			for (key in ignore_class) 

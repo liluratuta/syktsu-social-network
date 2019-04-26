@@ -73,7 +73,7 @@ function comments(id_page){
 
 	this.send = function(){
 		var http = new XMLHttpRequest();
-    	var url = "send-comment.php"; //менять эту настройку	
+    	var url = "Source/post-out/send-comment.php"; //менять эту настройку	
     	if(input_text.value == "") {
     		console.log('Пустой комментарий!');
     		return;
@@ -104,7 +104,7 @@ function comments(id_page){
 	}
 	function getLastServerId(){
 		var http = new XMLHttpRequest();
-    	var url = "get-last-id-comment.php"; //менять эту настройку	
+    	var url = "Source/post-out/get-last-id-comment.php"; //менять эту настройку	
 		http.open("POST", url, true);
 		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -123,7 +123,7 @@ function comments(id_page){
 	
 	function UpdateComments(){
 		var http = new XMLHttpRequest();
-    	var url = "update-comments.php"; //менять эту настройку	
+    	var url = "Source/post-out/update-comments.php"; //менять эту настройку	
     	var params = "id_last_comment="+last_server_id+"&id_page="+id_page;
 		http.open("POST", url, true);
 		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -165,8 +165,8 @@ function comments(id_page){
 		post_elem = undefined;
 
 		document.body.style.overflow = '';
-		setTimeout(function(){
 
+		setTimeout(function(){
 			self.need_close = false;
 			self.form_elem = undefined;
 			console.log('стер переменные', self.need_close);
@@ -190,7 +190,6 @@ function comments(id_page){
 	function getPageUserName(){
 		var elem = document.getElementsByClassName('user')[0];
 		var second_elem = elem.getElementsByClassName('user-name')[0];
-		//console.log(second_elem.innerHTML);
 		var output = second_elem.innerHTML;
 		second_elem = elem.getElementsByClassName('user-lastname')[0];
 		output += second_elem.innerHTML;
@@ -201,17 +200,12 @@ function comments(id_page){
 		setTimeout(function(){
 			self.need_close = true;
 			self.form_elem = form_elem;
-			//console.log('смена переменной', self.need_close);
 		},close_form_dilay);
 	}
 	function installPositionForm(elem){
 		var X = document.body.clientWidth / 2;
-		//var Y = document.body.clientHeight / 2;
 		X = X - elem.clientWidth / 2;
-		//Y = Y - elem.clientHeight / 2;
 		elem.style.left = X + 'px';
-		//elem.style.top = Y + 'px';
-		//elem.setAttribute('style', 'top: ' + Y +'; left: ' + X);
 	}
 }
 

@@ -19,7 +19,7 @@ $deny = array(
 
 $path = $CONST_IMAGES_FOLDER_FOR_SCRIPT;
 
-$url = (new datetime())->format('Y/m/d');
+$url = (new datetime())->format('/Y/m/d/');
 $path .= $url;
 
 if (isset($_FILES[$input_name])) {

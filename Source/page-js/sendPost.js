@@ -1,6 +1,6 @@
 function post(id_page){
 	//OPTIONS:
-	const image_folder = 'http://localhost/syktsu-social-network/images/userImages';//менять эту настройку
+	const image_folder = 'http://localhost/syktsu-social-network/images/userImages/';//менять эту настройку
 	const image_formats = '.jpg, .jpeg, .png';
 	const max_images = 5;
 	//CONSTRUCTOR:
@@ -60,8 +60,9 @@ function post(id_page){
 		console.log(pre_images);
 	}
 	this.send = function(){
+		console.log('check send');
 		var http = new XMLHttpRequest();
-    	var url = "send-post.php"; //менять эту настройку	
+    	var url = "Source/post-out/send-post.php"; //менять эту настройку	
     	
     	var input = new_post_form.getElementsByClassName('new-post-input')[0];
     	var text = input.value; //тут поменять
@@ -112,12 +113,22 @@ function post(id_page){
 	}
 	function addImage(URL){
 		pre_images.push(URL);
-
-		var img = document.createElement('img');
-			img.setAttribute('onclick', 'postWriter.deleteImage("'+URL+'")');
-			img.setAttribute('id', URL);
-			img.setAttribute('src', image_folder + URL);
-			pre_image_form.appendChild(img);
+		var boss_div = document.createElement('div');
+			boss_div.classList.add('new-post-attach');
+			boss_div.setAttribute('id', URL);
+			var img = document.createElement('img');
+				img.classList.add('attach-img');
+				img.setAttribute('src', image_folder + URL);
+				boss_div.appendChild(img);
+			var div = document.createElement('div');
+				div.classList.add('new-post-delete');
+				div.setAttribute('onclick', 'postWriter.deleteImage("'+URL+'")');
+				img = document.createElement('img');
+					img.classList.add('delete-img');
+					img.setAttribute('src', 'images/cross.png');
+					div.appendChild(img);
+			boss_div.appendChild(div)
+			pre_image_form.appendChild(boss_div);
 	}
 	function clearData(){
 		while (pre_image_form.firstChild) 

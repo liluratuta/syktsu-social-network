@@ -519,7 +519,7 @@ button{
 	width: 45%;
 	background-color: #fff;
 	position: absolute;
-	display: none;
+	display: block;
 	border: 1.5px solid #556080;
 	border-radius: 10px;
 }

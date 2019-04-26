@@ -1,7 +1,7 @@
-function sendLike(id_post_or_comment, bool_PoC, bool_like){ 
-	//console.log(id_post_or_comment, bool_PoC, bool_like);
+function sendLike(id_post_or_comment, bool_PoC, bool_like){
+
 			var http = new XMLHttpRequest();
-    		var url = "../like/like-script.php"; //менять эту настройку
+    		var url = "Source/like/like-script.php"; //менять эту настройку
     		
     		var params = "bool_like="+bool_like+"&id_post_or_comment="+id_post_or_comment+"&bool_PoC="+bool_PoC;
     
@@ -14,7 +14,7 @@ function sendLike(id_post_or_comment, bool_PoC, bool_like){
 		    	var elem = document.getElementById(id);
 		    	var like_number = elem.getElementsByClassName('like-number')[0];
 		    	var value = parseInt(like_number.innerHTML);
-		    	console.log(value);
+
 		    	if (elem.classList.contains('like-true')) {
 		    		elem.classList.remove('like-true');
 		    		value--;	
@@ -31,10 +31,8 @@ function sendLike(id_post_or_comment, bool_PoC, bool_like){
 		    		} else if (server_options === '0') {
 		    			elem.classList.add('dislike-true');
 		    			value--;
-		    		 } //else if (server_options === 'delete'){
-		    		// 	elem.setAttribute('class', 'like-div');
-		    		// }
-		    		
+		    		 } 
+		    	
 		    	like_number.innerHTML = value;
 		    	
 		   		}

@@ -13,6 +13,7 @@ require_once __DIR__.'\Source\page-generate\PG-functions.php';
 	<script src="Source/page-js/sendComments.js"></script>
 	<script src="Source/page-js/sendPost.js"></script>
 	<script src="Source/page-js/bindClose.js"></script>
+	<script src="Source/page-js/sendLike.js"></script>
 </head>
 <body id="body">
 	<div class="bodydark" id='dark'></div>
@@ -81,27 +82,14 @@ require_once __DIR__.'\Source\page-generate\PG-functions.php';
 			</div>
 
 			<div class="new-post-pre-img">
-			<div class="new-post-attach">
-				<img src="images/example.jpg" class="attach-img">
-				<div class="new-post-delete">
-				<img src="images/cross.png" class="delete-img">
-			</div>
-			</div>
 			
-
-			<div class="new-post-attach">
-				<img src="images/example.jpg" class="attach-img">
-				<div class="new-post-delete">
-				<img src="images/cross.png" class="delete-img">
-			</div>
-			</div>
 			</div>
 
 			<div class="new-post-img">
-				<button class="new-img-button"></button>
+				<button class="new-img-button" onclick="postWriter.openFile()"></button>
 			</div>
 			<div class="new-post-publish">
-				<button class="new-post-button"></button>
+				<button class="new-post-button" onclick="postWriter.send()"></button>
 			</div>
 		</div>
 
