@@ -4,20 +4,22 @@ function auth(auth_user_id){
 	const redirect_url_to_page = 'http://localhost/syktsu-social-network/page.php?id=';
 	const image_formats = '.jpg, .jpeg, .png';
 	//CONSTRUCTOR:
-	var setting_list = document.getElementsByClassName('settings-list')[0];
-	var setting_items = setting_list.getElementsByTagName('li');
-	if (auth_user_id != 'not')
-	if (auth_user_id === undefined){
-		var elem = setting_items[0].getElementsByTagName('a')[0];
-		elem.innerHTML = 'Войти';
-		elem.setAttribute('href' , index_site);
-		setting_list.removeChild(setting_items[1]);
-		setting_list.removeChild(setting_items[2]);
-	} else {
-		var elem = setting_items[0].getElementsByTagName('a')[0];
-		elem.setAttribute('href' , redirect_url_to_page+auth_user_id);
-		elem = setting_items[3].getElementsByTagName('a')[0];
-		elem.setAttribute('onclick', 'authUser.out()');
+	if (auth_user_id != 'not'){
+		var setting_list = document.getElementsByClassName('settings-list')[0];
+		var setting_items = setting_list.getElementsByTagName('li');
+	
+		if (auth_user_id === 'none'){
+			var elem = setting_items[0].getElementsByTagName('a')[0];
+			elem.innerHTML = 'Войти';
+			elem.setAttribute('href' , index_site);
+			setting_list.removeChild(setting_items[1]);
+			setting_list.removeChild(setting_items[2]);
+		} else {
+			var elem = setting_items[0].getElementsByTagName('a')[0];
+			elem.setAttribute('href' , redirect_url_to_page+auth_user_id);
+			elem = setting_items[3].getElementsByTagName('a')[0];
+			elem.setAttribute('onclick', 'authUser.out()');
+		}
 	}
 
 	//PUBLIC:

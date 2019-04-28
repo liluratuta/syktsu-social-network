@@ -9,6 +9,11 @@ function sendLike(id_post_or_comment, bool_PoC, bool_like){
 		    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    http.onreadystatechange = function() {
 		    if(http.readyState == 4 && http.status == 200) {
+		    	if (http.responseText == 'not-user'){
+		    		console.log('Необходимо зарегестрироваться, чтобы ставить лайки');
+		    		return;
+		    	}
+
 		    	var server_options = http.responseText;
 		    	var id = 'like-'+bool_PoC + "-" + id_post_or_comment;
 		    	var elem = document.getElementById(id);

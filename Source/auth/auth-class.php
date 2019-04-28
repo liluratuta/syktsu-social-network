@@ -28,7 +28,7 @@ class authclass {
     	}
 
         	$auth_password = md5($auth_password);
-        	$query ="INSERT INTO users VALUES ('', '$mail', '$auth_password', '$firstname', '$lastname','','')";     
+        	$query ="INSERT INTO users VALUES ('', '$mail', '$auth_password', '$firstname', '$lastname','','','[]','[]','[]')";     
         	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 
         mysqli_close($link);

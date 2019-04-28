@@ -4,7 +4,7 @@ require_once __DIR__.'\Source\page-generate\PG-functions.php';
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Имя пользователя</title>
+	<title><?php getTitleNameForPage() ?></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
@@ -115,10 +115,13 @@ require_once __DIR__.'\Source\page-generate\PG-functions.php';
 
 
 	<script>
-		var comments = new comments(<?php echo $id; ?>);
-		var postWriter = new post(<?php if($id == $auth->get_id()) echo $id; else echo "'none'"; ?>);
+		var id_page_user = <?php echo $_GET['id']?>;
+		var id_auth_user = <?php if ($auth->isAuth()) echo $auth->get_id(); else echo "'none'"; ?>; 
+
+		var comments = new comments(id_page_user,id_auth_user);
+		var postWriter = new post(id_auth_user);
 		var openPost = new openPost();
-		var authUser = new auth(<?php echo $auth->get_id(); ?>);
+		var authUser = new auth(id_auth_user);
 	</script>
 
 

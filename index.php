@@ -1,3 +1,9 @@
+<?php 
+require_once __DIR__.'\Source\auth\auth-class.php';
+require __DIR__.'\Source\const.php';
+if ($auth->isAuth())
+	header('Location: '.$CONST_DOMEN.'page.php?id='.$auth->get_id());
+?>
 <!DOCTYPE html>
 <html>
 <head>

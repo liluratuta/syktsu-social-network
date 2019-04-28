@@ -1,4 +1,4 @@
-function comments(id_page){
+function comments(id_page,auth_user){
 	//OPTIONS:
 	const length_short_text = 60;
 	const update_interval = 500;
@@ -14,6 +14,10 @@ function comments(id_page){
 	startUpdate();
 	//publish
 	this.activePost = function(post_id){
+		if(auth_user == 'none') {
+			console.log('Зарегестрируйтесь, чтобы оставлять комментарии!');
+			return;
+		}
 		this.closeCommentForm();
 
 		id = post_id;

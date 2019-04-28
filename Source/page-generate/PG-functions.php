@@ -10,6 +10,15 @@
 
 	$id = $_GET['id'];
 
+	function getTitleNameForPage(){
+		global $link,$id, $CONST_DOMEN, $CONST_IMAGES_FOLDER;
+
+		$query = "SELECT firstname, lastname FROM users WHERE id = '$id'"; 
+		$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+		$row = mysqli_fetch_assoc($result);
+
+		echo $row['firstname']." ".$row['lastname'];
+	}
 	function getImageUrlForPage(){
 		global $link,$id, $CONST_DOMEN, $CONST_IMAGES_FOLDER;
 
