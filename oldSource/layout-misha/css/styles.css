@@ -495,7 +495,6 @@ button{
 	padding-top: 10px;
 	margin-left: 10px;
 	display: inline-block;
-	width: 250px;
 }
 .footer-up-button{
 	padding-top: 5px;
@@ -588,15 +587,8 @@ button{
 	padding-right: 10px;
 }
 @media(max-width: 1920px){
-	.new-post-publish{
-		margin-left: 657px;
-	}
-	.like-div{
-		margin-left: 540px;
-	}
-	.comment-like {
-    	margin-left: 603px;
-	}
+
+
 	.pop-out-like-div {
     	margin-left: 636px;
 	}
