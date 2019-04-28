@@ -1,6 +1,6 @@
 <?php
-	require __DIR__.'\..\connect.php';
-	require __DIR__.'\..\const.php';
+	require __DIR__.'/../connect.php';
+	require __DIR__.'/../const.php';
 
 	$id = $_GET['id'];
 

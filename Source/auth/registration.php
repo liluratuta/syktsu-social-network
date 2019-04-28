@@ -1,8 +1,8 @@
 <?php
-require __DIR__.'\..\connect.php';
-require_once __DIR__.'\auth-class.php';
-require __DIR__.'\..\const.php';
-require_once __DIR__.'\SendMailSmtpClass.php';
+require __DIR__.'/../connect.php';
+require_once __DIR__.'/auth-class.php';
+require __DIR__.'/../const.php';
+require_once __DIR__.'/SendMailSmtpClass.php';
 
 
 //if (@!$_POST['submit']) exit('Ошибка: отсутствует submit');//

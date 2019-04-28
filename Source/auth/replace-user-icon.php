@@ -1,7 +1,7 @@
 <?php
-require __DIR__.'\..\connect.php';
-require_once __DIR__.'\auth-class.php';
-require __DIR__.'\..\const.php';
+require __DIR__.'/../connect.php';
+require_once __DIR__.'/auth-class.php';
+require __DIR__.'/../const.php';
 
 $url = $_POST['new-image-url'];
 $id = $auth->get_id();

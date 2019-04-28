@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__.'\..\connect.php';
-require_once __DIR__.'\..\const.php';
-require_once __DIR__.'\..\auth\auth-class.php';
-require_once __DIR__.'\..\like\write-like-module.php';
+require_once __DIR__.'/../connect.php';
+require_once __DIR__.'/../const.php';
+require_once __DIR__.'/../auth/auth-class.php';
+require_once __DIR__.'/../like/write-like-module.php';
 
 if(!$auth->isAuth()) exit('Пожалуйста, авторизируйтесь!');
 

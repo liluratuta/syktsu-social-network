@@ -1,6 +1,6 @@
 <?php
-require_once '../connect.php';
-require_once '../auth/auth-class.php';
+require_once __DIR__.'\..\connect.php';
+require_once __DIR__.'\..\auth\auth-class.php';
 if(!$auth->isAuth()) exit('not-user');
 $link = mysqli_connect($host, $user, $password, $database) 
     or die("Ошибка " . mysqli_error($link));

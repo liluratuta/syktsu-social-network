@@ -1,8 +1,8 @@
 <?php
-	require_once __DIR__.'\..\connect.php';
-	require_once __DIR__.'\..\auth\auth-class.php';
-	require_once __DIR__.'\..\like\write-like-module.php';
-	require_once __DIR__.'\..\const.php';
+	require_once __DIR__.'/../connect.php';
+	require_once __DIR__.'/../auth/auth-class.php';
+	require_once __DIR__.'/../like/write-like-module.php';
+	require_once __DIR__.'/../const.php';
 
 	$link = mysqli_connect($host, $user, $password, $database) 
     	or die("Ошибка " . mysqli_error($link));

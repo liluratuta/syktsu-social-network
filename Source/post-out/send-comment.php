@@ -1,6 +1,6 @@
 <?php
-	require_once __DIR__."\..\connect.php";
-	require_once __DIR__."\..\auth\auth-class.php";
+	require_once __DIR__."/../connect.php";
+	require_once __DIR__."/../auth/auth-class.php";
 
 	if(!$auth->isAuth()) exit('Пожалуйста, авторизируйтесь!');
 
