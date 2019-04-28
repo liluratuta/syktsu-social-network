@@ -1,5 +1,5 @@
 <?php
-	require_once __DIR__.'\..\connect.php';
+	require_once __DIR__.'/../connect.php';
 	$link = mysqli_connect($host, $user, $password, $database) 
     	or die("Ошибка " . mysqli_error($link));
 	$link->set_charset("utf8");

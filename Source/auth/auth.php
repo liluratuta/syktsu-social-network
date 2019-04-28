@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__.'\auth-class.php';
-require __DIR__.'\..\connect.php';
-require __DIR__.'\..\const.php';
+require_once __DIR__.'/auth-class.php';
+require __DIR__.'/../connect.php';
+require __DIR__.'/../const.php';
 
 //if(!$_POST['submit']) exit('Ошибка: отсутствует submit');
 //echo $_POST['email']."----".$_POST['password'];

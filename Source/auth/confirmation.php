@@ -1,8 +1,8 @@
 <?php
 ini_set('display_errors', 1);
 echo "check`";
-require __DIR__.'\..\connect.php';
-require __DIR__.'\..\const.php';
+require __DIR__.'/../connect.php';
+require __DIR__.'/../const.php';
 session_start(); //защита от спама
 if(!isset($_SESSION['connection_count'])) 
 	$_SESSION['connection_count'] = 1;

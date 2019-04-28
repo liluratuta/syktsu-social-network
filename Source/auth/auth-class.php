@@ -8,7 +8,7 @@ class authclass {
             else return false; 
     }
     public function registration($mail, $auth_password, $firstname, $lastname) {//firstname, lastname
-        require __DIR__.'\..\connect.php';
+        require __DIR__.'/../connect.php';
         $link = mysqli_connect($host, $user, $password, $database) 
              or die("Ошибка " . mysqli_error($link));
         $link->set_charset("utf8");

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'\Source\page-generate\PG-functions.php'; 
+require_once __DIR__.'/Source/page-generate/PG-functions.php'; 
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,7 +71,7 @@ require_once __DIR__.'\Source\page-generate\PG-functions.php';
 	<div class="main" id="main">
 		<div class="user">
 			<?php
-				require_once __DIR__.'\Source\page-generate\profile-name.php';
+				require_once __DIR__.'/Source/page-generate/profile-name.php';
 			?>
 		</div>
 

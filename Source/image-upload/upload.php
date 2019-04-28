@@ -1,6 +1,6 @@
 <?php 
 //require_once '../connect.php';
-require_once __DIR__.'\..\const.php';
+require_once __DIR__.'/../const.php';
 // Название <input type="file">
 $input_name = 'file';
 //print_r($_FILES[$input_name]);

@@ -1,5 +1,5 @@
 <?php
-	require_once __DIR__.'\..\connect.php';
+	require_once __DIR__.'/../connect.php';
 
 	$out = [];
 	$id_post = $_POST['id_post'];
