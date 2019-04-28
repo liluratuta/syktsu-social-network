@@ -9,8 +9,8 @@ $SMTP_password = 'maks.soset.10.huev';
 $SMTP_sender_name = 'Syktsu-social-network';
 
 $CONST_DOMEN = "http://localhost/syktsu-social-network/";
-$CONST_IMAGES_FOLDER = "Source/image_upload/uploads_images/";
-$CONST_IMAGES_FOLDER_FOR_SCRIPT = 'uploads_images/';
+$CONST_IMAGES_FOLDER = "images/userImages/";
+$CONST_IMAGES_FOLDER_FOR_SCRIPT = '../../images/userImages/';
 $CONST_MAX_CONNECTION_COUNT = 20;
 
 //like
