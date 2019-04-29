@@ -25,6 +25,14 @@ if ($auth->isAuth())
 	</header>
 	
 	<div class="hello"> </div>
+
+	<div class="welcome">
+		<div class="welcome-text"> 
+			<div class="welcome-text-1">Добро пожаловать</div>
+			<div class="welcome-text-2">на недружелюбную социальную сеть</div>
+		</div>
+		 <div class="welcome-hidden"></div>
+	</div>
 	<div class="index">
 		<?php
 			if(isset($_GET['conf'])){
@@ -37,14 +45,8 @@ if ($auth->isAuth())
 			}
 		?>
 	
-	<div class="welcome">
-		<div class="welcome-text"> 
-			<div class="welcome-text-1">Добро пожаловать</div>
-			<div class="welcome-text-2">на недружелюбную социальную сеть</div>
-		</div>
-		 <div class="welcome-hidden"></div>
-	</div>
 	
+
 		<div class="registration" id="registration">
 			<div class="reg-info">
 				<form action="Source/auth/registration.php" method="POST" name = 'registration' enctype="application/x-www-form-urlencoded">
