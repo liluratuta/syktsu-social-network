@@ -82,6 +82,43 @@
 	margin-left: auto;
 	width: 200px;
 }
+.reg-pers{
+	font-size: 16px;
+}
+.index{
+	width: 49.7%;
+	display: inline-block;
+}
+.welcome{
+	background: linear-gradient(45deg, #C1D6EB,#E6ECF0 );
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+	border-right: 1px solid #ccc;
+	vertical-align: top;
+}
+.welcome-text{
+	margin-left: 20%;
+	margin-top: 35%;
+}
+.welcome-text-1{
+	font-size: 42px;
+	margin-bottom: 20px;	
+}
+.welcome-text-2{
+	font-size: 24px;
+	margin-left: 10%;
+}
+.auth-footer{
+	position: fixed;
+	bottom: 0;
+}
+.welcome-hidden{
+	visibility: hidden;
+	margin-top: 43.3%;
+}
+
+
 /*-------------------------*/
 body{
 	padding: 0;
