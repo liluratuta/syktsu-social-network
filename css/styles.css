@@ -231,12 +231,15 @@ button{
 .new-post-input:focus{
 	outline: none;
 }
+.new-post-pre-img img{
+	width: 100px;
+	height: 75px;
+}
 .new-post-attach{
 	margin-left: 17.5px;
 	margin-top: 10px;
 	position: relative;
 	width: 60px;
-	float: left;
 }
 .attach-img{
 	width: 60px;
@@ -430,6 +433,9 @@ button{
 	width: 30px;
 	height: 30px;
 }
+.out-user-img-img{
+	border-radius: 100px;
+}
 .out-short-text{
 	padding-left: 10px;
 	padding-right: 10px;
@@ -438,20 +444,21 @@ button{
 	line-height: 1.5;
 	font-weight: 400;
 	margin-bottom: 5px;
+	width: 250px;
 	
 }
 .comment-pop-out-text{
 	background-color: #C1D6EB;
+
 }
 .comment-pop-out-text-in{
-	width: 450px;
 	min-height: 70px;
 	margin-left: auto;
 	margin-right: auto;
-	
+	width: 250px;
 }
 .pop-out-comment-input{
-	width: 100%;
+	width: 250px;
 	margin-top: 10px;	
 	min-height: 70px;
 	background-color: #fff;
@@ -492,7 +499,6 @@ button{
 	padding-top: 10px;
 	margin-left: 10px;
 	display: inline-block;
-	width: 250px;
 }
 .footer-up-button{
 	padding-top: 5px;
@@ -585,15 +591,8 @@ button{
 	padding-right: 10px;
 }
 @media(max-width: 1920px){
-	.new-post-publish{
-		margin-left: 657px;
-	}
-	.like-div{
-		margin-left: 540px;
-	}
-	.comment-like {
-    	margin-left: 603px;
-	}
+
+
 	.pop-out-like-div {
     	margin-left: 636px;
 	}

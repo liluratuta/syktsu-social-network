@@ -433,6 +433,9 @@ button{
 	width: 30px;
 	height: 30px;
 }
+.out-user-img-img{
+	border-radius: 100px;
+}
 .out-short-text{
 	padding-left: 10px;
 	padding-right: 10px;
