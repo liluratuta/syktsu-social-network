@@ -27,8 +27,8 @@ require_once __DIR__.'/Source/page-generate/PG-functions.php';
 				<span class="span-name">N</span>
 			</div>
 			<div class="header-logo">
-				<a href="profile.html">
-				<img src="images/logo.png" width="58" height="58" class="header-logo-img">
+				<a href="page.php">
+				<img src="images/icon.png" width="58" height="58" class="header-logo-img">
 			</a>
 			</div>
 			<a href="#" onclick="setting_show()">

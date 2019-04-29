@@ -19,7 +19,7 @@ if ($auth->isAuth())
 	<header>
 		<div class="index-header">
 			<div class="header-logo">
-				<img src="images/header-logo.png" width="58" height="58">
+				<img src="images/icon.png" width="58" height="58">
 			</div>
 		</div>
 	</header>

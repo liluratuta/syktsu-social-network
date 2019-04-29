@@ -180,9 +180,26 @@
 
 	<link rel="stylesheet" type="text/css" href="css/messenger.css">
 	<link rel="stylesheet" type="text/css" href="css/poput.css">
+	<link rel="stylesheet" type="text/css" href="../../css/styles.css">
 </head>
 <body>
-
+<div class="header" >
+		<a name="header"></a>
+		<div class=header-top-div>
+			<div class="header-name">
+				<span class="span-name">I</span>
+				<span class="span-name">S</span>
+				<span class="span-name">N</span>
+			</div>
+			<div class="header-logo">
+				<a href="profile.html">
+				<img src="images/logo.png" width="58" height="58" class="header-logo-img">
+			</a>
+			</div>
+			<a href="#" onclick="setting_show()">
+			<div class="header-settings"></div></a>
+		</div>
+	</div>
 <div id="main_container">
 	
 	<div id="left_container">
