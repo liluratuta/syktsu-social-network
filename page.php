@@ -53,7 +53,7 @@ require_once __DIR__.'/Source/page-generate/PG-functions.php';
 		<div class="header-bottom-div">
 			<div class="header-bottom-buttons">
 				<div class="button-div">
-					<a href="dialogs.html" name="dialog" class="dialog-button">Диалоги</a> 
+					<a href="dialogs.php" name="dialog" class="dialog-button">Диалоги</a> 
 				</div>
 				<div class="button-div">
 				 <a href="friends.html" name="friend"class="friends-button">Друзья</a>

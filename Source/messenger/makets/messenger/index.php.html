@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title></title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="index.php_files/messenger.css">
+	<link rel="stylesheet" type="text/css" href="index.php_files/poput.css">
+<style type="text/css">/*
+ * contextMenu.js v 1.4.0
+ * Author: Sudhanshu Yadav
+ * s-yadav.github.com
+ * Copyright (c) 2013 Sudhanshu Yadav.
+ * Dual licensed under the MIT and GPL licenses
+**/
+
+.iw-contextMenu {
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10) !important;
+    border: 1px solid #c8c7cc !important;
+    border-radius: 11px !important;
+    display: none;
+    z-index: 1000000132;
+    max-width: 300px !important;
+    width: auto !important;
+}
+
+.dark-mode .iw-contextMenu,
+.TnITTtw-dark-mode.iw-contextMenu,
+.TnITTtw-dark-mode .iw-contextMenu {
+    border-color: #747473 !important;
+}
+
+.iw-cm-menu {
+    background: #fff !important;
+    color: #000 !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    overflow: visible !important;
+}
+
+.dark-mode .iw-cm-menu,
+.TnITTtw-dark-mode.iw-cm-menu,
+.TnITTtw-dark-mode .iw-cm-menu {
+    background: #525251 !important;
+    color: #FFF !important;
+}
+
+.iw-curMenu {
+}
+
+.iw-cm-menu li {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif !important;
+    list-style: none !important;
+    padding: 10px !important;
+    padding-right: 20px !important;
+    border-bottom: 1px solid #c8c7cc !important;
+    font-weight: 400 !important;
+    cursor: pointer !important;
+    position: relative !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    line-height: inherit !important;
+    border-radius: 0 !important;
+    display: block !important;
+}
+
+.dark-mode .iw-cm-menu li, .TnITTtw-dark-mode .iw-cm-menu li {
+    border-bottom-color: #747473 !important;
+}
+
+.iw-cm-menu li:first-child {
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+}
+
+.iw-cm-menu li:last-child {
+    border-bottom-left-radius: 11px !important;
+    border-bottom-right-radius: 11px !important;
+    border-bottom: none !important;
+}
+
+.iw-mOverlay {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0px !important;
+    left: 0px !important;
+    background: #FFF !important;
+    opacity: .5 !important;
+}
+
+.iw-contextMenu li.iw-mDisable {
+    opacity: 0.3 !important;
+    cursor: default !important;
+}
+
+.iw-mSelected {
+    background-color: #F6F6F6 !important;
+}
+
+.dark-mode .iw-mSelected, .TnITTtw-dark-mode .iw-mSelected {
+    background-color: #676766 !important;
+}
+
+.iw-cm-arrow-right {
+    width: 0 !important;
+    height: 0 !important;
+    border-top: 5px solid transparent !important;
+    border-bottom: 5px solid transparent !important;
+    border-left: 5px solid #000 !important;
+    position: absolute !important;
+    right: 5px !important;
+    top: 50% !important;
+    margin-top: -5px !important;
+}
+
+.dark-mode .iw-cm-arrow-right, .TnITTtw-dark-mode .iw-cm-arrow-right {
+    border-left-color: #FFF !important;
+}
+
+.iw-mSelected > .iw-cm-arrow-right {
+}
+
+/*context menu css end */</style><style type="text/css">@-webkit-keyframes load4 {
+    0%,
+    100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+}
+
+@keyframes load4 {
+    0%,
+    100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+}</style><style type="text/css">/* This is not a zero-length file! */</style></head>
+<body>
+
+<div id="main_container">
+	
+	<div id="left_container">
+		
+		<!-- <a id="create-chat_button" href="create_new_chat.php">создать чат</a> -->
+
+		<a id="newchat" href="http://localhost/syktsu-social-network/Source/messenger/create_new_chat.php">
+			<div id="newchat-icon"></div>
+			<p id="newchat-title">Создать новый чат</p>
+		</a>
+		
+		<div id="chat_list"><a class="chatpreview" href="http://localhost/syktsu-social-network/Source/messenger/index.php?chat_id=1"><img class="chatpreview-icon" src="index.php_files/online-havaalani-transfer-sistemimizin-baslica-ozellikleri_6.jpg"><div>
+				<p class="chatpreview-title">chat №1</p>
+				<p class="chatpreview-lastmessage">Last message</p>
+			</div></a><a class="chatpreview" href="http://localhost/syktsu-social-network/Source/messenger/index.php?chat_id=2"><img class="chatpreview-icon" src="index.php_files/online-havaalani-transfer-sistemimizin-baslica-ozellikleri_6.jpg"><div>
+				<p class="chatpreview-title">chat №2</p>
+				<p class="chatpreview-lastmessage">Last message</p>
+			</div></a><a class="chatpreview" href="http://localhost/syktsu-social-network/Source/messenger/index.php?chat_id=3"><img class="chatpreview-icon" src="index.php_files/online-havaalani-transfer-sistemimizin-baslica-ozellikleri_6.jpg"><div>
+				<p class="chatpreview-title">chat №3</p>
+				<p class="chatpreview-lastmessage">Last message</p>
+			</div></a><a class="chatpreview" href="http://localhost/syktsu-social-network/Source/messenger/index.php?chat_id=4"><img class="chatpreview-icon" src="index.php_files/online-havaalani-transfer-sistemimizin-baslica-ozellikleri_6.jpg"><div>
+				<p class="chatpreview-title">chat №4</p>
+				<p class="chatpreview-lastmessage">Last message</p>
+			</div></a></div>		
+
+	</div>
+	<div id="right_container">
+		
+		<div id="chatinfo-container"><div id="chatinfo-leftarrow"></div><div id="chatinfo-header"><img id="chatinfo-icon" src="index.php_files/online-havaalani-transfer-sistemimizin-baslica-ozellikleri_6.jpg"><div><div id="chatinfo-title">chat №3</div><p id="chatinfo-usercnt">124 участника</p></div></div></div><div id="messagelist-container"><div class="messagelist-line"><div class="messagebox"><div class="messagebox-userdata"><img class="messagebox-icon" src="index.php_files/louis2.jpg"><p class="messagebox-username">Людо́вик XIV де Бурбо́н</p></div><p class="messagebox-data">Чорт</p><p class="messagebox-date">2019-04-22 12:26:59</p></div></div><div class="messagelist-line"><div class="messagebox"><div class="messagebox-userdata"><img class="messagebox-icon" src="index.php_files/louis2.jpg"><p class="messagebox-username">Людо́вик XIV де Бурбо́н</p></div><p class="messagebox-data">Пидарас</p><p class="messagebox-date">2019-04-22 12:36:19</p></div></div><div class="messagelist-line"><div class="messagebox"><div class="messagebox-userdata"><img class="messagebox-icon" src="index.php_files/mikhail_feodorovich-big.jpg"><p class="messagebox-username">Михаил Фёдорович</p></div><p class="messagebox-data">Это бизнес<br></p><p class="messagebox-date">2019-04-22 12:37:16</p></div></div><div class="messagelist-line"><div class="messagebox"><div class="messagebox-userdata"><img class="messagebox-icon" src="index.php_files/mikhail_feodorovich-big.jpg"><p class="messagebox-username">Михаил Фёдорович</p></div><p class="messagebox-data">это крепсоное право<br></p><p class="messagebox-date">2019-04-22 12:37:33</p></div></div></div><div id="sendform-container">
+		<div id="sendform-box">
+			<div id="sendform-entryfield" contenteditable="true"></div>
+		</div>
+		<div id="sendform-button"></div>
+		</div>		
+		
+	</div>
+	
+
+</div>
+
+<!-- <div id="cover"></div> -->
+<!-- <div id="poput"></div> -->
+
+	<script type="text/javascript">
+				// Функция для плучения переменных из URL
+
+		var getUrlParameter = function getUrlParameter(sParam) {
+		    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+		        sURLVariables = sPageURL.split('&'),
+		        sParameterName,
+		        i;
+
+		    for (i = 0; i < sURLVariables.length; i++) {
+		        sParameterName = sURLVariables[i].split('=');
+
+		        if (sParameterName[0] === sParam) {
+		            return sParameterName[1] === undefined ? true : sParameterName[1];
+		        }
+		    }
+		};
+
+		var req = new XMLHttpRequest();
+
+		function getCurrentDate() {
+			req.open("GET", "get_current_date.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send();
+		}
+
+		function getNewMessages() {
+			req.open("POST", "get_new_messages.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send("current_date="+currentDate+"&chat_id="+getUrlParameter('chat_id'));
+		}
+
+		function getLastMessages() {
+			req.open("POST", "get_last_messages.php", true);
+			req.onreadystatechange = handleServerResponse;
+			req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			req.send("chat_id="+getUrlParameter('chat_id'));
+		}
+
+		var chatIsOpen = (getUrlParameter('chat_id') == undefined) ? false : true;
+
+		var sendButton;
+		var entryField;
+		var leftarrow;
+		var currentDate = 0;
+
+		if (chatIsOpen) {
+
+			sendButton = document.getElementById("sendform-button");
+ 			entryField = document.getElementById("sendform-entryfield");
+
+ 			
+
+ 			entryField.addEventListener("keypress", function(event) {
+				if (!event.shiftKey && event.keyCode === 13) {
+
+					event.preventDefault();
+
+					sendButton.click();
+				}
+			}, false);
+
+			sendButton.onclick = function sendMessage() {
+			
+				// var entryField = document.getElementById("sendform-entry-field");
+				if (entryField.value == "") {
+					return;
+				}
+
+				req.open("POST", "send_message_async.php", true);
+				req.onreadystatechange = handleServerResponse;
+
+				req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				
+				var message = "data="+entryField.innerHTML+"&chat_id="+getUrlParameter('chat_id');
+
+				req.send(message);
+			};
+		}
+
+		
+		
+
+
+		// Функция запроса на отправку сообщения
+
+		
+
+		
+
+		// Функция для вывода сообщения в чат
+
+		function messageOutput(message_data, success) {
+			// var entryField = document.getElementById("sendform-entry-field");
+			var container = document.getElementById("messagelist-container");
+
+			var message_line = document.createElement('div');
+			message_line.className = 'messagelist-line';
+			var message_box = document.createElement('div');
+			message_box.className = 'messagebox';
+
+			var icon = document.createElement('img'); icon.className = 'messagebox-icon'; 
+			var name = document.createElement('p'); name.className = 'messagebox-username';
+			var data = document.createElement('p'); data.className = 'messagebox-data';
+			var date = document.createElement('p'); date.className = 'messagebox-date';
+
+			if (success == 'false') {
+				data.innerHTML = 'Сообщение не отправлено';
+				
+				message_box.appendChild(data);
+				message_line.appendChild(message_box);
+				container.appendChild(message_line);
+
+				return;
+			}
+			
+			icon.src = message_data['icon_src'];
+			name.innerHTML = message_data['user_name'];
+			data.innerHTML = message_data['data'];
+			date.innerHTML = message_data['date'];
+
+			messagebox_userdata = document.createElement('div');
+			messagebox_userdata.className = 'messagebox-userdata';
+
+
+			messagebox_userdata.appendChild(icon);
+			messagebox_userdata.appendChild(name);
+			
+			message_box.appendChild(messagebox_userdata);
+			message_box.appendChild(data);
+			message_box.appendChild(date);
+
+			message_line.appendChild(message_box);
+
+			container.appendChild(message_line);
+
+			// console.log('width', container.offsetHeight, container.clientHeight, container.scrollHeight);
+			container.scrollTo(0, container.scrollHeight);
+
+			// entryField.value = '';
+		}
+
+		// Обработчик ответов от сервера
+
+		function handleServerResponse() {
+			// if (req.status != 200) {
+			//  	console.log("status: "+req.status);
+			// }
+
+			if ((req.readyState == 4) && (req.status == 200)) {
+				serverRequest = JSON.parse(req.responseText);
+
+				switch(serverRequest['header']) {
+					case 'sendMessage':
+
+						messageOutput(serverRequest, serverRequest['request_success']);
+						currentDate = serverRequest['date'];
+						entryField.innerHTML = '';
+						break;
+
+					case 'getCurrentDate':
+
+						currentDate = serverRequest['date'];
+						// console.log(currentDate);
+						break;
+
+					case 'getNewMessages':
+
+						if (serverRequest['request_success'] == 'true') {
+							
+							var m_index = 0;
+
+							for(m_index in serverRequest['message_list']) {
+								messageOutput(serverRequest['message_list'][m_index], 'true')
+							}
+
+							currentDate = serverRequest['message_list'][m_index]['date'];
+						}
+						break;
+					case 'getLastMessages':
+
+						if (serverRequest['request_success'] == 'true') {
+							
+							var m_index = 0;
+
+							for(m_index in serverRequest['message_list']) {
+								messageOutput(serverRequest['message_list'][m_index], 'true')
+							}
+
+							currentDate = serverRequest['message_list'][m_index]['date'];
+						}
+						break;
+						
+				}
+			}
+
+		}
+
+		getCurrentDate();
+
+		if (chatIsOpen) {
+			getLastMessages();
+			setInterval(getNewMessages, 1000);
+
+			leftarrow = document.getElementById('chatinfo-leftarrow');
+		}
+
+		var leftCnt = document.getElementById('left_container');
+		var rightCnt = document.getElementById('right_container');
+
+		if (leftarrow) {
+			leftarrow.onclick = function() {
+
+				leftCnt.style.display = 'grid';
+				rightCnt.style.display = 'none';
+			}
+		}
+
+
+		if (window.innerWidth <= 1000 && !chatIsOpen) {
+			console.log('text');
+			leftCnt.style.display = 'grid';
+			rightCnt.style.display = 'none';
+		}
+
+		window.onresize = function() {
+			// console.log(window.innerWidth);
+			if (window.innerWidth > 1000) {
+				leftCnt.style.display = 'grid';
+				rightCnt.style.display = 'grid';
+			}
+			else if (chatIsOpen){
+				leftCnt.style.display = 'none';
+				rightCnt.style.display = 'grid';
+			}
+			else {
+				leftCnt.style.display = 'grid';
+				rightCnt.style.display = 'none';
+			}
+
+
+		}
+
+
+	</script>
+
+
+</body></html>
