@@ -1,23 +1,28 @@
 .server-message {
 	display: none;
-	left: 400px;
-	top: 100px;
-	padding: 15px;
-  	
+	left: 0px;
+	top: 60px;
+	padding-top: 20px;
+	padding-bottom: 20px;
   	border-radius: 4px;
+  	font-size: 18px;
   	
 }
 .bad-server-message {
 	display: block;
-	border: 1px solid #f00;
 	color: #c20000;
   	background-color: #ff7171;
+  	text-align: center;
+  	position: absolute;
+  	width: 100%;
 }
 .good-server-message {
 	display: block;
-	border: 1px solid #75ff00;
-	color: #00c203;
-  	background-color: #9aff71;
+	color: #18683F;
+  	background-color: #7BEAA0;
+  	text-align: center;
+  	position: absolute;
+  	width: 100%;
 }
 .registration{
 	display: none;
