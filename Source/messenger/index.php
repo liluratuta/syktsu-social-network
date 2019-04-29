@@ -183,9 +183,9 @@
 	<link rel="stylesheet" type="text/css" href="../../css/styles.css">
 </head>
 <body>
-<div class="header" >
+<div class="header" style="margin-bottom: 0.3em">
 		<a name="header"></a>
-		<div class=header-top-div>
+		<div class="header-top-div">
 			<div class="header-name">
 				<span class="span-name">I</span>
 				<span class="span-name">S</span>
@@ -193,7 +193,7 @@
 			</div>
 			<div class="header-logo">
 				<a href="profile.html">
-				<img src="images/logo.png" width="58" height="58" class="header-logo-img">
+				<img src="../../images/logo.png" width="58" height="58" class="header-logo-img">
 			</a>
 			</div>
 			<a href="#" onclick="setting_show()">
