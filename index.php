@@ -65,6 +65,10 @@ if ($auth->isAuth())
 				<div class="reg-repass">
 					<input type="password" name="repassword" class="reg-input" placeholder="Повторите пароль">
 				</div>
+				<div class="reg-pers">
+					<input type="checkbox" name="pers" class="pers-input" id='pers'>
+					<label for="pers">Согласие на обработку персональных данных</label>					
+				</div>
 				</form>
 				<div class="reg-button">
 					<button  class="reg-submit" id="reg-button" onclick="authUser.sendRegistration();">Зарегестрироваться</button>
