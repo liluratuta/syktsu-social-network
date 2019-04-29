@@ -5,6 +5,7 @@ function post(id_page){
 	const max_images = 5;
 	//CONSTRUCTOR:
 	if (id_page == 'none') {
+		console.log('true');
 		var node = document.getElementsByClassName('new-post')[0];
 			if (node.parentNode) {
   				node.parentNode.removeChild(node);

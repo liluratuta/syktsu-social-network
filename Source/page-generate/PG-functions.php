@@ -26,10 +26,10 @@
 		$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 		$row = mysqli_fetch_assoc($result);
 
-		if(isset($row['icon']))
-			return $CONST_DOMEN.$CONST_IMAGES_FOLDER.$row['icon'];
-		else 
+		if($row['icon'] == '')
 			return $CONST_DOMEN.$CONST_IMAGES_FOLDER.'default.jpg';
+		else 
+			return $CONST_DOMEN.$CONST_IMAGES_FOLDER.$row['icon'];
 	}
 // $query = "SELECT mail FROM users WHERE verification = '".$_GET['ver_code']."'"; 
 // $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
