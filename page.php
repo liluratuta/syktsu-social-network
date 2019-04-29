@@ -117,9 +117,15 @@ require_once __DIR__.'/Source/page-generate/PG-functions.php';
 	<script>
 		var id_page_user = <?php echo $_GET['id']?>;
 		var id_auth_user = <?php if ($auth->isAuth()) echo $auth->get_id(); else echo "'none'"; ?>; 
-
+		var forOP;
+		console.log(id_page_user, id_auth_user);
+		if (id_auth_user != id_page_user) 
+			forOP = 'none'; 
+		else 
+			forOP = id_page_user;
+		console.log(forOP);
 		var comments = new comments(id_page_user,id_auth_user);
-		var postWriter = new post(id_auth_user);
+		var postWriter = new post(forOP);
 		var openPost = new openPost();
 		var authUser = new auth(id_auth_user);
 	</script>

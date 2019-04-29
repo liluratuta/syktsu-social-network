@@ -6,7 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/friends-styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
-	<script src="index.js"></script>
+	<script src="Source/page-js/index.js"></script>
+	<script src="Source/page-js/Friends.js"></script>
 </head>
 <body>
 	<div class="header" >
@@ -64,8 +65,8 @@
 						<img src="images/maxim.png" width="100px" height="100px" class="fr-img">
 					</div>
 					<div class="fr-user-name">Максим Кравцов</div>
-					<div class="fr-user-fr" id='fr_user' onmouseover="unfr_show()">Максим ваш друг</div>
-					<button class="fr-user-unfr" id='unfr_user' onmouseout="fr_show()">Убрать из друзей?</button>
+					<div class="fr-user-fr">Максим ваш друг</div>
+					<button class="fr-user-unfr">Убрать из друзей?</button>
 				</div>
 
 					<div class="fr-user">
@@ -102,5 +103,9 @@
 		</div>
 	</div>
 
+	<script>
+		var friends = new friends();
+		friends.check();
+	</script>
 </body>
 </html>

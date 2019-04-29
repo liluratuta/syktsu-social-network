@@ -18,7 +18,7 @@ function openPost(){
 			//var img = elem.getElementsByClassName('news-post-text');
 
 			var http = new XMLHttpRequest();
-	    	var url = "get-full-text.php"; //менять эту настройку	
+	    	var url = "Source/page-out/get-full-text.php"; //менять эту настройку	
 	    	var params = 'id_post='+post_id;
 			http.open("POST", url, true);
 			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

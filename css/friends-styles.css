@@ -2,6 +2,12 @@
 	width: 100%;
 	min-height: 530px;
 }
+.get-display{
+	display: block;
+}
+.get-none-display{
+	display: none;
+}
 .fr-box{
 	margin-top: 30px;
 	width: 653px;
