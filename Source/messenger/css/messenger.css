@@ -26,7 +26,7 @@ body {
 	grid-template-rows: auto 1fr;
 	grid-row-gap: 0.3em;
 
-	height: 100vh;
+	height: 90vh;
 }
 
 /* CREATE_CHAT_BUTTON */
