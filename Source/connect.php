@@ -1,8 +1,8 @@
 <?php //параметры подключения к БД
 
-	$main_user = "root";
-	$main_pass = "";
-	$main_db = "social-network-bd";
+	$main_user = "host1758396";
+	$main_pass = "aee80521";
+	$main_db = "host1758396";
 	$main_host = 'localhost';
 
 	$mysqli = new mysqli($main_host, $main_user, $main_pass, $main_db);
